@@ -8,19 +8,14 @@
  * http://opensource.org/licenses/MIT
  *
  */
-/*******************************
-            Theme
-*******************************/
+
+/*** Theme ***/
 
 $type    : 'collection';
 $element : 'message';
-
 $import '../../theme.config';
 
-
-/*******************************
-            Message
-*******************************/
+/*** Message ***/
 
 .ui.message {
   position: relative;
@@ -33,19 +28,11 @@ $import '../../theme.config';
   transition: $transition;
   border-radius: $borderRadius;
   box-shadow: $boxShadow;
+  &:first-child { margin-top: 0em; }
+  &:last-child { margin-bottom: 0em; }
 }
 
-.ui.message:first-child {
-  margin-top: 0em;
-}
-.ui.message:last-child {
-  margin-bottom: 0em;
-}
-
-
-/*--------------
-     Content
----------------*/
+/*- Content -*/
 
 /* Header */
 .ui.message .header {
@@ -56,24 +43,17 @@ $import '../../theme.config';
 }
 
 /* Default font size */
-.ui.message .header:not(.ui) {
-  font-size: $headerFontSize;
-}
+.ui.message .header:not(.ui) { font-size: $headerFontSize; }
 
 /* Paragraph */
 .ui.message p {
   opacity: $messageTextOpacity;
   margin: $messageParagraphMargin 0em;
+  &:first-child { margin-top: 0em; }
+  &:last-child { margin-bottom: 0em; }
 }
-.ui.message p:first-child {
-  margin-top: 0em;
-}
-.ui.message p:last-child {
-  margin-bottom: 0em;
-}
-.ui.message .header + p {
-  margin-top: $headerParagraphDistance;
-}
+
+.ui.message .header + p { margin-top: $headerParagraphDistance; }
 
 /* List */
 .ui.message ul.list {
@@ -81,35 +61,26 @@ $import '../../theme.config';
   list-style-position: $listStylePosition;
   margin: $listMargin 0em 0em;
   padding: 0em;
+  &:first-child { margin-top: 0em; }
+  &:last-child { margin-bottom: 0em; }
+  li {
+    position: relative;
+    list-style-type: none;
+    margin: 0em 0em $listItemMargin $listItemIndent;
+    padding: 0em;
+    &:before {
+      position: absolute;
+      content: '•';
+      left: -1em;
+      height: 100%;
+      vertical-align: baseline;
+    }
+    &:last-child { margin-bottom: 0em; }
+  }
 }
-.ui.message ul.list:first-child {
-  margin-top: 0em;
-}
-.ui.message ul.list:last-child {
-  margin-bottom: 0em;
-}
-.ui.message ul.list li {
-  position: relative;
-  list-style-type: none;
-  margin: 0em 0em $listItemMargin $listItemIndent;
-  padding: 0em;
-}
-.ui.message ul.list li:before {
-  position: absolute;
-  content: '•';
-  left: -1em;
-  height: 100%;
-  vertical-align: baseline;
-}
-.ui.message ul.list li:last-child {
-  margin-bottom: 0em;
-}
-
 
 /* Icon */
-.ui.message > .icon {
-  margin-right: $iconDistance;
-}
+.ui.message > .icon { margin-right: $iconDistance; }
 
 /* Close Icon */
 .ui.message > .close.icon {
@@ -119,52 +90,28 @@ $import '../../theme.config';
   top: $closeTopDistance;
   right: $closeRightDistance;
   opacity: $closeOpacity;
-  transition:
-    opacity 0.1s linear
-  ;
+  transition: opacity 0.1s linear;
 }
-.ui.message > .close.icon:hover {
-  opacity: 1;
-}
+.ui.message > .close.icon:hover { opacity: 1; }
 
 /* First / Last Element */
-.ui.message > :first-child {
-  margin-top: 0em;
-}
-.ui.message > :last-child {
-  margin-bottom: 0em;
-}
+.ui.message > :first-child { margin-top: 0em; }
+.ui.message > :last-child { margin-bottom: 0em; }
 
-
-/*******************************
-            States
-*******************************/
+/*** States ****/
 
 .ui.message.visible,
-.ui.header.visible {
-  display: block !important;
-}
+.ui.header.visible { display: block !important; }
 .ui.message.hidden,
-.ui.header.hidden {
-  display: none;
-}
+.ui.header.hidden { display: none; }
 
-/*******************************
-            Variations
-*******************************/
+/*** Variations ***/
 
-/*--------------
-    Compact
----------------*/
+/*- Compact -*/
 
-.ui.compact.message {
-  display: inline-block;
-}
+.ui.compact.message { display: inline-block; }
 
-
-/*--------------
-    Attached
----------------*/
+/*- Attached -*/
 
 .ui.attached.message {
   margin-bottom: $attachedYOffset;
@@ -182,69 +129,49 @@ $import '../../theme.config';
   border-radius: 0em 0em $borderRadius $borderRadius;
   box-shadow: $attachedBottomBoxShadow;
 }
-.ui.bottom.attached.message:not(:last-child) {
-  margin-bottom: $verticalMargin;
-}
+.ui.bottom.attached.message:not(:last-child) { margin-bottom: $verticalMargin; }
 .ui.attached.icon.message {
   display: block;
   width: auto;
 }
 
-
-/*--------------
-      Icon
----------------*/
+/*- Icon -*/
 
 .ui.icon.message {
   display: table;
   width: 100%;
-}
-.ui.icon.message > .icon:not(.close) {
-  display: table-cell;
-  width: auto;
-  vertical-align: $iconVerticalAlign;
-  font-size: $iconSize;
-  opacity: $iconOpacity;
-}
-.ui.icon.message > .content {
-  display: table-cell;
-  width: 100%;
-  vertical-align: $iconVerticalAlign;
-}
-
-
-.ui.icon.message .icon:not(.close) + .content {
-  padding-left: $iconContentDistance;
-}
-.ui.icon.message .circular.icon {
-  width: 1em;
-}
-.ui.icon.message .circular.icon + .content {
-  width: auto;
-  padding-left: $circularIconContentDistance;
+  > .icon:not(.close) {
+    display: table-cell;
+    width: auto;
+    vertical-align: $iconVerticalAlign;
+    font-size: $iconSize;
+    opacity: $iconOpacity;
+  }
+  > .content {
+    display: table-cell;
+    width: 100%;
+    vertical-align: $iconVerticalAlign;
+  }
+  .icon:not(.close) + .content { padding-left: $iconContentDistance; }
+  .circular.icon { width: 1em; }
+  .circular.icon + .content {
+    width: auto;
+    padding-left: $circularIconContentDistance;
+  }
 }
 
-/*--------------
-    Floating
----------------*/
+/*- Floating -*/
 
-.ui.floating.message {
-  box-shadow: $floatingBoxShadow;
-}
+.ui.floating.message { box-shadow: $floatingBoxShadow; }
 
-
-/*--------------
-     Colors
----------------*/
+/*- Colors -*/
 
 .ui.black.message {
   background-color: $black;
   color: $invertedTextColor;
 }
 
-/*--------------
-     Types
----------------*/
+/*- Types -*/
 
 /* Positive */
 .ui.positive.message {
@@ -252,15 +179,9 @@ $import '../../theme.config';
   color: $positiveTextColor;
 }
 .ui.positive.message,
-.ui.attached.positive.message {
-  box-shadow:
-    0px 0px 0px 1px $positiveBorderColor inset,
-    $subtleShadow
-  ;
-}
-.ui.positive.message .header {
-  color: $positiveHeaderColor;
-}
+.ui.attached.positive.message { box-shadow: 0px 0px 0px 1px $positiveBorderColor inset, $subtleShadow; }
+
+.ui.positive.message .header { color: $positiveHeaderColor; }
 
 /* Negative */
 .ui.negative.message {
@@ -268,15 +189,9 @@ $import '../../theme.config';
   color: $negativeTextColor;
 }
 .ui.negative.message,
-.ui.attached.negative.message {
-  box-shadow:
-    0px 0px 0px 1px $negativeBorderColor inset,
-    $subtleShadow
-  ;
-}
-.ui.negative.message .header {
-  color: $negativeHeaderColor;
-}
+.ui.attached.negative.message { box-shadow: 0px 0px 0px 1px $negativeBorderColor inset, $subtleShadow; }
+
+.ui.negative.message .header { color: $negativeHeaderColor; }
 
 /* Info */
 .ui.info.message {
@@ -284,15 +199,9 @@ $import '../../theme.config';
   color: $infoTextColor;
 }
 .ui.info.message,
-.ui.attached.info.message {
-  box-shadow:
-    0px 0px 0px 1px $infoBorderColor inset,
-    $subtleShadow
-  ;
-}
-.ui.info.message .header {
-  color: $infoHeaderColor;
-}
+.ui.attached.info.message { box-shadow: 0px 0px 0px 1px $infoBorderColor inset, $subtleShadow; }
+
+.ui.info.message .header { color: $infoHeaderColor; }
 
 /* Warning */
 .ui.warning.message {
@@ -300,15 +209,9 @@ $import '../../theme.config';
   color: $warningTextColor;
 }
 .ui.warning.message,
-.ui.attached.warning.message {
-  box-shadow:
-    0px 0px 0px 1px $warningBorderColor inset,
-    $subtleShadow
-  ;
-}
-.ui.warning.message .header {
-  color: $warningHeaderColor;
-}
+.ui.attached.warning.message { box-shadow: 0px 0px 0px 1px $warningBorderColor inset, $subtleShadow; }
+
+.ui.warning.message .header { color: $warningHeaderColor; }
 
 /* Error */
 .ui.error.message {
@@ -316,15 +219,9 @@ $import '../../theme.config';
   color: $errorTextColor;
 }
 .ui.error.message,
-.ui.attached.error.message {
-  box-shadow:
-    0px 0px 0px 1px $errorBorderColor inset,
-    $subtleShadow
-  ;
-}
-.ui.error.message .header {
-  color: $errorHeaderColor;
-}
+.ui.attached.error.message { box-shadow: 0px 0px 0px 1px $errorBorderColor inset, $subtleShadow; }
+
+.ui.error.message .header { color: $errorHeaderColor; }
 
 /* Success */
 .ui.success.message {
@@ -332,16 +229,9 @@ $import '../../theme.config';
   color: $successTextColor;
 }
 .ui.success.message,
-.ui.attached.success.message {
-  box-shadow:
-    0px 0px 0px 1px $successBorderColor inset,
-    $subtleShadow
-  ;
-}
-.ui.success.message .header {
-  color: $successHeaderColor;
-}
+.ui.attached.success.message { box-shadow: 0px 0px 0px 1px $successBorderColor inset, $subtleShadow; }
 
+.ui.success.message .header { color: $successHeaderColor; }
 
 /* Colors */
 .ui.inverted.message,
@@ -353,31 +243,27 @@ $import '../../theme.config';
 .ui.blue.message {
   background-color: $blueBackground;
   color: $blueTextColor;
+  .header { color: $blueHeaderColor; }
 }
-.ui.blue.message .header {
-  color: $blueHeaderColor;
-}
+
 .ui.green.message {
   background-color: $greenBackground;
   color: $greenTextColor;
+  .header { color: $greenHeaderColor; }
 }
-.ui.green.message .header {
-  color: $greenHeaderColor;
-}
+
 .ui.orange.message {
   background-color: $orangeBackground;
   color: $orangeTextColor;
+  .header { color: $orangeHeaderColor; }
 }
-.ui.orange.message .header {
-  color: $orangeHeaderColor;
-}
+
 .ui.pink.message {
   background-color: $pinkBackground;
   color: $pinkTextColor;
+  .header { color: $pinkHeaderColor; }
 }
-.ui.pink.message .header {
-  color: $pinkHeaderColor;
-}
+
 .ui.purple.message {
   background-color: $purpleBackground;
   color: $purpleTextColor;
