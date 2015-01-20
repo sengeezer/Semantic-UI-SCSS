@@ -490,34 +490,25 @@ $import '../../theme.config';
 .ui[class*="left aligned"].grid > .row > .column,
 .ui[class*="left aligned"].grid > .column,
 .ui.grid [class*="left aligned"].column,
-.ui.grid > [class*="left aligned"].aligned.row > .column {
-  text-align: left;
-}
-.ui.grid [class*="left aligned"].column{
-  text-align: left !important;
-}
+.ui.grid > [class*="left aligned"].aligned.row > .column { text-align: left; }
+
+.ui.grid [class*="left aligned"].column{ text-align: left !important; }
 
 /* Center Aligned */
 .ui[class*="center aligned"].grid,
 .ui[class*="center aligned"].grid > .row > .column,
 .ui[class*="center aligned"].grid > .column,
-.ui.grid > [class*="center aligned"].aligned.row > .column {
-  text-align: center;
-}
-.ui.grid [class*="center aligned"].column{
-  text-align: center !important;
-}
+.ui.grid > [class*="center aligned"].aligned.row > .column { text-align: center; }
+
+.ui.grid [class*="center aligned"].column{ text-align: center !important; }
 
 /* Right Aligned */
 .ui[class*="right aligned"].grid,
 .ui[class*="right aligned"].grid > .row > .column,
 .ui[class*="right aligned"].grid > .column,
-.ui.grid > [class*="right aligned"].aligned.row > .column {
-  text-align: right;
-}
-.ui.grid [class*="right aligned"].column{
-  text-align: right !important;
-}
+.ui.grid > [class*="right aligned"].aligned.row > .column { text-align: right; }
+
+.ui.grid [class*="right aligned"].column { text-align: right !important; }
 
 /* Justified */
 .ui.justified.grid,
@@ -533,185 +524,146 @@ $import '../../theme.config';
   hyphens: auto !important;
 }
 
-/*----------------------
-   Vertically Aligned
------------------------*/
+/*- Vertically Aligned -*/
 
 /* Top Aligned */
 .ui[class*="top aligned"].grid,
 .ui[class*="top aligned"].grid > .row > .column,
 .ui[class*="top aligned"].grid > .column,
 .ui.grid [class*="top aligned"].column,
-.ui.grid > [class*="top aligned"].aligned.row > .column {
-  vertical-align: top;
-}
-.ui.grid [class*="top aligned"].column{
-  vertical-align: top !important;
-}
+.ui.grid > [class*="top aligned"].aligned.row > .column { vertical-align: top; }
+
+.ui.grid [class*="top aligned"].column{ vertical-align: top !important; }
 
 /* Middle Aligned */
 .ui[class*="center aligned"].grid,
 .ui[class*="middle aligned"].grid > .row > .column,
 .ui[class*="middle aligned"].grid > .column,
-.ui.grid > [class*="middle aligned"].aligned.row > .column {
-  vertical-align: middle;
-}
-.ui.grid [class*="middle aligned"].column{
-  vertical-align: middle !important;
-}
+.ui.grid > [class*="middle aligned"].aligned.row > .column { vertical-align: middle; }
+
+.ui.grid [class*="middle aligned"].column { vertical-align: middle !important; }
 
 /* Bottom Aligned */
 .ui[class*="bottom aligned"].grid,
 .ui[class*="bottom aligned"].grid > .row > .column,
 .ui[class*="bottom aligned"].grid > .column,
-.ui.grid > [class*="bottom aligned"].aligned.row > .column {
-  vertical-align: bottom;
-}
-.ui.grid [class*="bottom aligned"].column{
-  vertical-align: bottom !important;
+.ui.grid > [class*="bottom aligned"].aligned.row > .column { vertical-align: bottom; }
+
+.ui.grid [class*="bottom aligned"].column{ vertical-align: bottom !important; }
+
+/*- Colored -*/
+
+.ui.grid {
+  > .white.row, .white.column {
+    background-color: $white !important;
+    color: $textColor;
+  }
+  > .row > .white.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .black.row, .black.column {
+    background-color: $black !important;
+    color: $white;
+  }
+  > .row > .black.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .blue.row, .blue.column {
+    background-color: $blue !important;
+    color: $white;
+  }
+  > .row > .blue.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .green.row, .green.column {
+    background-color: $green !important;
+    color: $white;
+  }
+  > .row > .green.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .orange.row, .orange.column {
+    background-color: $orange !important;
+    color: $white;
+  }
+  > .row > .orange.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .pink.row, .pink.column {
+    background-color: $pink !important;
+    color: $white;
+  }
+  > .row > .pink.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .purple.row, .purple.column {
+    background-color: $purple !important;
+    color: $white;
+  }
+  > .row > .purple.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .red.row, .red.column {
+    background-color: $red !important;
+    color: $white;
+  }
+  > .row > .red.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .teal.row, .teal.column {
+    background-color: $teal !important;
+    color: $white;
+  }
+  > .row > .teal.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
+  > .yellow.row, .yellow.column {
+    background-color: $yellow !important;
+    color: $white;
+  }
+  > .row > .yellow.column {
+    margin-top: -($rowSpacing / 2);
+    margin-bottom: -($rowSpacing / 2);
+    padding-top: ($rowSpacing / 2);
+    padding-bottom: ($rowSpacing / 2);
+  }
 }
 
-/*----------------------
-         Colored
------------------------*/
-
-.ui.grid > .white.row,
-.ui.grid .white.column {
-  background-color: $white !important;
-  color: $textColor;
-}
-.ui.grid > .row > .white.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .black.row,
-.ui.grid .black.column {
-  background-color: $black !important;
-  color: $white;
-}
-.ui.grid > .row > .black.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .blue.row,
-.ui.grid .blue.column {
-  background-color: $blue !important;
-  color: $white;
-}
-.ui.grid > .row > .blue.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .green.row,
-.ui.grid .green.column {
-  background-color: $green !important;
-  color: $white;
-}
-.ui.grid > .row > .green.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .orange.row,
-.ui.grid .orange.column {
-  background-color: $orange !important;
-  color: $white;
-}
-.ui.grid > .row > .orange.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .pink.row,
-.ui.grid .pink.column {
-  background-color: $pink !important;
-  color: $white;
-}
-.ui.grid > .row > .pink.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .purple.row,
-.ui.grid .purple.column {
-  background-color: $purple !important;
-  color: $white;
-}
-.ui.grid > .row > .purple.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .red.row,
-.ui.grid .red.column {
-  background-color: $red !important;
-  color: $white;
-}
-.ui.grid > .row > .red.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .teal.row,
-.ui.grid .teal.column {
-  background-color: $teal !important;
-  color: $white;
-}
-.ui.grid > .row > .teal.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-.ui.grid > .yellow.row,
-.ui.grid .yellow.column {
-  background-color: $yellow !important;
-  color: $white;
-}
-.ui.grid > .row > .yellow.column {
-  margin-top: -($rowSpacing / 2);
-  margin-bottom: -($rowSpacing / 2);
-  padding-top: ($rowSpacing / 2);
-  padding-bottom: ($rowSpacing / 2);
-}
-
-
-
-
-/*----------------------
-  Equal Height Columns
------------------------*/
+/*- Equal Height Columns -*/
 .ui[class*="equal height"].grid {
   display: table;
   table-layout: fixed;
   width: $tableWidth;
 }
-.ui[class*="equal height"].relaxed.grid {
-  width: $relaxedTableWidth;
-}
-.ui[class*="equal height"][class*="very relaxed"].grid {
-  width: $veryRelaxedTableWidth;
-}
+.ui[class*="equal height"].relaxed.grid { width: $relaxedTableWidth; }
+.ui[class*="equal height"][class*="very relaxed"].grid { width: $veryRelaxedTableWidth; }
 
 .ui[class*="equal height"].grid > .row,
 .ui[class*="equal height"].row  {
@@ -721,20 +673,13 @@ $import '../../theme.config';
 }
 .ui[class*="equal height"].grid > .column,
 .ui[class*="equal height"].grid > .row > .column,
-.ui.grid > [class*="equal height"].row > .column {
-  display: table-cell;
-}
+.ui.grid > [class*="equal height"].row > .column { display: table-cell; }
 
-
-/*-------------------
-      Doubling
---------------------*/
+/*- Doubling -*/
 
 /* Tablet Only */
 @media only screen and (min-width: $tabletBreakpoint) and (max-width: $largestTabletScreen) {
-  .ui.doubling.grid {
-    width: 100% !important;
-  }
+  .ui.doubling.grid { width: 100% !important; }
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
     margin: 0em !important;
@@ -749,71 +694,45 @@ $import '../../theme.config';
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column,
-  .ui.grid > [class*="two column"].doubling.row > .column {
-    width: $oneColumn !important;
-  }
+  .ui.grid > [class*="two column"].doubling.row > .column { width: $oneColumn !important; }
   .ui[class*="three column"].doubling.grid > .row > .column,
   .ui[class*="three column"].doubling.grid > .column,
-  .ui.grid > [class*="three column"].doubling.row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="three column"].doubling.row > .column { width: $twoColumn !important; }
   .ui[class*="four column"].doubling.grid > .row > .column,
   .ui[class*="four column"].doubling.grid > .column,
-  .ui.grid > [class*="four column"].doubling.row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="four column"].doubling.row > .column { width: $twoColumn !important; }
   .ui[class*="five column"].doubling.grid > .row > .column,
   .ui[class*="five column"].doubling.grid > .column,
-  .ui.grid > [class*="five column"].doubling.row > .column {
-    width: $threeColumn !important;
-  }
+  .ui.grid > [class*="five column"].doubling.row > .column { width: $threeColumn !important; }
   .ui[class*="six column"].doubling.grid > .row > .column,
   .ui[class*="six column"].doubling.grid > .column,
-  .ui.grid > [class*="six column"].doubling.row > .column {
-    width: $threeColumn !important;
-  }
+  .ui.grid > [class*="six column"].doubling.row > .column { width: $threeColumn !important; }
   .ui[class*="eight column"].doubling.grid > .row > .column,
   .ui[class*="eight column"].doubling.grid > .column,
-  .ui.grid > [class*="eight column"].doubling.row > .column {
-    width: $threeColumn !important;
-  }
+  .ui.grid > [class*="eight column"].doubling.row > .column { width: $threeColumn !important; }
   .ui[class*="eight column"].doubling.grid > .row > .column,
   .ui[class*="eight column"].doubling.grid > .column,
-  .ui.grid > [class*="eight column"].doubling.row > .column {
-    width: $fourColumn !important;
-  }
+  .ui.grid > [class*="eight column"].doubling.row > .column { width: $fourColumn !important; }
   .ui[class*="nine column"].doubling.grid > .row > .column,
   .ui[class*="nine column"].doubling.grid > .column,
-  .ui.grid > [class*="nine column"].doubling.row > .column {
-    width: $fourColumn !important;
-  }
+  .ui.grid > [class*="nine column"].doubling.row > .column { width: $fourColumn !important; }
   .ui[class*="ten column"].doubling.grid > .row > .column,
   .ui[class*="ten column"].doubling.grid > .column,
-  .ui.grid > [class*="ten column"].doubling.row > .column {
-    width: $fiveColumn !important;
-  }
+  .ui.grid > [class*="ten column"].doubling.row > .column { width: $fiveColumn !important; }
   .ui[class*="twelve column"].doubling.grid > .row > .column,
   .ui[class*="twelve column"].doubling.grid > .column,
-  .ui.grid > [class*="twelve column"].doubling.row > .column {
-    width: $sixColumn !important;
-  }
+  .ui.grid > [class*="twelve column"].doubling.row > .column { width: $sixColumn !important; }
   .ui[class*="fourteen column"].doubling.grid > .row > .column,
   .ui[class*="fourteen column"].doubling.grid > .column,
-  .ui.grid > [class*="fourteen column"].doubling.row > .column {
-    width: $sevenColumn !important;
-  }
+  .ui.grid > [class*="fourteen column"].doubling.row > .column { width: $sevenColumn !important; }
   .ui[class*="sixteen column"].doubling.grid > .row > .column,
   .ui[class*="sixteen column"].doubling.grid > .column,
-  .ui.grid > [class*="sixteen column"].doubling.row > .column {
-    width: $eightColumn !important;
-  }
+  .ui.grid > [class*="sixteen column"].doubling.row > .column { width: $eightColumn !important; }
 }
 
 /* Mobily Only */
 @media only screen and (max-width: $largestMobileScreen) {
-  .ui.doubling.grid {
-    width: 100% !important;
-  }
+  .ui.doubling.grid { width: 100% !important; }
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
     display: block !important;
@@ -829,69 +748,43 @@ $import '../../theme.config';
   }
   .ui[class*="two column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="two column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="two column"].doubling:not(.stackable).row > .column {
-    width: $oneColumn !important;
-  }
+  .ui.grid > [class*="two column"].doubling:not(.stackable).row > .column { width: $oneColumn !important; }
   .ui[class*="three column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="three column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="three column"].doubling:not(.stackable).row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="three column"].doubling:not(.stackable).row > .column { width: $twoColumn !important; }
   .ui[class*="four column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="four column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="four column"].doubling:not(.stackable).row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="four column"].doubling:not(.stackable).row > .column { width: $twoColumn !important; }
   .ui[class*="five column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="five column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="five column"].doubling:not(.stackable).row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="five column"].doubling:not(.stackable).row > .column { width: $twoColumn !important; }
   .ui[class*="six column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="six column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="six column"].doubling:not(.stackable).row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="six column"].doubling:not(.stackable).row > .column { width: $twoColumn !important; }
   .ui[class*="seven column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="seven column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="seven column"].doubling:not(.stackable).row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="seven column"].doubling:not(.stackable).row > .column { width: $twoColumn !important; }
   .ui[class*="eight column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="eight column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="eight column"].doubling:not(.stackable).row > .column {
-    width: $twoColumn !important;
-  }
+  .ui.grid > [class*="eight column"].doubling:not(.stackable).row > .column { width: $twoColumn !important; }
   .ui[class*="nine column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="nine column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="nine column"].doubling:not(.stackable).row > .column {
-    width: $threeColumn !important;
-  }
+  .ui.grid > [class*="nine column"].doubling:not(.stackable).row > .column { width: $threeColumn !important; }
   .ui[class*="ten column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="ten column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="ten column"].doubling:not(.stackable).row > .column {
-    width: $threeColumn !important;
-  }
+  .ui.grid > [class*="ten column"].doubling:not(.stackable).row > .column { width: $threeColumn !important; }
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="twelve column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column {
-    width: $threeColumn !important;
-  }
+  .ui.grid > [class*="twelve column"].doubling:not(.stackable).row > .column { width: $threeColumn !important; }
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="fourteen column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row > .column {
-    width: $fourColumn !important;
-  }
+  .ui.grid > [class*="fourteen column"].doubling:not(.stackable).row > .column { width: $fourColumn !important; }
   .ui[class*="sixteen column"].doubling:not(.stackable).grid > .row > .column,
   .ui[class*="sixteen column"].doubling:not(.stackable).grid > .column,
-  .ui.grid > [class*="sixteen column"].doubling:not(.stackable).row > .column {
-    width: $fourColumn !important;
-  }
+  .ui.grid > [class*="sixteen column"].doubling:not(.stackable).row > .column { width: $fourColumn !important; }
 }
 
-/*-------------------
-      Stackable
---------------------*/
+/*- Stackable -*/
 
 @media only screen and (max-width: $largestMobileScreen) {
   .ui.stackable.grid {
@@ -901,24 +794,21 @@ $import '../../theme.config';
     margin-top: 0em;
     margin-bottom: 0em;
   }
-  :not(.column) > .ui.stackable.grid {
-    margin: 0em;
+  :not(.column) > .ui.stackable.grid { margin: 0em; }
+  .ui.stackable.grid {
+    > .row > .wide.column,
+    > .wide.column,
+    > .column.grid > .column,
+    > .column.row > .column,
+    > .row > .column,
+    > .column {
+      display: block !important;
+      width: auto !important;
+      margin: ($stackableRowSpacing / 4) 0em !important;
+      padding: ($stackableRowSpacing / 4) ($stackableGutter / 2) 0em !important;
+      box-shadow: none !important;
+    }
   }
-  .ui.stackable.grid > .row > .wide.column,
-  .ui.stackable.grid > .wide.column,
-  .ui.stackable.grid > .column.grid > .column,
-  .ui.stackable.grid > .column.row > .column,
-  .ui.stackable.grid > .row > .column,
-  .ui.stackable.grid > .column {
-    display: block !important;
-    width: auto !important;
-
-    margin: ($stackableRowSpacing / 4) 0em !important;
-    padding: ($stackableRowSpacing / 4) ($stackableGutter / 2) 0em !important;
-
-    box-shadow: none !important;
-  }
-
   .ui.stackable.celled.grid > .column,
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided.grid > .column,
@@ -931,9 +821,7 @@ $import '../../theme.config';
   .ui.inverted.stackable.celled.grid > .column,
   .ui.inverted.stackable.celled.grid > .row > .column,
   .ui.inverted.stackable.divided.grid > .column,
-  .ui.inverted.stackable.divided.grid > .row > .column {
-    border-top: $stackableInvertedMobileBorder;
-  }
+  .ui.inverted.stackable.divided.grid > .row > .column { border-top: $stackableInvertedMobileBorder; }
   .ui.stackable.grid > .row:first-child > .column:first-child,
   .ui.stackable.grid > .column:first-child {
     margin-top: 0em !important;
@@ -942,9 +830,7 @@ $import '../../theme.config';
   .ui.stackable.divided.grid > .row:first-child > .column:first-child,
   .ui.stackable.celled.grid > .row:first-child > .column:first-child,
   .ui.stackable.divided.grid > .column:first-child,
-  .ui.stackable.celled.grid > .column:first-child {
-    border-top: none !important;
-  }
+  .ui.stackable.celled.grid > .column:first-child { border-top: none !important; }
 
   .ui[class*="equal height"].stackable.page.grid {
     display: block !important;
@@ -952,15 +838,10 @@ $import '../../theme.config';
   }
 
   /* Remove pointers from vertical menus */
-  .ui.stackable.grid .vertical.pointing.menu .item:after {
-    display: none;
-  }
-
+  .ui.stackable.grid .vertical.pointing.menu .item:after { display: none; }
 }
 
-/*----------------------
-     Only (Device)
------------------------*/
+/*- Only (Device) -*/
 
 
 /* These include arbitrary class repetitions for forced specificity */
@@ -970,30 +851,22 @@ $import '../../theme.config';
   .ui.tablet:not(.mobile).only.grid.grid.grid,
   .ui.grid.grid.grid > [class*="tablet only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="tablet only"].column:not(.mobile),
-  .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.mobile) {
-    display: none !important;
-  }
+  .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.mobile) { display: none !important; }
   .ui[class*="computer only"].grid.grid.grid:not(.mobile),
   .ui.grid.grid.grid > [class*="computer only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="computer only"].column:not(.mobile),
-  .ui.grid.grid.grid > .row > [class*="computer only"].column:not(.mobile) {
-    display: none !important;
-  }
+  .ui.grid.grid.grid > .row > [class*="computer only"].column:not(.mobile) { display: none !important; }
 }
 /* Tablet Only Hide */
 @media only screen and (min-width: $tabletBreakpoint ) and (max-width: $largestTabletScreen) {
   .ui[class*="mobile only"].grid.grid.grid:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.tablet),
-  .ui.grid.grid.grid > .row > [class*="mobile only"].column:not(.tablet) {
-    display: none !important;
-  }
+  .ui.grid.grid.grid > .row > [class*="mobile only"].column:not(.tablet) { display: none !important; }
   .ui[class*="computer only"].grid.grid.grid:not(.tablet),
   .ui.grid.grid.grid > [class*="computer only"].row:not(.tablet),
   .ui.grid.grid.grid > [class*="computer only"].column:not(.tablet),
-  .ui.grid.grid.grid > .row > [class*="computer only"].column:not(.tablet) {
-    display: none !important;
-  }
+  .ui.grid.grid.grid > .row > [class*="computer only"].column:not(.tablet) { display: none !important; }
 }
 
 /* Computer Only Hide */
@@ -1001,15 +874,11 @@ $import '../../theme.config';
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.computer),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.computer),
-  .ui.grid.grid.grid > .row > [class*="mobile only"].column:not(.computer) {
-    display: none !important;
-  }
+  .ui.grid.grid.grid > .row > [class*="mobile only"].column:not(.computer) { display: none !important; }
   .ui[class*="tablet only"].grid.grid.grid:not(.computer),
   .ui.grid.grid.grid > [class*="tablet only"].row:not(.computer),
   .ui.grid.grid.grid > [class*="tablet only"].column:not(.computer),
-  .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.computer) {
-    display: none !important;
-  }
+  .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.computer) { display: none !important; }
 }
 
 @extend .loadUIOverrides;

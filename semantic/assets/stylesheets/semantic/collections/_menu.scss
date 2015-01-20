@@ -9,22 +9,15 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'collection';
 $element : 'menu';
-
 $import '../../theme.config';
 
-/*******************************
-            Standard
-*******************************/
+/*** Standard ***/
 
-/*--------------
-      Menu
----------------*/
+/*- Menu -*/
 
 .ui.menu {
   margin: $margin;
@@ -33,84 +26,56 @@ $import '../../theme.config';
   font-weight: $fontWeight;
   box-shadow: $boxShadow;
   border-radius: $borderRadius;
+  &:after {
+    content: '';
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+  }
+  &:first-child { margin-top: 0rem; }
+  &:last-child { margin-bottom: 0rem; }
 }
 
-.ui.menu:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
-}
-
-.ui.menu:first-child {
-  margin-top: 0rem;
-}
-.ui.menu:last-child {
-  margin-bottom: 0rem;
-}
-
-/*--------------
-     Colors
----------------*/
+/*- Colors -*/
 
 /* Text Color */
 .ui.menu .item {
   color: $menuTextColor;
-}
-.ui.menu .item .item {
-  color: $subMenuTextColor;
+  .item { color: $subMenuTextColor; }
 }
 
 /* Hover */
 .ui.menu .item .menu a.item:hover,
-.ui.menu .item .menu .link.item:hover {
-  color: $darkTextColor;
-}
+.ui.menu .item .menu .link.item:hover { color: $darkTextColor; }
 
-
-/*--------------
-      Items
----------------*/
+/*- Items -*/
 
 .ui.menu .item {
   position: relative;
   display: inline-block;
   padding: $verticalPadding $horizontalPadding;
   border-top: $borderSize solid transparent;
-
   background: $itemBackground;
   vertical-align: middle;
   line-height: 1;
   text-decoration: none;
   box-sizing: border-box;
-
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   transition: $transition;
 }
 
-.ui.menu .menu {
-  margin: 0em;
-}
+.ui.menu .menu { margin: 0em; }
 
 /* Floated Content */
-.ui.menu > .item:first-child {
-  border-radius: $borderRadius 0px 0px $borderRadius;
-}
+.ui.menu > .item:first-child { border-radius: $borderRadius 0px 0px $borderRadius; }
 .ui.menu:not(.vertical) .item.left,
-.ui.menu:not(.vertical) .menu.left {
-  float: left;
-}
+.ui.menu:not(.vertical) .menu.left { float: left; }
 .ui.menu:not(.vertical) .item.right,
-.ui.menu:not(.vertical) .menu.right {
-  float: right;
-}
+.ui.menu:not(.vertical) .menu.right { float: right; }
 
-
-/*--------------
-    Borders
----------------*/
+/*- Borders -*/
 
 .ui.menu .item:before {
   position: absolute;
@@ -121,18 +86,14 @@ $import '../../theme.config';
   height: 100%;
   background: $dividerBackground;
 }
-.ui.menu > .right.menu:first-child {
-  display: none;
-}
+.ui.menu > .right.menu:first-child { display: none; }
 .ui.menu .menu.right .item:before,
 .ui.menu .item.right:before {
   right: auto;
   left: 0px;
 }
 
-/*--------------
-  Text Content
----------------*/
+/*- Text Content -*/
 
 .ui.menu .text.item > *,
 .ui.menu .item > a:not(.ui),
@@ -141,16 +102,10 @@ $import '../../theme.config';
   line-height: $textLineHeight;
   color: $textColor;
 }
-.ui.menu .item > p:first-child {
-  margin-top: 0;
-}
-.ui.menu .item > p:last-child {
-  margin-bottom: 0;
-}
+.ui.menu .item > p:first-child { margin-top: 0; }
+.ui.menu .item > p:last-child { margin-bottom: 0; }
 
-/*--------------
-      Icons
----------------*/
+/*- Icons -*/
 
 .ui.menu .item > i.icon {
   opacity: $iconOpacity;
@@ -163,9 +118,7 @@ $import '../../theme.config';
   margin-left: $dropdownIconDistance;
 }
 
-/*--------------
-     Button
----------------*/
+/*- Button -*/
 
 .ui.menu:not(.vertical) .item > .button {
   position: relative;
@@ -176,14 +129,9 @@ $import '../../theme.config';
   font-size: $buttonSize;
 }
 
+/*- Inputs -*/
 
-/*--------------
-     Inputs
----------------*/
-
-.ui.menu .item > .input {
-  width: 100%;
-}
+.ui.menu .item > .input { width: 100%; }
 .ui.menu:not(.vertical) .item > .input {
   position: relative;
   top: $inputOffset;
@@ -213,16 +161,10 @@ $import '../../theme.config';
   padding-top: $largeInputVerticalPadding;
 }
 
-.ui.large.menu .item .action.input > .button {
-  padding: 0.9em;
-}
-.ui.large.menu .item .action.input > .button > .icon {
-  padding-top: 0.8em;
-}
+.ui.large.menu .item .action.input > .button { padding: 0.9em; }
+.ui.large.menu .item .action.input > .button > .icon { padding-top: 0.8em; }
 
-/*--------------
-     Header
----------------*/
+/*- Header -*/
 
 .ui.menu .header.item,
 .ui.vertical.menu .header.item {
@@ -232,10 +174,7 @@ $import '../../theme.config';
   font-weight: $headerWeight;
 }
 
-
-/*--------------
-    Dropdowns
----------------*/
+/*- Dropdowns -*/
 
 /* Dropdown */
 .ui.menu .ui.dropdown.visible {
@@ -243,9 +182,7 @@ $import '../../theme.config';
   border-bottom-right-radius: 0em;
   border-bottom-left-radius: 0em;
 }
-.ui.menu .ui.dropdown.active {
-  box-shadow: none;
-}
+.ui.menu .ui.dropdown.active { box-shadow: none; }
 
 /* Menu Position */
 .ui.menu .dropdown.item .menu {
@@ -260,28 +197,19 @@ $import '../../theme.config';
   border-top-left-radius: 0em;
   border-top-right-radius: 0em;
 }
-.ui.menu .simple.dropdown.item .menu {
-  margin: 0px !important;
-}
-
+.ui.menu .simple.dropdown.item .menu { margin: 0px !important; }
 
 /* Secondary Menu Dropdown */
-.ui.secondary.menu > .menu > .active.dropdown.item {
-  background-color: transparent;
-}
+.ui.secondary.menu > .menu > .active.dropdown.item { background-color: transparent; }
 .ui.secondary.menu .dropdown.item .menu {
   left: 0px;
   min-width: 100%;
 }
 
 /* Even Width Menu Dropdown */
-.ui.item.menu .dropdown .menu .item {
-  width: 100%;
-}
+.ui.item.menu .dropdown .menu .item { width: 100%; }
 
-/*--------------
-     Labels
----------------*/
+/*- Labels -*/
 
 .ui.menu .item > .label {
   background: $labelBackground;
@@ -290,13 +218,9 @@ $import '../../theme.config';
   padding: $labelVerticalPadding $labelHorizontalPadding;
   vertical-align: baseline;
 }
-.ui.menu .item > .floating.label {
-  padding: $labelVerticalPadding $labelHorizontalPadding;
-}
+.ui.menu .item > .floating.label { padding: $labelVerticalPadding $labelHorizontalPadding; }
 
-/*--------------
-     Images
----------------*/
+/*- Images -*/
 
 .ui.menu .item > img:only-child {
   display: block;
@@ -304,14 +228,9 @@ $import '../../theme.config';
   margin: 0em auto;
 }
 
+/*** States ***/
 
-/*******************************
-             States
-*******************************/
-
-/*--------------
-      Hover
----------------*/
+/*- Hover -*/
 
 .ui.link.menu > .item:hover,
 .ui.menu > .link.item:hover,
@@ -324,10 +243,7 @@ $import '../../theme.config';
   color: $hoverColor;
 }
 
-
-/*--------------
-     Pressed
----------------*/
+/*- Pressed -*/
 
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
@@ -336,9 +252,7 @@ $import '../../theme.config';
   color: $pressedColor;
 }
 
-/*--------------
-     Active
----------------*/
+/*- Active -*/
 
 .ui.menu .active.item  {
   background: $activeBackground;
@@ -346,46 +260,31 @@ $import '../../theme.config';
   font-weight: $activeFontWeight;
   box-shadow: 0em $activeBorderSize 0em inset;
 }
-.ui.menu .active.item > i.icon {
-  opacity: $activeIconOpacity;
-}
+.ui.menu .active.item > i.icon { opacity: $activeIconOpacity; }
 
 /* Vertical */
-.ui.vertical.menu .active.item {
-  background: $activeBackground;
-  border-radius: 0em;
-  box-shadow: $activeBorderSize 0em 0em inset;
-}
-.ui.vertical.menu > .active.item:first-child {
-  border-radius: 0em $borderRadius 0em 0em;
-}
-.ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em $borderRadius 0em;
-}
-.ui.vertical.menu > .active.item:only-child {
-  border-radius: 0em $borderRadius $borderRadius 0em;
-}
-.ui.vertical.menu .active.item .menu .active.item {
-  border-left: none;
-}
-.ui.vertical.menu .item .menu .active.item {
-  background-color: $subMenuActiveBackground;
-  box-shadow: none;
+.ui.vertical.menu {
+  .active.item {
+    background: $activeBackground;
+    border-radius: 0em;
+    box-shadow: $activeBorderSize 0em 0em inset;
+  }
+  > .active.item:first-child { border-radius: 0em $borderRadius 0em 0em; }
+  > .active.item:last-child { border-radius: 0em 0em $borderRadius 0em; }
+  > .active.item:only-child { border-radius: 0em $borderRadius $borderRadius 0em; }
+  .active.item .menu .active.item { border-left: none; }
+  .item .menu .active.item { 
+    background-color: $subMenuActiveBackground;
+    box-shadow: none;
+  }
 }
 
-
-/*--------------
-  Active Hover
----------------*/
+/*- Active Hover -*/
 
 .ui.vertical.menu .active.item:hover,
-.ui.menu .active.item:hover {
-  background-color: $activeHoverBackground;
-}
+.ui.menu .active.item:hover { background-color: $activeHoverBackground; }
 
-/*--------------
-     Disabled
----------------*/
+/*- Disabled -*/
 
 .ui.menu .item.disabled,
 .ui.menu .item.disabled:hover {
@@ -394,34 +293,26 @@ $import '../../theme.config';
   background-color: transparent !important;
 }
 
-
-/*--------------------
-       Loading
----------------------*/
+/*- Loading -*/
 
 /* On Form */
-.ui.menu.loading {
+.ui.menu.loading { 
   position: relative;
+  &:after {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: $loadingBackgroundColor url("#{$loadingImage}") no-repeat $loadingPosition;
+    visibility: visible;
+  }
 }
-.ui.menu.loading:after {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: $loadingBackgroundColor url("#{$loadingImage}") no-repeat $loadingPosition;
-  visibility: visible;
-}
 
+/*** Types ***/
 
-/*******************************
-             Types
-*******************************/
-
-/*--------------
-    Vertical
----------------*/
+/*- Vertical -*/
 
 .ui.vertical.menu {
   background: $verticalBackground;
@@ -436,12 +327,8 @@ $import '../../theme.config';
   border-left: $borderSize solid transparent;
   border-right: none;
 }
-.ui.vertical.menu > .item:first-child {
-  border-radius: $borderRadius $borderRadius 0px 0px;
-}
-.ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px $borderRadius $borderRadius;
-}
+.ui.vertical.menu > .item:first-child { border-radius: $borderRadius $borderRadius 0px 0px; }
+.ui.vertical.menu > .item:last-child { border-radius: 0px 0px $borderRadius $borderRadius; }
 
 /*--- Label ---*/
 .ui.vertical.menu .item > .label {
@@ -460,7 +347,6 @@ $import '../../theme.config';
   margin: $labelAndIconMargin;
 }
 
-
 /*--- Border ---*/
 .ui.vertical.menu .item:before {
   position: absolute;
@@ -473,9 +359,7 @@ $import '../../theme.config';
   height: 1px;
 }
 
-.ui.vertical.menu .item:first-child:before {
-  background: none !important;
-}
+.ui.vertical.menu .item:first-child:before { background: none !important; }
 
 /*--- Dropdown ---*/
 .ui.vertical.menu .dropdown.item > .icon {
@@ -493,50 +377,34 @@ $import '../../theme.config';
   border-top-right-radius: 0em;
   border-bottom-right-radius: 0em;
 }
-.ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 1rem;
-}
-.ui.vertical.menu .dropdown.item .menu .item i.icon {
-  margin-right: 0em;
-}
-.ui.vertical.menu .dropdown.item.active {
-  box-shadow: none;
-}
+.ui.vertical.menu .dropdown.item .menu .item { font-size: 1rem; }
+.ui.vertical.menu .dropdown.item .menu .item i.icon { margin-right: 0em; }
+.ui.vertical.menu .dropdown.item.active { box-shadow: none; }
 
 /*--- Sub Menu ---*/
-.ui.vertical.menu .item:not(.dropdown) > .menu {
-  margin: ($subMenuMargin) (-$horizontalPadding) (0em);
-}
+.ui.vertical.menu .item:not(.dropdown) > .menu { margin: ($subMenuMargin) (-$horizontalPadding) (0em); }
 .ui.vertical.menu .item:not(.dropdown) > .menu > .item {
   background: none;
   padding: $subMenuHorizontalPadding $subMenuVerticalPadding;
   font-size: $subMenuFontSize;
 }
-.ui.vertical.menu .item > .menu > .item:before {
-  display: none;
-}
+.ui.vertical.menu .item > .menu > .item:before { display: none; }
 
+/*- Tiered -*/
 
-/*--------------
-     Tiered
----------------*/
-
-.ui.tiered.menu > .menu > .item:hover {
-  color: $tieredSubMenuActiveColor;
-}
-.ui.tiered.menu .active.item {
-  background: $tieredActiveItemBackground;
-}
-.ui.tiered.menu > .menu .item.active:after {
-  position: absolute;
-  content: '';
-  margin-top: -$dividerSize;
-  top: 100%;
-  left: 0px;
-
-  width: 100%;
-  height: 2px;
-  background-color: $tieredActiveMenuBackground;
+.ui.tiered.menu {
+  > .menu > .item:hover { color: $tieredSubMenuActiveColor; }
+  .active.item { background: $tieredActiveItemBackground; }
+  > .menu .item.active:after {
+    position: absolute;
+    content: '';
+    margin-top: -$dividerSize;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: $tieredActiveMenuBackground;
+  }
 }
 
 /* Sub Menu */
@@ -554,9 +422,7 @@ $import '../../theme.config';
 }
 
 /* Sub Menu Divider */
-.ui.tiered.menu .sub.menu .item:before {
-  background: none;
-}
+.ui.tiered.menu .sub.menu .item:before { background: none; }
 
 /* Sub Menu Hover */
 .ui.tiered.menu .sub.menu .item:hover {
@@ -573,65 +439,43 @@ $import '../../theme.config';
   box-shadow: none;
   color: $tieredSubMenuActiveColor !important;
 }
-.ui.tiered.menu .sub.menu .active.item:after {
-  display: none;
-}
+.ui.tiered.menu .sub.menu .active.item:after { display: none; }
 
 /* Inverted Tiered Menu */
-.ui.inverted.tiered.menu > .menu > .item {
-  color: $invertedUnselectedTextColor;
-}
-.ui.inverted.tiered.menu .sub.menu {
-  background-color: $tieredInvertedSubMenuBackground;
-}
-.ui.inverted.tiered.menu .sub.menu .item {
-  color: $invertedLightTextColor;
-}
-.ui.inverted.tiered.menu > .menu > .item:hover {
-  color: $invertedHoveredTextColor;
-}
-.ui.inverted.tiered.menu .active.item:after {
-  display: none;
-}
-.ui.inverted.tiered.menu > .sub.menu > .active.item,
-.ui.inverted.tiered.menu > .menu > .active.item {
-  color: $invertedSelectedTextColor !important;
-  box-shadow: none;
+.ui.inverted.tiered.menu {
+  > .menu > .item { color: $invertedUnselectedTextColor; }
+  .sub.menu { background-color: $tieredInvertedSubMenuBackground; }
+  .sub.menu .item { color: $invertedLightTextColor; }
+  > .menu > .item:hover { color: $invertedHoveredTextColor; }
+  .active.item:after { display: none; }
+  > .sub.menu > .active.item,
+  > .menu > .active.item {
+    color: $invertedSelectedTextColor !important;
+    box-shadow: none;
+  }
 }
 
 /* Tiered Pointing */
-.ui.pointing.tiered.menu > .menu > .item:after {
-  display: none;
-}
-.ui.pointing.tiered.menu > .sub.menu > .item:after {
-  display: block;
-}
+.ui.pointing.tiered.menu > .menu > .item:after { display: none; }
+.ui.pointing.tiered.menu > .sub.menu > .item:after { display: block; }
 
-
-/*--------------
-     Tabular
----------------*/
+/*- Tabular -*/
 
 .ui.tabular.menu {
   background-color: transparent;
   border-bottom: $tabularBorderWidth solid $tabularBorderColor;
-
   border-radius: 0em;
   box-shadow: none !important;
-}
-.ui.tabular.menu .item {
-  background-color: transparent;
-
-  border-left: $tabularBorderWidth solid transparent;
-  border-right: $tabularBorderWidth solid transparent;
-  border-top: $tabularBorderWidth solid transparent;
-
-  padding-left: $tabularHorizontalPadding;
-  padding-right: $tabularHorizontalPadding;
-  color: $tabularMenuTextColor;
-}
-.ui.tabular.menu .item:before {
-  display: none;
+  .item {
+    background-color: transparent;
+    border-left: $tabularBorderWidth solid transparent;
+    border-right: $tabularBorderWidth solid transparent;
+    border-top: $tabularBorderWidth solid transparent;
+    padding-left: $tabularHorizontalPadding;
+    padding-right: $tabularHorizontalPadding;
+    color: $tabularMenuTextColor;
+    &:before { display: none; }
+  }
 }
 
 /* Hover */
@@ -643,16 +487,12 @@ $import '../../theme.config';
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
-
   background-color: $tabularMenuActiveBackground;
   color: $tabularActiveColor;
-
   border-color: $tabularBorderColor;
   font-weight: $tabularActiveWeight;
-
   margin-bottom: -$tabularBorderWidth;
   border-bottom: $tabularBorderWidth solid $tabularBackgroundColor;
-
   box-shadow: none;
   border-radius: $tabularBorderRadius $tabularBorderRadius 0px 0px;
 }
@@ -662,31 +502,20 @@ $import '../../theme.config';
   position: relative;
   z-index: 2;
 }
-.ui.tabular.menu ~ .bottom.attached.segment {
-  margin: -1px 0px 0px;
-}
+.ui.tabular.menu ~ .bottom.attached.segment { margin: -1px 0px 0px; }
 
-
-
-/*--------------
-   Pagination
----------------*/
+/*- Pagination -*/
 
 .ui.pagination.menu {
   margin: 0em;
   display: inline-block;
   vertical-align: middle;
-}
-
-.ui.pagination.menu .item {
-  min-width: $paginationMinWidth;
-  text-align: center;
-}
-.ui.pagination.menu .icon.item i.icon {
-  vertical-align: top;
-}
-.ui.pagination.menu.floated {
-  display: block;
+  .item {
+    min-width: $paginationMinWidth;
+    text-align: center;
+  }
+  .icon.item i.icon { vertical-align: top; }
+  &.floated { display: block; }
 }
 
 /* Active */
@@ -697,54 +526,41 @@ $import '../../theme.config';
   box-shadow: none;
 }
 
-/*--------------
-   Secondary
----------------*/
+/*- Secondary -*/
 
 .ui.secondary.menu {
   background: $secondaryBackground;
   border-radius: 0em;
   box-shadow: none;
-}
-.ui.secondary.menu > .menu > .item,
-.ui.secondary.menu > .item {
-  box-shadow: none;
-
-  border: none;
-  height: auto !important;
-  background: $secondaryItemBackground;
-
-  margin: 0em $secondaryMargin;
-  padding: $secondaryVerticalPadding $secondaryHorizontalPadding;
-
-  border-radius: $secondaryBorderRadius;
-}
-.ui.secondary.menu > .menu > .item:before,
-.ui.secondary.menu > .item:before {
-  display: none !important;
-}
-
-.ui.secondary.menu .item > .input input {
-  background-color: transparent;
-  border: none;
-}
-
-.ui.secondary.menu .link.item,
-.ui.secondary.menu a.item {
-  opacity: $secondaryLinkOpacity;
-  transition: none;
-}
-.ui.secondary.menu .header.item {
-  border-right: $secondaryHeaderBorder;
-  background: $secondaryHeaderBackground;
-  border-radius: 0em;
+  > .menu > .item, > .item {
+    box-shadow: none;
+    border: none;
+    height: auto !important;
+    background: $secondaryItemBackground;
+    margin: 0em $secondaryMargin;
+    padding: $secondaryVerticalPadding $secondaryHorizontalPadding;
+    border-radius: $secondaryBorderRadius;
+  }
+  > .menu > .item:before,
+  > .item:before { display: none !important; }
+  .item > .input input {
+    background-color: transparent;
+    border: none;
+  }
+  .link.item, a.item {
+    opacity: $secondaryLinkOpacity;
+    transition: none;
+  }
+  .header.item {
+    border-right: $secondaryHeaderBorder;
+    background: $secondaryHeaderBackground;
+    border-radius: 0em;
+  }
 }
 
 /* Hover */
 .ui.secondary.menu .link.item:hover,
-.ui.secondary.menu a.item:hover {
-  opacity: 1;
-}
+.ui.secondary.menu a.item:hover { opacity: 1; }
 
 /* Active */
 .ui.secondary.menu > .menu > .active.item,
@@ -753,112 +569,76 @@ $import '../../theme.config';
   opacity: 1;
   box-shadow: none;
 }
-.ui.secondary.vertical.menu > .active.item {
-  border-radius: $secondaryBorderRadius;
-}
+.ui.secondary.vertical.menu > .active.item { border-radius: $secondaryBorderRadius; }
 
 /* Inverted */
-.ui.secondary.inverted.menu .link.item,
-.ui.secondary.inverted.menu a.item {
-  color: $secondaryInvertedColor;
+.ui.secondary.inverted.menu {
+  .link.item, a.item { color: $secondaryInvertedColor; }
+  .link.item:hover, a.item:hover { color: $secondaryInvertedHoverColor; }
+  .active.item { background-color: $secondaryInvertedActiveBackground; }
 }
-.ui.secondary.inverted.menu .link.item:hover,
-.ui.secondary.inverted.menu a.item:hover {
-  color: $secondaryInvertedHoverColor;
-}
-.ui.secondary.inverted.menu .active.item {
-  background-color: $secondaryInvertedActiveBackground;
-}
-
 
 /* Disable variations */
-.ui.secondary.item.menu > .item {
-  margin: 0em;
-}
-.ui.secondary.attached.menu {
-  box-shadow: none;
-}
+.ui.secondary.item.menu > .item { margin: 0em; }
+.ui.secondary.attached.menu { box-shadow: none; }
 
-
-/*---------------------
-   Secondary Vertical
------------------------*/
+/*- Secondary Vertical -*/
 
 .ui.secondary.vertical.menu > .item {
   border: none;
   margin: 0em 0em $secondaryVerticalMargin;
   border-radius: $borderRadius;
 }
-.ui.secondary.vertical.menu > .header.item {
-  border-radius: 0em;
-}
+.ui.secondary.vertical.menu > .header.item { border-radius: 0em; }
 
 /* Inverted */
-.ui.secondary.inverted.menu {
-  background-color: transparent;
-}
+.ui.secondary.inverted.menu { background-color: transparent; }
 
-.ui.secondary.inverted.pointing.menu {
+.ui.secondary.inverted.pointing.menu { 
   border-bottom: $secondaryPointingBorderWidth solid rgba(255, 255, 255, 0.1);
-}
-.ui.secondary.inverted.pointing.menu > .item {
-  color: rgba(255, 255, 255, 0.7);
-}
-.ui.secondary.inverted.pointing.menu > .header.item {
-  color: #FFFFFF !important;
+  > .item { color: rgba(255, 255, 255, 0.7); }
+  > .header.item { color: #FFFFFF !important; }
 }
 
 /* Hover */
 .ui.secondary.inverted.pointing.menu > .menu > .item:hover,
-.ui.secondary.inverted.pointing.menu > .item:hover {
-  color: rgba(255, 255, 255, 0.85);
-}
+.ui.secondary.inverted.pointing.menu > .item:hover { color: rgba(255, 255, 255, 0.85); }
 
 /* Pressed */
 .ui.secondary.inverted.pointing.menu > .menu > .item:active,
-.ui.secondary.inverted.pointing.menu > .item:active {
-  border-color: rgba(255, 255, 255, 0.4);
-}
+.ui.secondary.inverted.pointing.menu > .item:active { border-color: rgba(255, 255, 255, 0.4); }
 
 /* Active */
 .ui.secondary.inverted.pointing.menu > .menu > .item.active,
-.ui.secondary.inverted.pointing.menu > .item.active {
+.ui.secondary.inverted.pointing.menu > .item.active { 
   border-color: rgba(255, 255, 255, 0.8);
   color: rgba(255, 255, 255, 1);
 }
 
-
-/*---------------------
-   Secondary Pointing
------------------------*/
+/*- Secondary Pointing -*/
 
 .ui.secondary.pointing.menu {
   border-bottom: $secondaryPointingBorderWidth solid rgba(0, 0, 0, 0.1);
-}
-
-.ui.secondary.pointing.menu > .menu > .item,
-.ui.secondary.pointing.menu > .item {
-  margin: (0em) (0em) (-$secondaryPointingBorderWidth);
-  padding: $secondaryPointingVerticalPadding $secondaryPointingHorizontalPadding;
-  border-bottom: $secondaryPointingBorderWidth solid transparent;
-  border-radius: 0em;
-  transition: $secondaryTransition;
+  > .menu > .item, > .item {
+    margin: (0em) (0em) (-$secondaryPointingBorderWidth);
+    padding: $secondaryPointingVerticalPadding $secondaryPointingHorizontalPadding;
+    border-bottom: $secondaryPointingBorderWidth solid transparent;
+    border-radius: 0em;
+    transition: $secondaryTransition;
+  }
 }
 
 /* Item Types */
-.ui.secondary.pointing.menu .header.item {
-  margin-bottom: -$secondaryPointingBorderWidth;
-  background-color: transparent !important;
-  border-right-width: 0px !important;
-  font-weight: bold !important;
-  color: $secondaryPointingHeaderColor !important;
-}
-.ui.secondary.pointing.menu .text.item {
-  box-shadow: none !important;
-}
-.ui.secondary.pointing.menu > .menu > .item:after,
-.ui.secondary.pointing.menu > .item:after {
-  display: none;
+.ui.secondary.pointing.menu {
+  .header.item {
+    margin-bottom: -$secondaryPointingBorderWidth;
+    background-color: transparent !important;
+    border-right-width: 0px !important;
+    font-weight: bold !important;
+    color: $secondaryPointingHeaderColor !important;
+  }
+  .text.item { box-shadow: none !important; }
+  > .menu > .item:after, > .item:after { display: none; }
 }
 
 /* Hover */
@@ -925,76 +705,57 @@ $import '../../theme.config';
   border-bottom: none;
 }
 
-
-/*--------------
-    Text Menu
----------------*/
+/*- Text Menu -*/
 
 .ui.text.menu {
   background: none transparent;
-
   margin: 1rem -1rem;
   border-radius: 0px;
-
   box-shadow: none;
-}
-.ui.text.menu > .item {
-  opacity: 0.8;
-
-  margin: 0em 1em;
-  padding: 0em;
-  height: auto !important;
-
-  border-radius: 0px;
-
-  box-shadow: none;
-  transition: $textMenuTransition;
-}
-.ui.text.menu > .item:before {
-  display: none !important;
-}
-.ui.text.menu .header.item {
-  background-color: transparent;
-
-  opacity: 1;
-  color: rgba(50, 50, 50, 0.8);
-  font-size: 0.875rem;
-  padding: 0em;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.ui.text.menu .text.item {
-  opacity: 1;
-  color: rgba(50, 50, 50, 0.8);
-  font-weight: bold;
+  > .item {
+    opacity: 0.8;
+    margin: 0em 1em;
+    padding: 0em;
+    height: auto !important;
+    border-radius: 0px;
+    box-shadow: none;
+    transition: $textMenuTransition;
+    &:before { display: none !important; }
+  }
+  .header.item {
+    background-color: transparent;
+    opacity: 1;
+    color: rgba(50, 50, 50, 0.8);
+    font-size: 0.875rem;
+    padding: 0em;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .text.item {
+    opacity: 1;
+    color: rgba(50, 50, 50, 0.8);
+    font-weight: bold;
+  }
 }
 
 /*--- fluid text ---*/
-.ui.text.item.menu .item {
-  margin: 0em;
-}
+.ui.text.item.menu .item { margin: 0em; }
 
 /*--- vertical text ---*/
 .ui.vertical.text.menu {
   margin: 1rem 0em;
-}
-.ui.vertical.text.menu:first-child {
-  margin-top: 0rem;
-}
-.ui.vertical.text.menu:last-child {
-  margin-bottom: 0rem;
-}
-.ui.vertical.text.menu .item {
-  float: left;
-  clear: left;
-  margin: 0.5em 0em;
-}
-.ui.vertical.text.menu .item > i.icon {
-  float: none;
-  margin: 0em $verticalPadding 0em 0em;
-}
-.ui.vertical.text.menu .header.item {
-  margin: 0.8em 0em;
+  &:first-child { margin-top: 0rem; }
+  &:last-child { margin-bottom: 0rem; }
+  .item {
+    float: left;
+    clear: left;
+    margin: 0.5em 0em;
+    > i.icon {
+      float: none;
+      margin: 0em $verticalPadding 0em 0em;
+    }
+  }
+  .header.item { margin: 0.8em 0em; }
 }
 
 /*--- hover ---*/
@@ -1014,23 +775,15 @@ $import '../../theme.config';
 }
 
 /* disable variations */
-.ui.text.pointing.menu .active.item:after {
-  box-shadow: none;
-}
-.ui.text.attached.menu {
-  box-shadow: none;
-}
+.ui.text.pointing.menu .active.item:after { box-shadow: none; }
+.ui.text.attached.menu { box-shadow: none; }
 
 .ui.inverted.text.menu,
 .ui.inverted.text.menu .item,
 .ui.inverted.text.menu .item:hover,
-.ui.inverted.text.menu .item.active {
-  background-color: transparent;
-}
+.ui.inverted.text.menu .item.active { background-color: transparent; }
 
-/*--------------
-    Icon Only
----------------*/
+/*- Icon Only -*/
 
 .ui.icon.menu,
 .ui.vertical.icon.menu {
@@ -1042,59 +795,41 @@ $import '../../theme.config';
   height: auto;
   text-align: center;
   color: rgba(60, 60, 60, 0.7);
+  > .icon {
+    display: block;
+    float: none !important;
+    opacity: 1;
+    margin: 0em auto !important;
+  }
 }
-.ui.icon.menu > .item > .icon {
-  display: block;
-  float: none !important;
-  opacity: 1;
-  margin: 0em auto !important;
-}
-.ui.icon.menu .icon:before {
-  opacity: 1;
-}
+.ui.icon.menu .icon:before { opacity: 1; }
 
 /* Item Icon Only */
-.ui.menu .icon.item .icon {
-  margin: 0em;
-}
+.ui.menu .icon.item .icon { margin: 0em; }
 
-.ui.vertical.icon.menu {
-  float: none;
-}
+.ui.vertical.icon.menu { float: none; }
 
 /*--- inverted ---*/
-.ui.inverted.icon.menu .item {
-  color: rgba(255, 255, 255, 0.8);
-}
-.ui.inverted.icon.menu .icon {
-  color: rgba(255, 255, 255, 1);
-}
+.ui.inverted.icon.menu .item { color: rgba(255, 255, 255, 0.8); }
+.ui.inverted.icon.menu .icon { color: rgba(255, 255, 255, 1); }
 
-/*--------------
-   Labeled Icon
----------------*/
+/*- Labeled Icon -*/
 
 .ui.labeled.icon.menu {
   text-align: center;
+  > .item {
+    min-width: $labeledIconMinWidth;
+    > .icon {
+      display: block;
+      font-size: $labeledIconSize !important;
+      margin: 0em auto $labeledIconTextMargin !important;
+    }
+  }
 }
-.ui.labeled.icon.menu > .item {
-  min-width: $labeledIconMinWidth;
-}
-.ui.labeled.icon.menu > .item > .icon {
-  display: block;
-  font-size: $labeledIconSize !important;
-  margin: 0em auto $labeledIconTextMargin !important;
-}
 
+/*** Variations ***/
 
-
-/*******************************
-           Variations
-*******************************/
-
-/*--------------
-    Colors
----------------*/
+/*- Colors -*/
 
 /*--- Light Colors  ---*/
 .ui.menu .blue.active.item,
@@ -1138,52 +873,26 @@ $import '../../theme.config';
   color: $yellow !important;
 }
 
-
-
-/*--------------
-    Inverted
----------------*/
+/*- Inverted -*/
 
 .ui.inverted.menu {
   background: $invertedBackground;
   box-shadow: $invertedBoxShadow;
+  .header.item {
+    margin: 0em;
+    background: $invertedHeaderBackground;
+    box-shadow: none;
+  }
+  .item, .item > a:not(.ui) { color: $invertedTextColor; }
+  .item:not(.dropdown).menu { background: $invertedSubMenuBackground; }
+  .item .item, .item .item > a:not(.ui) { color: $invertedSubMenuColor; }
+  .dropdown .menu .item { color: $dropdownTextColor !important; }
+  .item.disabled, .item.disabled:hover { color: $invertedDisabledTextColor; }
 }
-.ui.inverted.menu .header.item {
-  margin: 0em;
-  background: $invertedHeaderBackground;
-  box-shadow: none;
-}
-
-.ui.inverted.menu .item,
-.ui.inverted.menu .item > a:not(.ui) {
-  color: $invertedTextColor;
-}
-
-.ui.inverted.menu .item:not(.dropdown).menu {
-  background: $invertedSubMenuBackground;
-}
-
-.ui.inverted.menu .item .item,
-.ui.inverted.menu .item .item > a:not(.ui) {
-  color: $invertedSubMenuColor;
-}
-.ui.inverted.menu .dropdown .menu .item {
-  color: $dropdownTextColor !important;
-}
-.ui.inverted.menu .item.disabled,
-.ui.inverted.menu .item.disabled:hover {
-  color: $invertedDisabledTextColor;
-}
-
-
 
 /*--- Border ---*/
-.ui.inverted.menu .item:before {
-  background: $invertedDividerBackground;
-}
-.ui.vertical.inverted.menu .item:before {
-  background: $invertedVerticalDividerBackground;
-}
+.ui.inverted.menu .item:before { background: $invertedDividerBackground; }
+.ui.vertical.inverted.menu .item:before { background: $invertedVerticalDividerBackground; }
 
 /*--- Hover ---*/
 .ui.link.inverted.menu .item:hover,
@@ -1200,12 +909,14 @@ $import '../../theme.config';
 }
 
 /*--- Pressed ---*/
-.ui.inverted.menu a.item:active,
-.ui.inverted.menu .dropdown.item:active,
-.ui.inverted.menu .link.item:active,
-.ui.inverted.menu a.item:active {
-  background: $invertedMenuPressedBackground;
-  color: $invertedMenuPressedColor;
+.ui.inverted.menu {
+  a.item:active,
+  .dropdown.item:active,
+  .link.item:active,
+  a.item:active {
+    background: $invertedMenuPressedBackground;
+    color: $invertedMenuPressedColor;
+  }
 }
 
 /*--- Active ---*/
@@ -1224,39 +935,23 @@ $import '../../theme.config';
   background: #5B5B5B;
   box-shadow: none;
 }
-.ui.inverted.pointing.menu .active.item:hover:after {
-  background: #4A4A4A;
-}
+.ui.inverted.pointing.menu .active.item:hover:after { background: #4A4A4A; }
 
-
-/*--------------
-    Selection
----------------*/
+/*- Selection -*/
 
 .ui.selection.menu > .item {
   color: rgba(0, 0, 0, 0.4);
-}
-.ui.selection.menu > .item:hover {
-  color: rgba(0, 0, 0, 0.6);
-}
-.ui.selection.menu > .item.active {
-  color: rgba(0, 0, 0, 0.85);
+  &:hover { color: rgba(0, 0, 0, 0.6); }
+  &.active { color: rgba(0, 0, 0, 0.85); }
 }
 
 .ui.inverted.selection.menu > .item {
   color: rgba(255, 255, 255, 0.4);
-}
-.ui.inverted.selection.menu > .item:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-.ui.inverted.selection.menu > .item.active {
-  color: #FFFFFF;
+  &:hover { color: rgba(255, 255, 255, 0.9); }
+  &.active { color: #FFFFFF; }
 }
 
-
-/*--------------
-     Floated
----------------*/
+/*- Floated -*/
 
 .ui.floated.menu {
   float: left;
@@ -1267,85 +962,44 @@ $import '../../theme.config';
   margin: 0rem 0rem 0rem 0.5rem;
 }
 
-
-/*--------------
- Inverted Colors
----------------*/
+/*- Inverted Colors -*/
 
 /*--- Light Colors  ---*/
-.ui.grey.menu {
-  background-color: $offWhite;
-}
+.ui.grey.menu { background-color: $offWhite; }
 
 /*--- Inverted Colors  ---*/
 
 /* Blue */
-.ui.inverted.blue.menu {
-  background-color: $blue;
-}
-.ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: $blue;
-}
+.ui.inverted.blue.menu { background-color: $blue; }
+.ui.inverted.blue.pointing.menu .active.item:after { background-color: $blue; }
 /* Green */
-.ui.inverted.green.menu {
-  background-color: $green;
-}
-.ui.inverted.green.pointing.menu .active.item:after {
-  background-color: $green;
-}
+.ui.inverted.green.menu { background-color: $green; }
+.ui.inverted.green.pointing.menu .active.item:after { background-color: $green; }
 /* Orange */
-.ui.inverted.orange.menu {
-  background-color: $orange;
-}
-.ui.inverted.orange.pointing.menu .active.item:after {
-  background-color: $orange;
-}
+.ui.inverted.orange.menu { background-color: $orange; }
+.ui.inverted.orange.pointing.menu .active.item:after { background-color: $orange; }
 /* Pink */
-.ui.inverted.pink.menu {
-  background-color: $pink;
-}
-.ui.inverted.pink.pointing.menu .active.item:after {
-  background-color: $pink;
-}
+.ui.inverted.pink.menu { background-color: $pink; }
+.ui.inverted.pink.pointing.menu .active.item:after { background-color: $pink; }
 /* Purple */
-.ui.inverted.purple.menu {
-  background-color: $purple;
-}
-.ui.inverted.purple.pointing.menu .active.item:after {
-  background-color: $purple;
-}
+.ui.inverted.purple.menu { background-color: $purple; }
+.ui.inverted.purple.pointing.menu .active.item:after { background-color: $purple; }
 /* Red */
-.ui.inverted.red.menu {
-  background-color: $red;
-}
-.ui.inverted.red.pointing.menu .active.item:after {
-  background-color: $red;
-}
+.ui.inverted.red.menu { background-color: $red; }
+.ui.inverted.red.pointing.menu .active.item:after { background-color: $red; }
 /* Teal */
-.ui.inverted.teal.menu {
-  background-color: $teal;
-}
-.ui.inverted.teal.pointing.menu .active.item:after {
-  background-color: $teal;
-}
+.ui.inverted.teal.menu { background-color: $teal; }
+.ui.inverted.teal.pointing.menu .active.item:after { background-color: $teal; }
 /* Yellow */
-.ui.inverted.yellow.menu {
-  background-color: $yellow;
-}
-.ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: $yellow;
-}
+.ui.inverted.yellow.menu { background-color: $yellow; }
+.ui.inverted.yellow.pointing.menu .active.item:after { background-color: $yellow; }
 
-
-/*--------------
-     Fitted
----------------*/
+/*- Fitted -*/
 
 .ui.fitted.menu .item,
 .ui.fitted.menu .item .menu .item,
-.ui.menu .fitted.item {
-  padding: 0em;
-}
+.ui.menu .fitted.item { padding: 0em; }
+
 .ui.horizontally.fitted.menu .item,
 .ui.horizontally.fitted.menu .item .menu .item,
 .ui.menu .horizontally.fitted.item {
@@ -1359,35 +1013,23 @@ $import '../../theme.config';
   padding-right: $horizontalPadding;
 }
 
-/*--------------
-   Borderless
----------------*/
+/*- Borderless -*/
 
 .ui.borderless.menu .item:before,
 .ui.borderless.menu .item .menu .item:before,
-.ui.menu .borderless.item:before {
-  background: none;
-}
+.ui.menu .borderless.item:before { background: none; }
 
-/*-------------------
-       Compact
---------------------*/
+/*- Compact -*/
 
 .ui.compact.menu {
   display: inline-block;
   margin: 0em;
   vertical-align: middle;
 }
-.ui.compact.vertical.menu {
-  width: auto !important;
-}
-.ui.compact.vertical.menu .item:last-child::before {
-  display: block;
-}
+.ui.compact.vertical.menu { width: auto !important; }
+.ui.compact.vertical.menu .item:last-child::before { display: block; }
 
-/*-------------------
-        Fluid
---------------------*/
+/*- Fluid -*/
 
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
@@ -1395,10 +1037,7 @@ $import '../../theme.config';
   width: 100% !important;
 }
 
-
-/*-------------------
-      Evenly Sized
---------------------*/
+/*- Evenly Sized -*/
 
 .ui.item.menu,
 .ui.item.menu .item {
@@ -1407,47 +1046,20 @@ $import '../../theme.config';
   padding-right: 0px !important;
   text-align: center;
 }
-.ui.item.menu > .item:last-child {
-  border-radius: 0px $borderRadius $borderRadius 0px;
-}
-.ui.menu.two.item .item {
-  width: 50%;
-}
-.ui.menu.three.item .item {
-  width: 33.333%;
-}
-.ui.menu.four.item .item {
-  width: 25%;
-}
-.ui.menu.five.item .item {
-  width: 20%;
-}
-.ui.menu.six.item .item {
-  width: 16.666%;
-}
-.ui.menu.seven.item .item {
-  width: 14.285%;
-}
-.ui.menu.eight.item .item {
-  width: 12.500%;
-}
-.ui.menu.nine.item .item {
-  width: 11.11%;
-}
-.ui.menu.ten.item .item {
-  width: 10.0%;
-}
-.ui.menu.eleven.item .item {
-  width: 9.09%;
-}
-.ui.menu.twelve.item .item {
-  width: 8.333%;
-}
+.ui.item.menu > .item:last-child { border-radius: 0px $borderRadius $borderRadius 0px; }
+.ui.menu.two.item .item { width: 50%; }
+.ui.menu.three.item .item { width: 33.333%; }
+.ui.menu.four.item .item { width: 25%; }
+.ui.menu.five.item .item { width: 20%; }
+.ui.menu.six.item .item { width: 16.666%; }
+.ui.menu.seven.item .item { width: 14.285%; }
+.ui.menu.eight.item .item { width: 12.500%; }
+.ui.menu.nine.item .item { width: 11.11%; }
+.ui.menu.ten.item .item { width: 10.0%; }
+.ui.menu.eleven.item .item { width: 9.09%; }
+.ui.menu.twelve.item .item { width: 8.333%; }
 
-
-/*--------------
-     Fixed
----------------*/
+/*- Fixed -*/
 
 .ui.menu.fixed {
   position: fixed;
@@ -1458,9 +1070,7 @@ $import '../../theme.config';
 }
 .ui.menu.fixed,
 .ui.menu.fixed .item:first-child,
-.ui.menu.fixed .item:last-child {
-  border-radius: 0px !important;
-}
+.ui.menu.fixed .item:last-child { border-radius: 0px !important; }
 
 .ui.menu.fixed.top {
   top: 0px;
@@ -1492,42 +1102,29 @@ $import '../../theme.config';
 }
 
 /* Coupling with Grid */
-.ui.fixed.menu + .ui.grid {
-  padding-top: $fixedGridMargin;
-}
+.ui.fixed.menu + .ui.grid { padding-top: $fixedGridMargin; }
 
-
-/*-------------------
-       Pointing
---------------------*/
+/*- Pointing -*/
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
   bottom: $arrowOffset;
   left: 50%;
   content: '';
-
   margin-left: $arrowOffset;
   width: $arrowSize;
   height: $arrowSize;
-
   border: none;
   border-bottom: $arrowBorder;
   border-right: $arrowBorder;
-
   background: none;
   transform: rotate(45deg);
   z-index: 2;
-
-  transition:
-    background 0.2s ease
-  ;
+  transition: background 0.2s ease;
 }
 
 /* Don't double up pointers */
-.ui.pointing.menu .active.item .menu .active.item:after {
-  display: none;
-}
+.ui.pointing.menu .active.item .menu .active.item:after { display: none; }
 
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
@@ -1536,32 +1133,19 @@ $import '../../theme.config';
   right: $arrowOffset;
   bottom: auto;
   left: auto;
-
   border: none;
   border-top: $arrowBorder;
   border-right: $arrowBorder;
 }
 
 /* Colors */
-.ui.pointing.menu .active.item:hover:after {
-  background-color: $arrowHoverColor;
-}
-.ui.pointing.menu .active.item:after {
-  background-color: $arrowActiveColor;
-}
+.ui.pointing.menu .active.item:hover:after { background-color: $arrowHoverColor; }
+.ui.pointing.menu .active.item:after { background-color: $arrowActiveColor; }
 
-.ui.vertical.pointing.menu .item:hover:after {
-  background-color: $arrowVerticalHoverColor;
-}
-.ui.vertical.pointing.menu .active.item:after {
-  background-color: $arrowVerticalActiveColor;
-}
+.ui.vertical.pointing.menu .item:hover:after { background-color: $arrowVerticalHoverColor; }
+.ui.vertical.pointing.menu .active.item:after { background-color: $arrowVerticalActiveColor; }
 
-
-
-/*--------------
-    Attached
----------------*/
+/*- Attached -*/
 
 .ui.menu.attached {
   margin: 0rem;
@@ -1569,45 +1153,23 @@ $import '../../theme.config';
   /* avoid rgba multiplying */
   box-shadow: $attachedBoxShadow;
 }
-.ui.top.attached.menu {
-  border-radius: $borderRadius $borderRadius 0em 0em;
-}
-.ui.menu.bottom.attached {
-  border-radius: 0em 0em $borderRadius $borderRadius;
-}
+.ui.top.attached.menu { border-radius: $borderRadius $borderRadius 0em 0em; }
+.ui.menu.bottom.attached { border-radius: 0em 0em $borderRadius $borderRadius; }
 
-/*--------------
-     Sizes
----------------*/
+/*- Sizes -*/
 
 /* Small */
-.ui.small.menu .item {
-  font-size: $small;
-}
-.ui.small.vertical.menu {
-  width: $smallWidth;
-}
+.ui.small.menu .item { font-size: $small; }
+.ui.small.vertical.menu { width: $smallWidth; }
 
 /* Medium */
-.ui.menu .item {
-  font-size: $medium;
-}
-.ui.vertical.menu {
-  width: $mediumWidth;
-}
+.ui.menu .item { font-size: $medium; }
+.ui.vertical.menu { width: $mediumWidth; }
 
 /* Large */
-.ui.large.menu .item {
-  font-size: $large;
-}
-.ui.large.menu .item .item {
-  font-size: $largeSubMenu;
-}
-.ui.large.menu .dropdown .item {
-  font-size: $largeDropdown;
-}
-.ui.large.vertical.menu {
-  width: $largeWidth;
-}
+.ui.large.menu .item { font-size: $large; }
+.ui.large.menu .item .item { font-size: $largeSubMenu; }
+.ui.large.menu .dropdown .item { font-size: $largeDropdown; }
+.ui.large.vertical.menu { width: $largeWidth; }
 
 @extend .loadUIOverrides;
