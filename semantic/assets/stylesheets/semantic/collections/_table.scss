@@ -9,19 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'collection';
 $element : 'table';
-
 $import '../../theme.config';
 
-
-/*******************************
-             Table
-*******************************/
+/*** Table ***/
 
 /* Prototype */
 .ui.table {
@@ -34,86 +28,63 @@ $import '../../theme.config';
   color: $color;
   border-collapse: $borderCollapse;
   border-spacing: $borderSpacing;
+  &:first-child { margin-top: 0em; }
+  &:last-child { margin-bottom: 0em; }
 }
 
-.ui.table:first-child {
-  margin-top: 0em;
-}
-.ui.table:last-child {
-  margin-bottom: 0em;
-}
-
-/*******************************
-             Parts
-*******************************/
+/*** Parts ***/
 
 /* Table Content */
 .ui.table th,
-.ui.table td {
-  transition: $transition;
-}
+.ui.table td { transition: $transition; }
 
 /* Headers */
-.ui.table thead {
+.ui.table thead { 
   box-shadow: $headerBoxShadow;
-}
-.ui.table thead th {
-  cursor: auto;
-  background: $headerBackground;
-  text-align: $headerAlign;
-  color: $headerColor;
-  padding: $headerVerticalPadding $headerHorizontalPadding;
-  vertical-align: $headerVerticalAlign;
-  font-style: $headerFontStyle;
-  font-weight: $headerFontWeight;
-  text-transform: $headerTextTransform;
-  border-bottom: $headerBorder;
-  border-left: $headerDivider;
-}
-.ui.table thead th:first-child {
-  border-radius: $borderRadius 0em 0em 0em;
-  border-left: none;
-}
-.ui.table thead th:last-child {
-  border-radius: 0em $borderRadius 0em 0em;
-}
-.ui.table thead th:only-child {
-  border-radius: $borderRadius $borderRadius 0em 0em;
+  th {
+    cursor: auto;
+    background: $headerBackground;
+    text-align: $headerAlign;
+    color: $headerColor;
+    padding: $headerVerticalPadding $headerHorizontalPadding;
+    vertical-align: $headerVerticalAlign;
+    font-style: $headerFontStyle;
+    font-weight: $headerFontWeight;
+    text-transform: $headerTextTransform;
+    border-bottom: $headerBorder;
+    border-left: $headerDivider;
+    &:first-child {
+      border-radius: $borderRadius 0em 0em 0em;
+      border-left: none;
+    }
+    &:last-child { border-radius: 0em $borderRadius 0em 0em; }
+    &:only-child { border-radius: $borderRadius $borderRadius 0em 0em; }
+  }
 }
 
 /* Footer */
-.ui.table tfoot {
+.ui.table tfoot { 
   box-shadow: $footerBoxShadow;
-}
-.ui.table tfoot th {
-  cursor: auto;
-  border-top: $footerBorder;
-  background: $footerBackground;
-  text-align: $footerAlign;
-  color: $footerColor;
-  padding: $footerVerticalPadding $footerHorizontalPadding;
-  vertical-align: $footerVerticalAlign;
-  font-style: $footerFontStyle;
-  font-weight: $footerFontWeight;
-  text-transform: $footerTextTransform;
-}
-.ui.table tfoot th:first-child {
-  border-radius: 0em 0em 0em $borderRadius;
-}
-.ui.table tfoot th:last-child {
-  border-radius: 0em 0em $borderRadius 0em;
-}
-.ui.table tfoot th:only-child {
-  border-radius: 0em 0em $borderRadius $borderRadius;
+  th {
+    cursor: auto;
+    border-top: $footerBorder;
+    background: $footerBackground;
+    text-align: $footerAlign;
+    color: $footerColor;
+    padding: $footerVerticalPadding $footerHorizontalPadding;
+    vertical-align: $footerVerticalAlign;
+    font-style: $footerFontStyle;
+    font-weight: $footerFontWeight;
+    text-transform: $footerTextTransform;
+    &:first-child { border-radius: 0em 0em 0em $borderRadius; }
+    &:last-child { border-radius: 0em 0em $borderRadius 0em; }
+    &:only-child { border-radius: 0em 0em $borderRadius $borderRadius; }
+  }
 }
 
 /* Table Row */
-.ui.table tr td {
-  border-top: $rowBorder;
-}
-.ui.table tr:first-child td {
-  border-top: none;
-}
+.ui.table tr td { border-top: $rowBorder; }
+.ui.table tr:first-child td { border-top: none; }
 
 /* Table Cells */
 .ui.table td {
@@ -125,80 +96,58 @@ $import '../../theme.config';
 /* Icons */
 .ui.table > .icon {
   vertical-align: $iconVerticalAlign;
-}
-.ui.table > .icon:only-child {
-  margin: 0em;
+  &:only-child { margin: 0em; }
 }
 
 /* Table Segment */
 .ui.table.segment {
   padding: 0em;
+  &:after { display: none; }
+  &.stacked:after { display: block; }
 }
-.ui.table.segment:after {
-  display: none;
-}
-.ui.table.segment.stacked:after {
-  display: block;
-}
-
 
 /* Responsive */
 @media only screen and (max-width : 768px) {
   .ui.table {
     display: block;
     padding: 0em;
-  }
-  .ui.table thead {
-    display: $responsiveHeaderDisplay;
-  }
-  .ui.table tfoot {
-    display: $responsiveFooterDisplay;
-  }
-  .ui.table tbody {
-    display: block;
-  }
-  .ui.table tr {
-    display: block;
-  }
-
-  .ui.table tr > th,
-  .ui.table tr > td {
-    background: none;
-    width: 100% !important;
-    display: block;
-    border: none !important;
-    padding: $responsiveCellVerticalPadding $responsiveCellHorizontalPadding;
-    box-shadow: $responsiveCellBoxShadow;
-  }
-  .ui.table th:first-child,
-  .ui.table td:first-child {
-    font-weight: bold;
-    padding-top: $responsiveRowVerticalPadding;
-  }
-  .ui.table th:last-child,
-  .ui.table td:last-child {
-    box-shadow: $responsiveRowBoxShadow;
-    padding-bottom: $responsiveRowVerticalPadding;
+    thead { display: $responsiveHeaderDisplay; }
+    tfoot { display: $responsiveFooterDisplay; }
+    tbody { display: block; }
+    tr {
+      display: block;
+      > th, > td {
+        background: none;
+        width: 100% !important;
+        display: block;
+        border: none !important;
+        padding: $responsiveCellVerticalPadding $responsiveCellHorizontalPadding;
+        box-shadow: $responsiveCellBoxShadow;
+      }
+    }
+    th, td {
+      &:first-child {
+        font-weight: bold;
+        padding-top: $responsiveRowVerticalPadding;
+      }
+      &:last-child {
+        box-shadow: $responsiveRowBoxShadow;
+        padding-bottom: $responsiveRowVerticalPadding;
+      }
+    }
   }
 
   /* Clear BG Colors */
-  .ui.table tr > td.warning,
-  .ui.table tr > td.error,
-  .ui.table tr > td.active,
-  .ui.table tr > td.positive,
-  .ui.table tr > td.negative {
-    background-color: $responsiveStatusColor !important;
+  .ui.table tr > td {
+    &.warning, &.error,
+    &.active, &.positive,
+    &.negative { background-color: $responsiveStatusColor !important; }
   }
 }
 
+/*** Types ***/
 
-/*******************************
-             Types
-*******************************/
-
-/*--------------
-   Definition
----------------*/
+/*- Definition -*/
 
 .ui.definition.table thead:not(.full-width) th:first-child {
   pointer-events: none;
@@ -232,29 +181,17 @@ $import '../../theme.config';
 }
 
 /* Fix 2nd Column */
-.ui.definition.table thead:not(.full-width) th:nth-child(2) {
-  border-left: $borderWidth solid $borderColor;
-}
-.ui.definition.table tfoot:not(.full-width) th:nth-child(2) {
-  border-left: $borderWidth solid $borderColor;
-}
-.ui.definition.table td:nth-child(2) {
-  border-left: $borderWidth solid $borderColor;
-}
+.ui.definition.table thead:not(.full-width) th:nth-child(2) { border-left: $borderWidth solid $borderColor; }
+.ui.definition.table tfoot:not(.full-width) th:nth-child(2) { border-left: $borderWidth solid $borderColor; }
+.ui.definition.table td:nth-child(2) { border-left: $borderWidth solid $borderColor; }
 
+/*** States ***/
 
-/*******************************
-             States
-*******************************/
-
-/*--------------
-    Positive
----------------*/
+/*- Positive -*/
 
 .ui.table tr.positive,
-.ui.table td.positive {
-  box-shadow: $positiveBoxShadow;
-}
+.ui.table td.positive { box-shadow: $positiveBoxShadow; }
+
 .ui.table tr.positive td,
 .ui.table td.positive {
   background: $positiveBackgroundColor !important;
@@ -269,16 +206,13 @@ $import '../../theme.config';
   color: $positiveColorHover !important;
 }
 
-/*--------------
-     Negative
----------------*/
+/*- Negative -*/
 
 .ui.table tr.negative,
-.ui.table td.negative {
-  box-shadow: $negativeBoxShadow;
-}
+.ui.table td.negative { box-shadow: $negativeBoxShadow; }
+
 .ui.table tr.negative td,
-.ui.table td.negative {
+.ui.table td.negative { 
   background: $negativeBackgroundColor !important;
   color: $negativeColor !important;
 }
@@ -288,14 +222,11 @@ $import '../../theme.config';
   color: $negativeColorHover !important;
 }
 
-/*--------------
-      Error
----------------*/
+/*- Error -*/
 
 .ui.table tr.error,
-.ui.table td.error {
-  box-shadow: $errorBoxShadow;
-}
+.ui.table td.error { box-shadow: $errorBoxShadow; }
+
 .ui.table tr.error td,
 .ui.table td.error {
   background: $errorBackgroundColor !important;
@@ -307,14 +238,11 @@ $import '../../theme.config';
   color: $errorColorHover !important;
 }
 
-/*--------------
-     Warning
----------------*/
+/*- Warning -*/
 
 .ui.table tr.warning,
-.ui.table td.warning {
-  box-shadow: $warningBoxShadow;
-}
+.ui.table td.warning { box-shadow: $warningBoxShadow; }
+
 .ui.table tr.warning td,
 .ui.table td.warning {
   background: $warningBackgroundColor !important;
@@ -326,14 +254,11 @@ $import '../../theme.config';
   color: $warningColorHover !important;
 }
 
-/*--------------
-     Active
----------------*/
+/*- Active -*/
 
 .ui.table tr.active,
-.ui.table td.active {
-  box-shadow: $activeBoxShadow;
-}
+.ui.table td.active { box-shadow: $activeBoxShadow; }
+
 .ui.table tr.active td,
 .ui.table td.active {
   background: $activeBackgroundColor !important;
@@ -345,43 +270,31 @@ $import '../../theme.config';
   color: $activeColor !important;
 }
 
+/*- Disabled -*/
 
-/*--------------
-     Disabled
----------------*/
-
-.ui.table tr.disabled td,
-.ui.table tr td.disabled,
-.ui.table tr.disabled:hover td,
-.ui.table tr:hover td.disabled {
-  pointer-events: none;
-  color: $disabledTextColor;
+.ui.table tr {
+  &.disabled td, td.disabled,
+  &.disabled:hover td,
+  &:hover td.disabled {
+    pointer-events: none;
+    color: $disabledTextColor;
+  }
 }
 
-/*******************************
-          Variations
-*******************************/
+/*** Variations ***/
 
-/*--------------
-     Aligned
----------------*/
+/*- Aligned -*/
 
 .ui.table[class*="left aligned"],
-.ui.table [class*="left aligned"] {
-  text-align: left;
-}
-.ui.table[class*="center aligned"],
-.ui.table [class*="center aligned"] {
-  text-align: center;
-}
-.ui.table[class*="right aligned"],
-.ui.table [class*="right aligned"] {
-  text-align: right;
-}
+.ui.table [class*="left aligned"] { text-align: left; }
 
-/*--------------
-    Collapsing
----------------*/
+.ui.table[class*="center aligned"],
+.ui.table [class*="center aligned"] { text-align: center; }
+
+.ui.table[class*="right aligned"],
+.ui.table [class*="right aligned"] { text-align: right; }
+
+/*- Collapsing -*/
 
 .ui.table th.collapsing,
 .ui.table td.collapsing {
@@ -389,11 +302,7 @@ $import '../../theme.config';
   white-space: nowrap;
 }
 
-
-/*--------------
-     Attached
----------------*/
-
+/*- Attached -*/
 
 /* All */
 .ui.attached.table {
@@ -408,9 +317,7 @@ $import '../../theme.config';
   margin-top: $margin;
   border-radius: $borderRadius $borderRadius 0em 0em;
 }
-.ui.table[class*="top attached"]:first-child {
-  margin-top: 0em;
-}
+.ui.table[class*="top attached"]:first-child { margin-top: 0em; }
 
 /* Bottom */
 .ui.table[class*="bottom attached"] {
@@ -418,62 +325,31 @@ $import '../../theme.config';
   margin-bottom: $margin;
   border-radius: 0em 0em $borderRadius $borderRadius;
 }
-.ui.table[class*="bottom attached"]:last-child {
-  margin-bottom: 0em;
-}
+.ui.table[class*="bottom attached"]:last-child { margin-bottom: 0em; }
 
-/*--------------
-     Striped
----------------*/
+/*- Striped -*/
 
 /* Table Striping */
 .ui.striped.table > tr:nth-child(2n),
-.ui.striped.table tbody tr:nth-child(2n) {
-  background-color: $stripedBackground;
-}
+.ui.striped.table tbody tr:nth-child(2n) { background-color: $stripedBackground; }
 
 /* Stripes */
 .ui.inverted.striped.table > tr:nth-child(2n),
-.ui.inverted.striped.table tbody tr:nth-child(2n) {
-  background-color: $invertedStripedBackground;
-}
+.ui.inverted.striped.table tbody tr:nth-child(2n) { background-color: $invertedStripedBackground; }
 
+/*- Colors -*/
 
-/*-------------------
-       Colors
---------------------*/
+.ui.black.table { border-top: $coloredBorderSize solid $black; }
+.ui.blue.table { border-top: $coloredBorderSize solid $blue; }
+.ui.green.table { border-top: $coloredBorderSize solid $green; }
+.ui.orange.table { border-top: $coloredBorderSize solid $orange; }
+.ui.pink.table { border-top: $coloredBorderSize solid $pink; }
+.ui.purple.table { border-top: $coloredBorderSize solid $purple; }
+.ui.red.table { border-top: $coloredBorderSize solid $red; }
+.ui.teal.table { border-top: $coloredBorderSize solid $teal; }
+.ui.yellow.table { border-top: $coloredBorderSize solid $yellow; }
 
-.ui.black.table {
-  border-top: $coloredBorderSize solid $black;
-}
-.ui.blue.table {
-  border-top: $coloredBorderSize solid $blue;
-}
-.ui.green.table {
-  border-top: $coloredBorderSize solid $green;
-}
-.ui.orange.table {
-  border-top: $coloredBorderSize solid $orange;
-}
-.ui.pink.table {
-  border-top: $coloredBorderSize solid $pink;
-}
-.ui.purple.table {
-  border-top: $coloredBorderSize solid $purple;
-}
-.ui.red.table {
-  border-top: $coloredBorderSize solid $red;
-}
-.ui.teal.table {
-  border-top: $coloredBorderSize solid $teal;
-}
-.ui.yellow.table {
-  border-top: $coloredBorderSize solid $yellow;
-}
-
-/*-------------------
-   Inverted Colors
---------------------*/
+/*- Inverted Colors -*/
 
 .ui.inverted.table,
 .ui.inverted.black.table {
@@ -513,164 +389,69 @@ $import '../../theme.config';
   color: $white !important;
 }
 
-
-/*--------------
-  Column Count
----------------*/
+/*- Column Count -*/
 
 /* Grid Based */
-.ui.one.column.table td {
-  width: $oneColumn;
-}
-.ui.two.column.table td {
-  width: $twoColumn;
-}
-.ui.three.column.table td {
-  width: $threeColumn;
-}
-.ui.four.column.table td {
-  width: $fourColumn;
-}
-.ui.five.column.table td {
-  width: $fiveColumn;
-}
-.ui.six.column.table td {
-  width: $sixColumn;
-}
-.ui.seven.column.table td {
-  width: $sevenColumn;
-}
-.ui.eight.column.table td {
-  width: $eightColumn;
-}
-.ui.nine.column.table td {
-  width: $nineColumn;
-}
-.ui.ten.column.table td {
-  width: $tenColumn;
-}
-.ui.eleven.column.table td {
-  width: $elevenColumn;
-}
-.ui.twelve.column.table td {
-  width: $twelveColumn;
-}
-.ui.thirteen.column.table td {
-  width: $thirteenColumn;
-}
-.ui.fourteen.column.table td {
-  width: $fourteenColumn;
-}
-.ui.fifteen.column.table td {
-  width: $fifteenColumn;
-}
-.ui.sixteen.column.table td {
-  width: $sixteenColumn;
-}
+.ui.one.column.table td { width: $oneColumn; }
+.ui.two.column.table td { width: $twoColumn; }
+.ui.three.column.table td { width: $threeColumn;}
+.ui.four.column.table td { width: $fourColumn; }
+.ui.five.column.table td { width: $fiveColumn; }
+.ui.six.column.table td { width: $sixColumn; }
+.ui.seven.column.table td { width: $sevenColumn; }
+.ui.eight.column.table td { width: $eightColumn; }
+.ui.nine.column.table td { width: $nineColumn; }
+.ui.ten.column.table td { width: $tenColumn; }
+.ui.eleven.column.table td { width: $elevenColumn; }
+.ui.twelve.column.table td { width: $twelveColumn; }
+.ui.thirteen.column.table td { width: $thirteenColumn; }
+.ui.fourteen.column.table td { width: $fourteenColumn; }
+.ui.fifteen.column.table td { width: $fifteenColumn; }
+.ui.sixteen.column.table td { width: $sixteenColumn; }
 
 /* Column Width */
-.ui.table th.one.wide,
-.ui.table td.one.wide {
-  width: $oneWide;
-}
-.ui.table th.two.wide,
-.ui.table td.two.wide {
-  width: $twoWide;
-}
-.ui.table th.three.wide,
-.ui.table td.three.wide {
-  width: $threeWide;
-}
-.ui.table th.four.wide,
-.ui.table td.four.wide {
-  width: $fourWide;
-}
-.ui.table th.five.wide,
-.ui.table td.five.wide {
-  width: $fiveWide;
-}
-.ui.table th.six.wide,
-.ui.table td.six.wide {
-  width: $sixWide;
-}
-.ui.table th.seven.wide,
-.ui.table td.seven.wide {
-  width: $sevenWide;
-}
-.ui.table th.eight.wide,
-.ui.table td.eight.wide {
-  width: $eightWide;
-}
-.ui.table th.nine.wide,
-.ui.table td.nine.wide {
-  width: $nineWide;
-}
-.ui.table th.ten.wide,
-.ui.table td.ten.wide {
-  width: $tenWide;
-}
-.ui.table th.eleven.wide,
-.ui.table td.eleven.wide {
-  width: $elevenWide;
-}
-.ui.table th.twelve.wide,
-.ui.table td.twelve.wide {
-  width: $twelveWide;
-}
-.ui.table th.thirteen.wide,
-.ui.table td.thirteen.wide {
-  width: $thirteenWide;
-}
-.ui.table th.fourteen.wide,
-.ui.table td.fourteen.wide {
-  width: $fourteenWide;
-}
-.ui.table th.fifteen.wide,
-.ui.table td.fifteen.wide {
-  width: $fifteenWide;
-}
-.ui.table th.sixteen.wide,
-.ui.table td.sixteen.wide {
-  width: $sixteenWide;
+.ui.table th, .ui.table td {
+  &.one.wide { width: $oneWide; }
+  &.two.wide { width: $twoWide; }
+  &.three.wide { width: $threeWide; }
+  &.four.wide { width: $fourWide; }
+  &.five.wide { width: $fiveWide; }
+  &.six.wide { width: $sixWide; }
+  &.seven.wide { width: $sevenWide; }
+  &.eight.wide { width: $eightWide; }
+  &.nine.wide { width: $nineWide; }
+  &.ten.wide { width: $tenWide; }
+  &.eleven.wide { width: $elevenWide; }
+  &.twelve.wide { width: $twelveWide; }
+  &.thirteen.wide { width: $thirteenWide; }
+  &.fourteen.wide { width: $fourteenWide; }
+  &.fifteen.wide { width: $fifteenWide; }
+  &.sixteen.wide { width: $sixteenWide; }
 }
 
-/*--------------
-    Sortable
----------------*/
+/*- Sortable -*/
 
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
   border-left: $sortableBorder;
   color: $sortableColor;
-}
-.ui.sortable.table thead th:first-child {
-  border-left: none;
-}
-.ui.sortable.table thead th.sorted,
-.ui.sortable.table thead th.sorted:hover {
-  user-select: none;
-}
-
-.ui.sortable.table thead th:after {
-  display: inline-block;
-  content: '';
-  width: $sortableIconWidth;
-  height: 1em;
-  opacity: $sortableIconOpacity;
-
-  margin: 0em 0em 0em $sortableIconDistance;
-
-  font-family: $sortableIconFont;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-}
-.ui.sortable.table thead th.ascending:after {
-  content: $sortableIconAscending;
-}
-.ui.sortable.table thead th.descending:after {
-  content: $sortableIconDescending;
+  &:first-child { border-left: none; }
+  &.sorted, &.sorted:hover { user-select: none; }
+  &:after {
+    display: inline-block;
+    content: '';
+    width: $sortableIconWidth;
+    height: 1em;
+    opacity: $sortableIconOpacity;
+    margin: 0em 0em 0em $sortableIconDistance;
+    font-family: $sortableIconFont;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }
+  &.ascending:after { content: $sortableIconAscending; }
+  &.descending:after { content: $sortableIconDescending; }
 }
 
 /* Hover */
@@ -704,14 +485,9 @@ $import '../../theme.config';
   background: $sortableInvertedHoverBackground;
   color: $sortableInvertedHoverColor;
 }
-.ui.inverted.sortable.table thead th {
-  border-left-color: $sortableInvertedBorderColor;
-}
+.ui.inverted.sortable.table thead th { border-left-color: $sortableInvertedBorderColor; }
 
-
-/*--------------
-    Inverted
----------------*/
+/*- Inverted -*/
 
 /* Text Color */
 .ui.inverted.table {
@@ -724,16 +500,13 @@ $import '../../theme.config';
   border-color: $invertedCellBorderColor !important;
   color: $invertedHeaderColor;
 }
-.ui.inverted.table tr td {
-  border-color: $invertedCellBorderColor !important;
-}
-
-.ui.inverted.table tr.disabled td,
-.ui.inverted.table tr td.disabled,
-.ui.inverted.table tr.disabled:hover td,
-.ui.inverted.table tr:hover td.disabled {
-  pointer-events: none;
-  color: $invertedDisabledTextColor;
+.ui.inverted.table tr {
+  td { border-color: $invertedCellBorderColor !important; }
+  &.disabled td, td.disabled,
+  &.disabled:hover td, &:hover td.disabled {
+    pointer-events: none;
+    color: $invertedDisabledTextColor;
+  }
 }
 
 /* Definition */
@@ -746,81 +519,56 @@ $import '../../theme.config';
   color: $invertedDefinitionColumnColor;
 }
 
-/*--------------
-   Collapsing
----------------*/
+/*- Collapsing -*/
 
-.ui.collapsing.table {
-  width: auto;
-}
+.ui.collapsing.table { width: auto; }
 
-/*--------------
-      Basic
----------------*/
+/*- Basic -*/
 
 .ui.basic.table {
   background: $basicTableBackground;
   border: $basicTableBorder;
   box-shadow: $basicBoxShadow;
+  thead, tfoot { box-shadow: none; }
+  th {
+    background: $basicTableHeaderBackground;
+    border-left: $basicTableHeaderDivider;
+  }
+  tbody tr { border-bottom: $basicTableCellBorder; }
+  td { background: $basicTableCellBackground; }
 }
-.ui.basic.table thead,
-.ui.basic.table tfoot {
-  box-shadow: none;
-}
-.ui.basic.table th {
-  background: $basicTableHeaderBackground;
-  border-left: $basicTableHeaderDivider;
-}
-.ui.basic.table tbody tr {
-  border-bottom: $basicTableCellBorder;
-}
-.ui.basic.table td {
-  background: $basicTableCellBackground;
-}
+
 .ui.basic.striped.table tbody tr:nth-child(2n) {
   background-color: $basicTableStripedBackground !important;
 }
 
 /* Very Basic */
-.ui[class*="very basic"].table {
-  border: none;
-}
+.ui[class*="very basic"].table { border: none; }
+
 .ui[class*="very basic"].table:not(.sortable):not(.striped) th,
 .ui[class*="very basic"].table:not(.sortable):not(.striped) td {
   padding: $basicTableCellVerticalPadding $basicTableCellHorizontalPadding;
-}
-.ui[class*="very basic"].table:not(.sortable):not(.striped) thead th {
-  padding-top: 0em;
-}
-.ui[class*="very basic"].table:not(.sortable):not(.striped) tbody tr:last-child td {
-  padding-bottom: 0em;
+} 
+.ui[class*="very basic"].table:not(.sortable):not(.striped) thead th { padding-top: 0em; }
+.ui[class*="very basic"].table:not(.sortable):not(.striped) tbody tr:last-child td { padding-bottom: 0em; }
+
+/*- Celled -*/
+
+.ui.celled.table {
+  th, td {
+    border-left: $cellBorder;
+    &:first-child { border-left: none; }
+  }
 }
 
-/*--------------
-     Celled
----------------*/
-
-.ui.celled.table th,
-.ui.celled.table td {
-  border-left: $cellBorder;
-}
-.ui.celled.table th:first-child,
-.ui.celled.table td:first-child {
-  border-left: none;
-}
-
-/*--------------
-     Padded
----------------*/
+/*- Padded -*/
 
 .ui.padded.table th {
   padding-left: $paddedHorizontalPadding;
   padding-right: $paddedHorizontalPadding;
 }
 .ui.padded.table th,
-.ui.padded.table td {
-  padding: $paddedVerticalPadding $paddedHorizontalPadding;
-}
+.ui.padded.table td { padding: $paddedVerticalPadding $paddedHorizontalPadding; }
 
 /* Very */
 .ui[class*="very padded"].table th {
@@ -831,17 +579,13 @@ $import '../../theme.config';
   padding: $veryPaddedVerticalPadding $veryPaddedHorizontalPadding;
 }
 
-/*--------------
-     Compact
----------------*/
+/*- Compact -*/
 
 .ui.compact.table th {
   padding-left: $compactHorizontalPadding;
   padding-right: $compactHorizontalPadding;
 }
-.ui.compact.table td {
-  padding: $compactVerticalPadding $compactHorizontalPadding;
-}
+.ui.compact.table td { padding: $compactVerticalPadding $compactHorizontalPadding; }
 
 /* Very */
 .ui[class*="very compact"].table th {
@@ -852,23 +596,15 @@ $import '../../theme.config';
   padding: $veryCompactVerticalPadding $veryCompactHorizontalPadding;
 }
 
-/*--------------
-      Sizes
----------------*/
+/*- Sizes -*/
 
 /* Small */
-.ui.small.table {
-  font-size: $small;
-}
+.ui.small.table { font-size: $small; }
 
 /* Standard */
-.ui.table {
-  font-size: $medium;
-}
+.ui.table { font-size: $medium; }
 
 /* Large */
-.ui.large.table {
-  font-size: $large;
-}
+.ui.large.table { font-size: $large; }
 
 @extend .loadUIOverrides;

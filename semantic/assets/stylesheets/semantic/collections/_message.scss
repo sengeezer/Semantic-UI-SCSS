@@ -267,51 +267,33 @@ $import '../../theme.config';
 .ui.purple.message {
   background-color: $purpleBackground;
   color: $purpleTextColor;
+  .header { color: $purpleHeaderColor; }
 }
-.ui.purple.message .header {
-  color: $purpleHeaderColor;
-}
+
 .ui.red.message {
   background-color: $redBackground;
   color: $redTextColor;
+  .header { color: $redHeaderColor; }
 }
-.ui.red.message .header {
-  color: $redHeaderColor;
-}
+
 .ui.teal.message {
   background-color: $tealBackground;
   color: $tealTextColor;
+  .header { color: $tealHeaderColor; }
 }
-.ui.teal.message .header {
-  color: $tealHeaderColor;
-}
+
 .ui.yellow.message {
   background-color: $yellowBackground;
   color: $yellowTextColor;
-}
-.ui.yellow.message .header {
-  color: $yellowHeaderColor;
+  .header { color: $yellowHeaderColor; }
 }
 
+/*- Sizes -*/
 
-/*--------------
-     Sizes
----------------*/
-
-.ui.small.message {
-  font-size: $small;
-}
-.ui.message {
-  font-size: $medium;
-}
-.ui.large.message {
-  font-size: $large;
-}
-.ui.huge.message {
-  font-size: $huge;
-}
-.ui.massive.message {
-  font-size: $massive;
-}
+.ui.small.message { font-size: $small; }
+.ui.message { font-size: $medium; }
+.ui.large.message { font-size: $large; }
+.ui.huge.message { font-size: $huge; }
+.ui.massive.message { font-size: $massive; }
 
 @extend .loadUIOverrides;

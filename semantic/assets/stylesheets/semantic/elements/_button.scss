@@ -9,34 +9,25 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'button';
-
 $import '../../theme.config';
 
-/*******************************
-            Button
-*******************************/
+/*** Button ***/
 
 .ui.button {
   cursor: pointer;
   display: inline-block;
-
   min-height: 1em;
-
   outline: none;
   border: none;
   vertical-align: $verticalAlign;
   background-color: $backgroundColor;
   color: $textColor;
-
   margin: 0em $horizontalMargin $verticalMargin 0em;
   padding: $verticalPadding $horizontalPadding ($verticalPadding + $shadowOffset);
-
   font-family: $pageFont;
   text-transform: $textTransform;
   text-shadow: $textShadow;
@@ -45,55 +36,37 @@ $import '../../theme.config';
   font-style: normal;
   text-align: center;
   text-decoration: none;
-
   background-image: $backgroundImage;
   border-radius: $borderRadius;
   box-shadow: $boxShadow;
-
   user-select: none;
   transition: $transition;
-
   -webkit-tap-highlight-color: $tapColor;
 }
 
+/*** States ***/
 
-/*******************************
-            States
-*******************************/
-
-/*--------------
-      Hover
----------------*/
+/*- Hover -*/
 
 .ui.button:hover {
   background-color: $hoverBackgroundColor;
   background-image: $hoverBackgroundImage;
   box-shadow: $hoverBoxShadow;
   color: $hoverColor;
+  .icon { opacity: $iconHoverOpacity; }
 }
 
-.ui.button:hover .icon {
-  opacity: $iconHoverOpacity;
-}
-
-/*--------------
-      Focus
----------------*/
+/*- Focus -*/
 
 .ui.button:focus {
   background-color: $focusBackgroundColor;
   background-image: $focusBackgroundImage;
   box-shadow: $focusBoxShadow;
   color: $focusColor;
+  .icon { opacity: $iconFocusOpacity; }
 }
 
-.ui.button:focus .icon {
-  opacity: $iconFocusOpacity;
-}
-
-/*--------------
-      Down
----------------*/
+/*- Down -*/
 
 .ui.button:active,
 .ui.active.button:active {
@@ -103,9 +76,7 @@ $import '../../theme.config';
   box-shadow: $downBoxShadow;
 }
 
-/*--------------
-     Active
----------------*/
+/*- Active -*/
 
 .ui.active.button {
   background-color: $activeBackgroundColor;
@@ -123,10 +94,7 @@ $import '../../theme.config';
   background-image: $activeBackgroundImage;
 }
 
-
-/*--------------
-    Loading
----------------*/
+/*- Loading -*/
 
 /* Specificity hack */
 .ui.loading.loading.loading.loading.loading.loading.button {
@@ -142,11 +110,9 @@ $import '../../theme.config';
   content: '';
   top: 50%;
   left: 50%;
-
   margin: $loaderMargin;
   width: $loaderSize;
   height: $loaderSize;
-
   border-radius: $circularRadius;
   border: $loaderLineWidth solid $invertedLoaderFillColor;
 }
@@ -155,20 +121,15 @@ $import '../../theme.config';
   content: '';
   top: 50%;
   left: 50%;
-
   margin: $loaderMargin;
   width: $loaderSize;
   height: $loaderSize;
-
   animation: button-adjust-hue $loaderSpeed linear;
   animation-iteration-count: infinite;
-
   border-radius: $circularRadius;
-
   border-color: $invertedLoaderLineColor transparent transparent;
   border-style: solid;
   border-width: $loaderLineWidth;
-
   box-shadow: 0px 0px 0px 1px transparent;
 }
 .ui.labeled.icon.loading.button .icon {
@@ -177,24 +138,14 @@ $import '../../theme.config';
 }
 
 @keyframes button-adjust-hue {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.ui.basic.loading.button:not(.inverted):before {
-  border-color: $loaderFillColor;
-}
-.ui.basic.loading.button:not(.inverted):after {
-  border-top-color: $loaderLineColor;
-}
+.ui.basic.loading.button:not(.inverted):before { border-color: $loaderFillColor; }
+.ui.basic.loading.button:not(.inverted):after { border-top-color: $loaderLineColor; }
 
-/*-------------------
-      Disabled
---------------------*/
+/*- Disabled -*/
 
 .ui.buttons .disabled.button,
 .ui.disabled.button,
@@ -209,37 +160,29 @@ $import '../../theme.config';
   pointer-events: none;
 }
 
-/*******************************
-             Types
-*******************************/
+/*** Types ***/
 
-/*-------------------
-       Animated
---------------------*/
+/*- Animated -*/
 
 .ui.animated.button {
   position: relative;
   overflow: hidden;
   padding-right: 0em !important;
-}
-
-.ui.animated.button .content {
-  will-change: transform, opacity;
-}
-.ui.animated.button .visible.content {
-  position: relative;
-  margin-right: $horizontalPadding;
-}
-.ui.animated.button .hidden.content {
-  position: absolute;
-  width: 100%;
+  .content { will-change: transform, opacity; }
+  .visible.content {
+    position: relative;
+    margin-right: $horizontalPadding;
+  }
+  .hidden.content {
+    position: absolute;
+    width: 100%;
+  }
 }
 
 /* Horizontal */
 .ui.animated.button .visible.content,
-.ui.animated.button .hidden.content {
-  transition: right $animationDuration $animationEasing 0s;
-}
+.ui.animated.button .hidden.content { transition: right $animationDuration $animationEasing 0s; }
+
 .ui.animated.button .visible.content {
   left: auto;
   right: 0%;
@@ -312,9 +255,7 @@ $import '../../theme.config';
   transform: scale(1);
 }
 
-/*-------------------
-       Inverted
---------------------*/
+/*- Inverted -*/
 
 .ui.inverted.button {
   box-shadow: 0px 0px 0px $invertedBorderSize $white inset !important;
@@ -323,31 +264,18 @@ $import '../../theme.config';
   text-shadow: none !important;
 }
 
-.ui.inverted.buttons .button {
-  margin: $invertedGroupButtonOffset;
-}
-.ui.inverted.buttons .button:first-child {
-  margin-left: 0em;
-}
-.ui.inverted.vertical.buttons .button {
-  margin: $invertedVerticalGroupButtonOffset;
-}
-.ui.inverted.vertical.buttons .button:first-child {
-  margin-top: 0em;
-}
-.ui.inverted.buttons .button:hover {
-  position: relative;
-}
+.ui.inverted.buttons .button { margin: $invertedGroupButtonOffset; }
+.ui.inverted.buttons .button:first-child { margin-left: 0em; }
+.ui.inverted.vertical.buttons .button { margin: $invertedVerticalGroupButtonOffset; }
+.ui.inverted.vertical.buttons .button:first-child { margin-top: 0em; }
+.ui.inverted.buttons .button:hover { position: relative; }
 .ui.inverted.button:hover {
   background: $white;
   box-shadow: 0px 0px 0px $invertedBorderSize $white inset !important;
   color: $hoverColor;
 }
 
-
-/*-------------------
-       Social
---------------------*/
+/*- Social -*/
 
 /* Facebook */
 .ui.facebook.button {
@@ -496,9 +424,7 @@ $import '../../theme.config';
   color: $white;
 }
 
-/*--------------
-     Icon
----------------*/
+/*- Icon -*/
 
 .ui.button > .icon {
   opacity: $iconOpacity;
@@ -506,18 +432,11 @@ $import '../../theme.config';
   transition: $iconTransition;
   vertical-align: $iconVerticalAlign;
 }
-.ui.button > .right.icon {
-  margin: $rightIconMargin;
-}
+.ui.button > .right.icon { margin: $rightIconMargin; }
 
-/*******************************
-           Variations
-*******************************/
+/*** Variations ***/
 
-
-/*-------------------
-       Floated
---------------------*/
+/*- Floated -*/
 
 .ui[class*="left floated"].buttons,
 .ui[class*="left floated"].button {
@@ -532,9 +451,7 @@ $import '../../theme.config';
   margin-left: $floatedMargin;
 }
 
-/*-------------------
-       Compact
---------------------*/
+/*- Compact -*/
 
 .ui.compact.buttons .button,
 .ui.compact.button {
@@ -549,54 +466,41 @@ $import '../../theme.config';
   padding: $compactVerticalPadding ($compactHorizontalPadding + $labeledIconWidth) ( $compactVerticalPadding + $shadowOffset );
 }
 
-/*-------------------
-        Sizes
---------------------*/
+/*- Sizes -*/
 
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
-.ui.mini.button {
-  font-size: $mini;
-}
+.ui.mini.button { font-size: $mini; }
+
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
-.ui.tiny.button {
-  font-size: $tiny;
-}
+.ui.tiny.button { font-size: $tiny; }
+
 .ui.small.buttons .button,
 .ui.small.buttons .or,
-.ui.small.button {
-  font-size: $small;
-}
+.ui.small.button { font-size: $small; }
+
 .ui.buttons .button,
 .ui.buttons .or,
-.ui.button {
-  font-size: $medium;
-}
+.ui.button { font-size: $medium; }
+
 .ui.large.buttons .button,
 .ui.large.buttons .or,
-.ui.large.button {
-  font-size: $large;
-}
+.ui.large.button { font-size: $large; }
+
 .ui.big.buttons .button,
 .ui.big.buttons .or,
-.ui.big.button {
-  font-size: $big;
-}
+.ui.big.button { font-size: $big; }
+
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
-.ui.huge.button {
-  font-size: $huge;
-}
+.ui.huge.button { font-size: $huge; }
+
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
-.ui.massive.button {
-  font-size: $massive;
-}
+.ui.massive.button { font-size: $massive; }
 
-/*--------------
-    Icon Only
----------------*/
+/*- Icon Only -*/
 
 .ui.icon.buttons .button,
 .ui.icon.button {
@@ -609,10 +513,7 @@ $import '../../theme.config';
   vertical-align: top;
 }
 
-
-/*-------------------
-        Basic
---------------------*/
+/*- Basic -*/
 
 .ui.basic.buttons .button,
 .ui.basic.button {
@@ -628,9 +529,7 @@ $import '../../theme.config';
 .ui.basic.buttons {
   box-shadow: $basicGroupBoxShadow;
   border-radius: $borderRadius;
-}
-.ui.basic.buttons .button {
-  border-radius: 0em;
+  .button { border-radius: 0em; }
 }
 
 .ui.basic.buttons .button:hover,
@@ -658,14 +557,10 @@ $import '../../theme.config';
 }
 
 /* Vertical */
-.ui.basic.buttons .button:hover {
-  box-shadow: $basicHoverBoxShadow inset;
-}
-.ui.basic.buttons .button:active {
-  box-shadow: $basicDownBoxShadow inset;
-}
-.ui.basic.buttons .button.active {
-  box-shadow: $selectedBorderColor inset;
+.ui.basic.buttons .button {
+  &:hover { box-shadow: $basicHoverBoxShadow inset; }
+  &:active { box-shadow: $basicDownBoxShadow inset; }
+  &.active { box-shadow: $selectedBorderColor inset; }
 }
 
 /* Standard Basic Inverted */
@@ -699,20 +594,14 @@ $import '../../theme.config';
   box-shadow: $basicInvertedHoverBoxShadow !important;
 }
 
-
 /* Basic Group */
 .ui.basic.buttons .button {
   border-left: $basicGroupBorder;
   box-shadow: none;
 }
-.ui.basic.vertical.buttons .button {
-  border-left: none;
-}
+.ui.basic.vertical.buttons .button { border-left: none; }
 
-
-/*--------------
-  Labeled Icon
----------------*/
+/*- Labeled Icon -*/
 
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
@@ -727,11 +616,9 @@ $import '../../theme.config';
   position: absolute;
   width: $labeledIconWidth;
   height: 100%;
-
   background-color: $labeledIconBackgroundColor;
   text-align: center;
   color: $labeledIconColor;
-
   border-radius: $borderRadius 0px 0px $borderRadius;
   line-height: 1;
   box-shadow: $labeledIconLeftShadow;
@@ -756,7 +643,6 @@ $import '../../theme.config';
   box-shadow: $labeledIconRightShadow;
 }
 
-
 .ui.labeled.icon.buttons > .button > .icon:before,
 .ui.labeled.icon.button > .icon:before,
 .ui.labeled.icon.buttons > .button > .icon:after,
@@ -769,9 +655,8 @@ $import '../../theme.config';
   margin-top: -0.5em;
 }
 
-.ui.labeled.icon.buttons .button > .icon {
-  border-radius: 0em;
-}
+.ui.labeled.icon.buttons .button > .icon { border-radius: 0em; }
+
 .ui.labeled.icon.buttons .button:first-child > .icon {
   border-top-left-radius: $borderRadius;
   border-bottom-left-radius: $borderRadius;
@@ -796,12 +681,7 @@ $import '../../theme.config';
   padding-right: $horizontalPadding !important;
 }
 
-
-
-
-/*--------------
-     Toggle
----------------*/
+/*- Toggle -*/
 
 /* Toggle (Modifies active state to give affordances) */
 .ui.toggle.buttons .active.button,
@@ -818,22 +698,17 @@ $import '../../theme.config';
   color: $invertedTextColor !important;
 }
 
-/*--------------
-    Circular
----------------*/
+/*- Circular -*/
 
 .ui.circular.button {
   border-radius: 10em;
-}
-.ui.circular.button > .icon {
-  width: 1em;
-  vertical-align: baseline;
+  > .icon {
+    width: 1em;
+    vertical-align: baseline;
+  }
 }
 
-
-/*--------------
-     Attached
----------------*/
+/*- Attached -*/
 
 .ui.attached.button {
   display: block;
@@ -841,16 +716,12 @@ $import '../../theme.config';
   box-shadow: $attachedBoxShadow !important;
   border-radius: 0em;
 }
-.ui.attached.top.button {
-  border-radius: $borderRadius $borderRadius 0em 0em;
-}
-.ui.attached.bottom.button {
-  border-radius: 0em 0em $borderRadius $borderRadius;
-}
+.ui.attached.top.button { border-radius: $borderRadius $borderRadius 0em 0em; }
+.ui.attached.bottom.button { border-radius: 0em 0em $borderRadius $borderRadius; }
+
 .ui.attached.left.button {
   display: inline-block;
   border-left: none;
-
   padding-right: $attachedHorizontalPadding;
   text-align: right;
   border-radius: $borderRadius 0em 0em $borderRadius;
@@ -862,11 +733,7 @@ $import '../../theme.config';
   border-radius: 0em $borderRadius $borderRadius 0em;
 }
 
-
-
-/*-------------------
-      Or Buttons
---------------------*/
+/*- Or Buttons -*/
 
 .ui.buttons .or {
   position: relative;
@@ -874,100 +741,83 @@ $import '../../theme.config';
   width: $orGap;
   height: $orHeight;
   z-index: 3;
-}
-.ui.buttons .or:before {
-  position: absolute;
-  content: $orText;
-  top: 50%;
-  left: 50%;
-  background-color: $orBackgroundColor;
-  text-shadow: $orTextShadow;
-
-  margin-top: $orVerticalOffset;
-  margin-left: $orHorizontalOffset;
-
-  width: $orCircleSize;
-  height: $orCircleSize;
-
-  line-height: $orLineHeight;
-  color: $orTextColor;
-
-  font-style: $orTextStyle;
-  font-weight: $orTextWeight;
-  text-align: center;
-
-  border-radius: 500em;
-  box-shadow: $orBoxShadow;
-}
-.ui.buttons .or[data-text]:before {
-  content: attr(data-text);
+  &:before {
+    position: absolute;
+    content: $orText;
+    top: 50%;
+    left: 50%;
+    background-color: $orBackgroundColor;
+    text-shadow: $orTextShadow;
+    margin-top: $orVerticalOffset;
+    margin-left: $orHorizontalOffset;
+    width: $orCircleSize;
+    height: $orCircleSize;
+    line-height: $orLineHeight;
+    color: $orTextColor;
+    font-style: $orTextStyle;
+    font-weight: $orTextWeight;
+    text-align: center;
+    border-radius: 500em;
+    box-shadow: $orBoxShadow;
+  }
+  &[data-text]:before { content: attr(data-text); }
 }
 
 /* Fluid Or */
 .ui.fluid.buttons .or {
   width: 0em !important;
-}
-.ui.fluid.buttons .or:after {
-  display: none;
+  &:after { display: none; }
 }
 
-
-/*-------------------
-       Attached
---------------------*/
+/*- Attached -*/
 
 /* Plural Attached */
 .attached.ui.buttons {
   margin: 0px;
   border-radius: 0em 0em 0em 0em;
-}
-.attached.ui.buttons .button {
-  margin: 0em;
-}
-.attached.ui.buttons .button:first-child {
-  border-radius: 0em 0em 0em 0em;
-}
-.attached.ui.buttons .button:last-child {
-  border-radius: 0em 0em 0em 0em;
+  .button {
+    margin: 0em;
+    &:first-child { border-radius: 0em 0em 0em 0em; }
+    &:last-child { border-radius: 0em 0em 0em 0em; }
+  }
 }
 
 /* Top Side */
 [class*="top attached"].ui.buttons {
   margin-bottom: $attachedOffset;
   border-radius: $borderRadius $borderRadius 0em 0em;
-}
-[class*="top attached"].ui.buttons .button:first-child {
-  border-radius: $borderRadius 0em 0em 0em;
-}
-[class*="top attached"].ui.buttons .button:last-child {
-  border-radius: 0em $borderRadius 0em 0em;
+  .button {
+    &:first-child { border-radius: $borderRadius 0em 0em 0em; }
+    &:last-child { border-radius: 0em $borderRadius 0em 0em; }
+  }
 }
 
 /* Bottom Side */
 [class*="bottom attached"].ui.buttons {
   margin-top: $attachedOffset;
   border-radius: 0em 0em $borderRadius $borderRadius;
-}
-[class*="bottom attached"].ui.buttons .button:first-child {
-  border-radius: 0em 0em 0em $borderRadius;
-}
-[class*="bottom attached"].ui.buttons .button:last-child {
-  border-radius: 0em 0em $borderRadius 0em;
+  .button {
+    &:first-child { border-radius: 0em 0em 0em $borderRadius; }
+    &:last-child { border-radius: 0em 0em $borderRadius 0em; }
+  }
 }
 
 /* Left Side */
 [class*="left attached"].ui.buttons {
   margin-left: $attachedOffset;
   border-radius: 0em $borderRadius $borderRadius 0em;
+  .button {
+    &:first-child {
+      margin-left: $attachedOffset;
+      border-radius: 0em $borderRadius 0em 0em;
+    }
+    &:last-child {
+      margin-left: $attachedOffset;
+      border-radius: 0em 0em $borderRadius 0em;
+    }
+  }
 }
-[class*="left attached"].ui.buttons .button:first-child {
-  margin-left: $attachedOffset;
-  border-radius: 0em $borderRadius 0em 0em;
-}
-[class*="left attached"].ui.buttons .button:last-child {
-  margin-left: $attachedOffset;
-  border-radius: 0em 0em $borderRadius 0em;
-}
+
 /* Right Side */
 [class*="right attached"].ui.buttons,
 [class*="right attached"].ui.buttons .button {
@@ -983,8 +833,6 @@ $import '../../theme.config';
   border-radius: 0em 0em 0em $borderRadius;
 }
 
-
-
 /* Fluid */
 .ui.fluid.buttons,
 .ui.button.fluid,
@@ -994,103 +842,70 @@ $import '../../theme.config';
 }
 
 .ui.\32.buttons,
-.ui.two.buttons {
-  width: 100%;
-}
+.ui.two.buttons { width: 100%; }
+
 .ui.\32.buttons > .button,
-.ui.two.buttons > .button {
-  width: 50%;
-}
+.ui.two.buttons > .button { width: 50%; }
 
 .ui.\33.buttons,
-.ui.three.buttons {
-  width: 100%;
-}
+.ui.three.buttons { width: 100%; }
+
 .ui.\33.buttons > .button,
-.ui.three.buttons > .button {
-  width: 33.333%;
-}
+.ui.three.buttons > .button { width: 33.333%; }
 
 .ui.\34.buttons,
-.ui.four.buttons {
-  width: 100%;
-}
+.ui.four.buttons { width: 100%; }
+
 .ui.\34.buttons > .button,
-.ui.four.buttons > .button {
-  width: 25%;
-}
+.ui.four.buttons > .button { width: 25%; }
 
 .ui.\35.buttons,
-.ui.five.buttons {
-  width: 100%;
-}
+.ui.five.buttons { width: 100%; }
+
 .ui.\35.buttons > .button,
-.ui.five.buttons > .button {
-  width: 20%;
-}
+.ui.five.buttons > .button { width: 20%; }
 
 .ui.\36.buttons,
-.ui.six.buttons {
-  width: 100%;
-}
+.ui.six.buttons { width: 100%; }
+
 .ui.\36.buttons > .button,
-.ui.six.buttons > .button {
-  width: 16.666%;
-}
+.ui.six.buttons > .button { width: 16.666%; }
 
 .ui.\37.buttons,
-.ui.seven.buttons {
-  width: 100%;
-}
+.ui.seven.buttons { width: 100%; }
+
 .ui.\37.buttons > .button,
-.ui.seven.buttons > .button {
-  width: 14.285%;
-}
+.ui.seven.buttons > .button { width: 14.285%; }
 
 .ui.\38.buttons,
-.ui.eight.buttons {
-  width: 100%;
-}
+.ui.eight.buttons { width: 100%; }
+
 .ui.\38.buttons > .button,
-.ui.eight.buttons > .button {
-  width: 12.500%;
-}
+.ui.eight.buttons > .button { width: 12.500%; }
 
 .ui.\39.buttons,
-.ui.nine.buttons {
-  width: 100%;
-}
+.ui.nine.buttons { width: 100%; }
+
 .ui.\39.buttons > .button,
-.ui.nine.buttons > .button {
-  width: 11.11%;
-}
+.ui.nine.buttons > .button { width: 11.11%; }
 
 .ui.\31\30.buttons,
-.ui.ten.buttons {
-  width: 100%;
-}
+.ui.ten.buttons { width: 100%; }
+
 .ui.\31\30.buttons > .button,
-.ui.ten.buttons > .button {
-  width: 10%;
-}
+.ui.ten.buttons > .button { width: 10%; }
 
 .ui.\31\31.buttons,
-.ui.eleven.buttons {
-  width: 100%;
-}
+.ui.eleven.buttons { width: 100%; }
+
 .ui.\31\31.buttons > .button,
-.ui.eleven.buttons > .button {
-  width: 9.09%;
-}
+.ui.eleven.buttons > .button { width: 9.09%; }
 
 .ui.\31\32.buttons,
-.ui.twelve.buttons {
-  width: 100%;
-}
+.ui.twelve.buttons { width: 100%; }
+
 .ui.\31\32.buttons > .button,
-.ui.twelve.buttons > .button {
-  width: 8.3333%;
-}
+.ui.twelve.buttons > .button { width: 8.3333%; }
 
 /* Fluid Vertical Buttons */
 .ui.fluid.vertical.buttons,
@@ -1100,54 +915,39 @@ $import '../../theme.config';
 }
 
 .ui.\32.vertical.buttons > .button,
-.ui.two.vertical.buttons > .button {
-  height: 50%;
-}
+.ui.two.vertical.buttons > .button { height: 50%; }
+
 .ui.\33.vertical.buttons > .button,
-.ui.three.vertical.buttons > .button {
-  height: 33.333%;
-}
+.ui.three.vertical.buttons > .button { height: 33.333%; }
+
 .ui.\34.vertical.buttons > .button,
-.ui.four.vertical.buttons > .button {
-  height: 25%;
-}
+.ui.four.vertical.buttons > .button { height: 25%; }
+
 .ui.\35.vertical.buttons > .button,
-.ui.five.vertical.buttons > .button {
-  height: 20%;
-}
+.ui.five.vertical.buttons > .button { height: 20%; }
+
 .ui.\36.vertical.buttons > .button,
-.ui.six.vertical.buttons > .button {
-  height: 16.666%;
-}
+.ui.six.vertical.buttons > .button { height: 16.666%; }
+
 .ui.\37.vertical.buttons > .button,
-.ui.seven.vertical.buttons > .button {
-  height: 14.285%;
-}
+.ui.seven.vertical.buttons > .button { height: 14.285%; }
+
 .ui.\38.vertical.buttons > .button,
-.ui.eight.vertical.buttons > .button {
-  height: 12.500%;
-}
+.ui.eight.vertical.buttons > .button { height: 12.500%; }
+
 .ui.\39.vertical.buttons > .button,
-.ui.nine.vertical.buttons > .button {
-  height: 11.11%;
-}
+.ui.nine.vertical.buttons > .button { height: 11.11%; }
+
 .ui.\31\30.vertical.buttons > .button,
-.ui.ten.vertical.buttons > .button {
-  height: 10%;
-}
+.ui.ten.vertical.buttons > .button { height: 10%; }
+
 .ui.\31\31.vertical.buttons > .button,
-.ui.eleven.vertical.buttons > .button {
-  height: 9.09%;
-}
+.ui.eleven.vertical.buttons > .button { height: 9.09%; }
+
 .ui.\31\32.vertical.buttons > .button,
-.ui.twelve.vertical.buttons > .button {
-  height: 8.3333%;
-}
+.ui.twelve.vertical.buttons > .button { height: 8.3333%; }
 
-
-/*-------------------
-       Colors
---------------------*/
+/*- Colors -*/
 
 /*--- Black ---*/
 .ui.black.buttons .button,
@@ -1157,9 +957,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.black.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.black.button { box-shadow: $coloredBoxShadow; }
+
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
   background-color: $blackHover;
@@ -1204,9 +1003,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $blackDown inset !important;
   color: $blackDown !important;
 }
-.ui.buttons > .basic.black.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.black.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.black.buttons .button,
@@ -1261,8 +1058,6 @@ $import '../../theme.config';
   color: $white !important;
 }
 
-
-
 /*--- Blue ---*/
 .ui.blue.buttons .button,
 .ui.blue.button {
@@ -1271,9 +1066,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.blue.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.blue.button { box-shadow: $coloredBoxShadow; }
+
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
   background-color: $blueHover;
@@ -1294,7 +1088,6 @@ $import '../../theme.config';
   color: $invertedTextColor;
   text-shadow: $invertedTextShadow;
 }
-
 
 /* Basic */
 .ui.basic.blue.buttons .button,
@@ -1319,9 +1112,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $blueDown inset !important;
   color: $blueDown !important;
 }
-.ui.buttons > .basic.blue.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.blue.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.blue.buttons .button,
@@ -1384,9 +1175,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.green.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.green.button { box-shadow: $coloredBoxShadow; }
+
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
   background-color: $greenHover;
@@ -1407,7 +1197,6 @@ $import '../../theme.config';
   color: $invertedTextColor;
   text-shadow: $invertedTextShadow;
 }
-
 
 /* Basic */
 .ui.basic.green.buttons .button,
@@ -1432,9 +1221,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $greenDown inset !important;
   color: $greenDown !important;
 }
-.ui.buttons > .basic.green.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.green.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.green.buttons .button,
@@ -1497,9 +1284,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.orange.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.orange.button { box-shadow: $coloredBoxShadow; }
+
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
   background-color: $orangeHover;
@@ -1544,9 +1330,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $orangeDown inset !important;
   color: $orangeDown !important;
 }
-.ui.buttons > .basic.orange.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.orange.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.orange.buttons .button,
@@ -1609,9 +1393,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.pink.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.pink.button { box-shadow: $coloredBoxShadow; }
+
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
   background-color: $pinkHover;
@@ -1656,9 +1439,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $pinkDown inset !important;
   color: $pinkDown !important;
 }
-.ui.buttons > .basic.pink.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.pink.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.pink.buttons .button,
@@ -1721,9 +1502,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.purple.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.purple.button { box-shadow: $coloredBoxShadow; }
+
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
   background-color: $purpleHover;
@@ -1833,9 +1613,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.red.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.red.button { box-shadow: $coloredBoxShadow; }
+
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
   background-color: $redHover;
@@ -1880,9 +1659,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $redDown inset !important;
   color: $redDown !important;
 }
-.ui.buttons > .basic.red.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.red.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.red.buttons .button,
@@ -1937,7 +1714,6 @@ $import '../../theme.config';
   color: $lightRed !important;
 }
 
-
 /*--- Teal ---*/
 .ui.teal.buttons .button,
 .ui.teal.button {
@@ -1946,9 +1722,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.teal.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.teal.button { box-shadow: $coloredBoxShadow; }
+
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
   background-color: $tealHover;
@@ -1993,9 +1768,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $tealDown inset !important;
   color: $tealDown !important;
 }
-.ui.buttons > .basic.teal.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.teal.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.teal.buttons .button,
@@ -2050,7 +1823,6 @@ $import '../../theme.config';
   color: $lightTeal !important;
 }
 
-
 /*--- Yellow ---*/
 .ui.yellow.buttons .button,
 .ui.yellow.button {
@@ -2059,9 +1831,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.yellow.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.yellow.button { box-shadow: $coloredBoxShadow; }
+
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
   background-color: $yellowHover;
@@ -2106,9 +1877,7 @@ $import '../../theme.config';
   box-shadow: 0px 0px 0px $basicColoredBorderSize $yellowDown inset !important;
   color: $yellowDown !important;
 }
-.ui.buttons > .basic.yellow.button:not(:first-child) {
-  margin-left: -$basicColoredBorderSize;
-}
+.ui.buttons > .basic.yellow.button:not(:first-child) { margin-left: -$basicColoredBorderSize; }
 
 /* Inverted */
 .ui.inverted.yellow.buttons .button,
@@ -2163,10 +1932,7 @@ $import '../../theme.config';
   color: $lightYellow !important;
 }
 
-
-/*-------------------
-       Primary
---------------------*/
+/*- Primary -*/
 
 .ui.primary.buttons .button,
 .ui.primary.button {
@@ -2175,9 +1941,8 @@ $import '../../theme.config';
   text-shadow: $primaryTextShadow;
   background-image: $primaryBackgroundImage;
 }
-.ui.primary.button {
-  box-shadow: $primaryBoxShadow;
-}
+.ui.primary.button { box-shadow: $primaryBoxShadow; }
+
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
   background-color: $primaryColorHover;
@@ -2197,9 +1962,7 @@ $import '../../theme.config';
   text-shadow: $primaryTextShadow;
 }
 
-/*-------------------
-      Secondary
---------------------*/
+/*- Secondary -*/
 
 .ui.secondary.buttons .button,
 .ui.secondary.button {
@@ -2208,9 +1971,8 @@ $import '../../theme.config';
   text-shadow: $secondaryTextShadow;
   background-image: $secondaryBackgroundImage;
 }
-.ui.secondary.button {
-  box-shadow: $secondaryBoxShadow;
-}
+.ui.secondary.button { box-shadow: $secondaryBoxShadow; }
+
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
   background-color: $secondaryColorHover;
@@ -2230,9 +1992,7 @@ $import '../../theme.config';
   text-shadow: $secondaryTextShadow;
 }
 
-/*---------------
-    Positive
-----------------*/
+/*- Positive -*/
 
 .ui.positive.buttons .button,
 .ui.positive.button {
@@ -2241,9 +2001,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.positive.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.positive.button { box-shadow: $coloredBoxShadow; }
+
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
@@ -2267,10 +2026,7 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
 }
 
-
-/*---------------
-     Negative
-----------------*/
+/*- Negative -*/
 
 .ui.negative.buttons .button,
 .ui.negative.button {
@@ -2279,9 +2035,8 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
   background-image: $coloredBackgroundImage;
 }
-.ui.negative.button {
-  box-shadow: $coloredBoxShadow;
-}
+.ui.negative.button { box-shadow: $coloredBoxShadow; }
+
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
@@ -2305,38 +2060,25 @@ $import '../../theme.config';
   text-shadow: $invertedTextShadow;
 }
 
-/*******************************
-            Groups
-*******************************/
+/*** Groups ***/
 
 .ui.buttons {
   display: inline-block;
   vertical-align: middle;
   margin: $verticalMargin $horizontalMargin 0em 0em;
+  > .button:hover, > .button.active { position: relative; }
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  .button:first-child { border-left: none; }
+  &:not(.basic):not(.inverted) { box-shadow: $groupBoxShadow; }
+  & > .ui.button:not(.basic):not(.inverted),
+  &:not(.basic):not(.inverted) > .button { box-shadow: $groupButtonBoxShadow; }
 }
-.ui.buttons > .button:hover,
-.ui.buttons > .button.active {
-  position: relative;
-}
-.ui.buttons:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-.ui.buttons .button:first-child {
-  border-left: none;
-}
-
-.ui.buttons:not(.basic):not(.inverted) {
-  box-shadow: $groupBoxShadow;
-}
-.ui.buttons > .ui.button:not(.basic):not(.inverted),
-.ui.buttons:not(.basic):not(.inverted) > .button {
-  box-shadow: $groupButtonBoxShadow;
-}
-
 
 .ui.buttons .button {
   margin: 0em;
