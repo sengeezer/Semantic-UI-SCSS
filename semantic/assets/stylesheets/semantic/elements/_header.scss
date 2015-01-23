@@ -9,18 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'header';
-
 $import '../../theme.config';
 
-/*******************************
-            Header
-*******************************/
+/*** Header ***/
 
 /* Standard */
 .ui.header {
@@ -32,276 +27,164 @@ $import '../../theme.config';
   line-height: $lineHeight;
   text-transform: $textTransform;
   color: $textColor;
+  .sub.header {
+    font-size: $subHeaderFontSize;
+    font-weight: normal;
+    margin: 0em;
+    padding: 0em;
+    line-height: $subHeaderLineHeight;
+    color: $subHeaderColor;
+  }
 }
-
-.ui.header .sub.header {
-  font-size: $subHeaderFontSize;
-  font-weight: normal;
-  margin: 0em;
-  padding: 0em;
-
-  line-height: $subHeaderLineHeight;
-  color: $subHeaderColor;
-}
-
 /* Icon and Content Together */
 .ui.header > .icon {
   display: table-cell;
   opacity: $iconOpacity;
   font-size: $iconSize;
   padding-top: $iconOffset;
-
   vertical-align: $iconAlignment;
   padding-right: ($iconMargin / 2);
-}
-.ui.header > .icon + .content {
-  padding-left: ($iconMargin / 2);
-  display: table-cell;
+  + .content {
+    padding-left: ($iconMargin / 2);
+    display: table-cell;
+  }
 }
 
 /* Only One */
-.ui.header .icon:only-child {
-  display: inline-block;
-  padding: 0em;
-  margin-right: ($iconMargin / 2);
-  vertical-align: baseline;
-}
-.ui.header .content {
-  display: inline-block;
-  vertical-align: $contentAlignment;
-}
-.ui.header .icon + .content {
-  vertical-align: $contentIconAlignment;
+.ui.header {
+  .icon:only-child {
+    display: inline-block;
+    padding: 0em;
+    margin-right: ($iconMargin / 2);
+    vertical-align: baseline;
+  }
+  .content {
+    display: inline-block;
+    vertical-align: $contentAlignment;
+  }
+  .icon + .content { vertical-align: $contentIconAlignment; }
 }
 
 /* Positioning */
-.ui.header:first-child {
-  margin-top: $firstMargin;
-}
-.ui.header:last-child {
-  margin-bottom: $lastMargin;
-}
-.ui.header + p {
-  margin-top: $nextParagraphTopMargin;
+.ui.header {
+  &:first-child { margin-top: $firstMargin; }
+  &:last-child { margin-bottom: $lastMargin; }
+  + p { margin-top: $nextParagraphTopMargin; }
 }
 
-
-/*--------------
-  Page Heading
----------------*/
+/*- Page Heading -*/
 
 h1.ui.header {
   min-height: 1rem;
   font-size: $h1;
 }
-h2.ui.header {
-  font-size: $h2;
-}
-h3.ui.header {
-  font-size: $h3;
-}
-h4.ui.header {
-  font-size: $h4;
-}
-h5.ui.header {
-  font-size: $h5;
-}
+h2.ui.header { font-size: $h2; }
+h3.ui.header { font-size: $h3; }
+h4.ui.header { font-size: $h4; }
+h5.ui.header { font-size: $h5; }
 
-/*--------------
- Content Heading
----------------*/
+/*- Content Heading -*/
 
-.ui.tiny.header {
-  font-size: $tiny;
-}
-.ui.small.header {
-  font-size: $small;
-}
-.ui.medium.header {
-  font-size: $medium;
-}
-.ui.large.header {
-  font-size: $large;
-}
+.ui.tiny.header { font-size: $tiny; }
+.ui.small.header { font-size: $small; }
+.ui.medium.header { font-size: $medium; }
+.ui.large.header { font-size: $large; }
 .ui.huge.header {
   min-height: 1em;
   font-size: $huge;
 }
 
-
-/*--------------
- Loose Coupling
----------------*/
+/*- Loose Coupling -*/
 
 .ui.header .ui.label {
   margin: 0em 0em 0em $labelDistance;
   vertical-align: $labelVerticalAlign;
 }
 
+/*** Types ***/
 
-/*******************************
-            Types
-*******************************/
-
-/*-------------------
-        Icon
---------------------*/
+/*- Icon -*/
 
 .ui.icon.header {
   display: block;
   text-align: center;
   margin: $iconHeaderTopMargin 0em $iconHeaderBottomMargin;
+  &:first-child { margin-top: $iconHeaderFirstMargin; }
+  .icon {
+    float: none;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0em;
+    font-size: $iconHeaderSize;
+    margin: 0em auto $iconHeaderMargin;
+    opacity: $iconHeaderOpacity;
+  }
+  .content { display: block; }
+  .circular.icon { font-size: $circularHeaderIconSize; }
+  .square.icon { font-size: $squareHeaderIconSize; }
 }
-.ui.icon.header:first-child {
-  margin-top: $iconHeaderFirstMargin;
-}
-.ui.icon.header .icon {
-  float: none;
-  display: block;
-  width: auto;
-  height: auto;
-  padding: 0em;
-  font-size: $iconHeaderSize;
-  margin: 0em auto $iconHeaderMargin;
-  opacity: $iconHeaderOpacity;
-}
-.ui.icon.header .content {
-  display: block;
-}
-.ui.icon.header .circular.icon {
-  font-size: $circularHeaderIconSize;
-}
-.ui.icon.header .square.icon {
-  font-size: $squareHeaderIconSize;
-}
-.ui.block.icon.header .icon {
-  margin-bottom: 0em;
-}
+
+.ui.block.icon.header .icon { margin-bottom: 0em; }
+
 .ui.icon.header.aligned {
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
 
-/*******************************
-            States
-*******************************/
+/*** States ***/
 
-.ui.disabled.header {
-  opacity: $disabledOpacity;
-}
+.ui.disabled.header { opacity: $disabledOpacity; }
 
+/*** Variations ***/
 
-/*******************************
-           Variations
-*******************************/
+/*- Colors -*/
 
+.ui.black.header { color: $black !important; }
+a.ui.black.header:hover { color: $blackHover !important; }
 
-/*-------------------
-       Colors
---------------------*/
+.ui.blue.header { color: $blue !important; }
+a.ui.blue.header:hover { color: $blueHover !important; }
 
-.ui.black.header {
-  color: $black !important;
-}
-a.ui.black.header:hover {
-  color: $blackHover !important;
-}
+.ui.green.header { color: $green !important; }
+a.ui.green.header:hover { color: $greenHover !important; }
 
-.ui.blue.header {
-  color: $blue !important;
-}
-a.ui.blue.header:hover {
-  color: $blueHover !important;
-}
+.ui.orange.header { color: $orange !important; }
+a.ui.orange.header:hover { color: $orangeHover !important; }
 
-.ui.green.header {
-  color: $green !important;
-}
-a.ui.green.header:hover {
-  color: $greenHover !important;
-}
+.ui.pink.header { color: $pink !important; }
+a.ui.pink.header:hover { color: $pinkHover !important; }
 
-.ui.orange.header {
-  color: $orange !important;
-}
-a.ui.orange.header:hover {
-  color: $orangeHover !important;
-}
+.ui.purple.header { color: $purple !important; }
+a.ui.purple.header:hover { color: $purpleHover !important; }
 
-.ui.pink.header {
-  color: $pink !important;
-}
-a.ui.pink.header:hover {
-  color: $pinkHover !important;
-}
+.ui.red.header { color: $red !important; }
+a.ui.red.header:hover { color: $redHover !important; }
 
-.ui.purple.header {
-  color: $purple !important;
-}
-a.ui.purple.header:hover {
-  color: $purpleHover !important;
-}
+.ui.teal.header { color: $teal !important; }
+a.ui.teal.header:hover { color: $tealHover !important; }
 
-.ui.red.header {
-  color: $red !important;
-}
-a.ui.red.header:hover {
-  color: $redHover !important;
-}
+.ui.yellow.header { color: $yellow !important; }
+a.ui.yellow.header:hover { color: $yellowHover !important; }
 
-.ui.teal.header {
-  color: $teal !important;
-}
-a.ui.teal.header:hover {
-  color: $tealHover !important;
-}
+.ui.black.dividing.header { border-bottom: $dividedColoredBorderWidth solid $blackDividedBorderColor; }
+.ui.blue.dividing.header { border-bottom: $dividedColoredBorderWidth solid $blueDividedBorderColor; }
+.ui.green.dividing.header { border-bottom: $dividedColoredBorderWidth solid $greenDividedBorderColor; }
+.ui.orange.dividing.header { border-bottom: $dividedColoredBorderWidth solid $orangeDividedBorderColor; }
+.ui.pink.dividing.header { border-bottom: $dividedColoredBorderWidth solid $pinkDividedBorderColor; }
+.ui.purple.dividing.header { border-bottom: $dividedColoredBorderWidth solid $purpleDividedBorderColor; }
+.ui.red.dividing.header { border-bottom: $dividedColoredBorderWidth solid $redDividedBorderColor; }
+.ui.teal.dividing.header { border-bottom: $dividedColoredBorderWidth solid $tealDividedBorderColor; }
+.ui.yellow.dividing.header { border-bottom: $dividedColoredBorderWidth solid $yellowDividedBorderColor; }
 
-.ui.yellow.header {
-  color: $yellow !important;
-}
-a.ui.yellow.header:hover {
-  color: $yellowHover !important;
-}
-
-.ui.black.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $blackDividedBorderColor;
-}
-.ui.blue.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $blueDividedBorderColor;
-}
-.ui.green.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $greenDividedBorderColor;
-}
-.ui.orange.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $orangeDividedBorderColor;
-}
-.ui.pink.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $pinkDividedBorderColor;
-}
-.ui.purple.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $purpleDividedBorderColor;
-}
-.ui.red.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $redDividedBorderColor;
-}
-.ui.teal.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $tealDividedBorderColor;
-}
-.ui.yellow.dividing.header {
-  border-bottom: $dividedColoredBorderWidth solid $yellowDividedBorderColor;
-}
-
-/*-------------------
-      Inverted
---------------------*/
+/*- Inverted -*/
 
 .ui.inverted.header {
   color: $invertedColor;
+  .sub.header { color: $invertedSubHeaderColor; }
 }
-.ui.inverted.header .sub.header {
-  color: $invertedSubHeaderColor;
-}
+
 .ui.inverted.attached.header {
   background: $invertedAttachedBackground;
   box-shadow: none;
@@ -311,104 +194,55 @@ a.ui.yellow.header:hover {
   box-shadow: none;
 }
 
+/*- Inverted Colors -*/
 
-/*-------------------
-   Inverted Colors
---------------------*/
+.ui.inverted.black.header { color: $darkGrey !important; }
+a.ui.inverted.black.header:hover { color: $darkGreyHover !important; }
 
-.ui.inverted.black.header {
-  color: $darkGrey !important;
-}
-a.ui.inverted.black.header:hover {
-  color: $darkGreyHover !important;
-}
+.ui.inverted.blue.header { color: $lightBlue !important; }
+a.ui.inverted.blue.header:hover { color: $lightBlueHover !important; }
 
-.ui.inverted.blue.header {
-  color: $lightBlue !important;
-}
-a.ui.inverted.blue.header:hover {
-  color: $lightBlueHover !important;
-}
+.ui.inverted.green.header { color: $lightGreen !important; }
+a.ui.inverted.green.header:hover { color: $lightGreenHover !important; }
 
-.ui.inverted.green.header {
-  color: $lightGreen !important;
-}
-a.ui.inverted.green.header:hover {
-  color: $lightGreenHover !important;
-}
+.ui.inverted.orange.header { color: $lightOrange !important; }
+a.ui.inverted.orange.header:hover { color: $lightOrangeHover !important; }
 
-.ui.inverted.orange.header {
-  color: $lightOrange !important;
-}
-a.ui.inverted.orange.header:hover {
-  color: $lightOrangeHover !important;
-}
+.ui.inverted.pink.header { color: $lightPink !important; }
+a.ui.inverted.pink.header:hover { color: $lightPinkHover !important; }
 
-.ui.inverted.pink.header {
-  color: $lightPink !important;
-}
-a.ui.inverted.pink.header:hover {
-  color: $lightPinkHover !important;
-}
+.ui.inverted.purple.header { color: $lightPurple !important; }
+a.ui.inverted.purple.header:hover { color: $lightPurpleHover !important; }
 
-.ui.inverted.purple.header {
-  color: $lightPurple !important;
-}
-a.ui.inverted.purple.header:hover {
-  color: $lightPurpleHover !important;
-}
+.ui.inverted.red.header { color: $lightRed !important; }
+a.ui.inverted.red.header:hover { color: $lightRedHover !important; }
 
-.ui.inverted.red.header {
-  color: $lightRed !important;
-}
-a.ui.inverted.red.header:hover {
-  color: $lightRedHover !important;
-}
+.ui.inverted.teal.header { color: $lightTeal !important; }
+a.ui.inverted.teal.header:hover { color: $lightTealHover !important;}
 
-.ui.inverted.teal.header {
-  color: $lightTeal !important;
-}
-a.ui.inverted.teal.header:hover {
-  color: $lightTealHover !important;
-}
+.ui.inverted.yellow.header { color: $lightYellow !important; }
+a.ui.inverted.yellow.header:hover { color: $lightYellowHover !important; }
 
-.ui.inverted.yellow.header {
-  color: $lightYellow !important;
-}
-a.ui.inverted.yellow.header:hover {
-  color: $lightYellowHover !important;
-}
+.ui.inverted.block.header { border-bottom: none; }
 
-.ui.inverted.block.header {
-  border-bottom: none;
-}
+/*- Aligned -*/
 
-/*-------------------
-       Aligned
---------------------*/
+.ui.left.aligned.header { text-align: left; }
+.ui.right.aligned.header { text-align: right; }
 
-.ui.left.aligned.header {
-  text-align: left;
-}
-.ui.right.aligned.header {
-  text-align: right;
-}
 .ui.centered.header,
-.ui.center.aligned.header {
-  text-align: center;
-}
+.ui.center.aligned.header { text-align: center; }
+
 .ui.justified.header {
   text-align: justify;
-}
-.ui.justified.header:after {
-  display: inline-block;
-  content: '';
-  width: 100%;
+  &:after {
+    display: inline-block;
+    content: '';
+    width: 100%;
+  }
 }
 
-/*-------------------
-       Floated
---------------------*/
+/*- Floated -*/
 
 .ui.floated.header,
 .ui.left.floated.header {
@@ -422,38 +256,22 @@ a.ui.inverted.yellow.header:hover {
   margin-left: $floatedMargin;
 }
 
-/*-------------------
-       Fittted
---------------------*/
+/*- Fittted -*/
 
-.ui.fitted.header {
-  padding: 0em;
-}
+.ui.fitted.header { padding: 0em; }
 
-
-/*-------------------
-      Dividing
---------------------*/
+/*- Dividing -*/
 
 .ui.dividing.header {
   padding-bottom: $dividedBorderPadding;
   border-bottom: $dividedBorder;
-}
-.ui.dividing.header .sub.header {
-  padding-bottom: $dividedSubHeaderPadding;
-}
-.ui.dividing.header .icon {
-  margin-bottom: $dividedIconPadding;
+  .sub.header { padding-bottom: $dividedSubHeaderPadding; }
+  .icon { margin-bottom: $dividedIconPadding; }
 }
 
-.ui.inverted.dividing.header {
-  border-bottom-color: $invertedDividedBorderColor;
-}
+.ui.inverted.dividing.header { border-bottom-color: $invertedDividedBorderColor; }
 
-
-/*-------------------
-        Block
---------------------*/
+/*- Block -*/
 
 .ui.block.header {
   background: $blockBackground;
@@ -463,25 +281,14 @@ a.ui.inverted.yellow.header:hover {
   border-radius: $blockBorderRadius;
 }
 
-.ui.tiny.block.header {
-  font-size: $tinyBlock;
-}
-.ui.small.block.header {
-  font-size: $smallBlock;
-}
-.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: $mediumBlock;
-}
-.ui.large.block.header {
-  font-size: $largeBlock;
-}
-.ui.huge.block.header {
-  font-size: $hugeBlock;
-}
+.ui.tiny.block.header { font-size: $tinyBlock; }
+.ui.small.block.header { font-size: $smallBlock; }
 
-/*-------------------
-       Attached
---------------------*/
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) { font-size: $mediumBlock; }
+.ui.large.block.header { font-size: $largeBlock; }
+.ui.huge.block.header { font-size: $hugeBlock; }
+
+/*- Attached -*/
 
 .ui.attached.header {
   background: $attachedBackground;
@@ -491,9 +298,7 @@ a.ui.inverted.yellow.header:hover {
   box-shadow: $attachedBoxShadow;
   border: $attachedBorder;
 }
-.ui.attached.block.header {
-  background: $blockBackground;
-}
+.ui.attached.block.header { background: $blockBackground; }
 
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;
@@ -514,28 +319,14 @@ a.ui.inverted.yellow.header:hover {
 }
 
 /* Attached Sizes */
-.ui.tiny.attached.header {
-  font-size: $tinyAttached;
-}
-.ui.small.attached.header {
-  font-size: $smallAttached;
-}
-.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: $mediumAttached;
-}
-.ui.large.attached.header {
-  font-size: $largeAttached;
-}
-.ui.huge.attached.header {
-  font-size: $hugeAttached;
-}
+.ui.tiny.attached.header { font-size: $tinyAttached; }
+.ui.small.attached.header { font-size: $smallAttached; }
+.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) { font-size: $mediumAttached; }
+.ui.large.attached.header { font-size: $largeAttached; }
+.ui.huge.attached.header { font-size: $hugeAttached; }
 
-/*-------------------
-        Sizing
---------------------*/
+/*- Sizing -*/
 
-.ui.header {
-  font-size: $medium;
-}
+.ui.header { font-size: $medium; }
 
 @extend .loadUIOverrides;

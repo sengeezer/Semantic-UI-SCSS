@@ -9,55 +9,35 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'label';
-
 $import '../../theme.config';
 
-
-/*******************************
-            Label
-*******************************/
+/*** Label ***/
 
 .ui.label {
   display: inline-block;
   vertical-align: $verticalAlign;
   line-height: 1;
-
   margin: $verticalMargin $horizontalMargin;
-
   background-color: $backgroundColor;
   border-color: $backgroundColor;
-
   background-image: $backgroundImage;
-
   padding: $verticalPadding $horizontalPadding;
   color: $labelTextColor;
-
   text-transform: $textTransform;
   font-weight: $fontWeight;
-
   border-radius: $borderRadius;
   box-sizing: border-box;
   transition: $transition;
+  &:first-child { margin-left: 0em; }
+  &:last-child { margin-right: 0em; }
 }
-
-.ui.label:first-child {
-  margin-left: 0em;
-}
-.ui.label:last-child {
-  margin-right: 0em;
-}
-
 
 /* Link */
-a.ui.label {
-  cursor: pointer;
-}
+a.ui.label { cursor: pointer; }
 
 /* Inside Link */
 .ui.label a {
@@ -65,9 +45,7 @@ a.ui.label {
   color: inherit;
   opacity: $linkOpacity;
   transition: $linkTransition;
-}
-.ui.label a:hover {
-  opacity: 1;
+  &:hover { opacity: 1; }
 }
 
 /* Icon */
@@ -82,51 +60,36 @@ a.ui.label {
   font-weight: $detailFontWeight;
   margin-left: $detailMargin;
   opacity: $detailOpacity;
+  .icon { margin: 0em $detailIconDistance 0em 0em; }
 }
-.ui.label .detail .icon {
-  margin: 0em $detailIconDistance 0em 0em;
-}
-
 
 /* Removable label */
-.ui.label .close.icon,
-.ui.label .delete.icon {
-  cursor: pointer;
-  margin-right: 0em;
-  margin-left: $deleteMargin;
-  opacity: $linkOpacity;
-  transition: $deleteTransition;
-}
-.ui.label .delete.icon:hover {
-  opacity: 1;
-}
-
-/*-------------------
-       Group
---------------------*/
-
-.ui.labels .label {
-  margin: 0em $groupHorizontalMargin $groupVerticalMargin 0em;
+.ui.label {
+  .close.icon, .delete.icon {
+    cursor: pointer;
+    margin-right: 0em;
+    margin-left: $deleteMargin;
+    opacity: $linkOpacity;
+    transition: $deleteTransition;
+  }
+  .delete.icon:hover { opacity: 1; }
 }
 
+/*- Group -*/
 
-/*-------------------
-       Coupling
---------------------*/
+.ui.labels .label { margin: 0em $groupHorizontalMargin $groupVerticalMargin 0em; }
+
+/*- Coupling -*/
 
 /* Padding on next content after a label */
-.ui.top.attached.label:first-child + :not(.attached) {
-  margin-top: $attachedSegmentPadding !important;
-}
-.ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
+.ui.top.attached.label:first-child + :not(.attached) { margin-top: $attachedSegmentPadding !important; }
+
+.ui.bottom.attached.label:first-child ~ :last-child:not(.attached) { 
   margin-top: 0em;
   margin-bottom: $attachedSegmentPadding !important;
 }
 
-
-/*******************************
-             Types
-*******************************/
+/*** Types ***/
 
 .ui.image.label {
   width: auto !important;
@@ -135,27 +98,23 @@ a.ui.label {
   max-width: 9999px;
   vertical-align: baseline;
   text-transform: none;
-
   background: $imageLabelBackground;
   padding: $imageLabelPadding;
   border-radius: $imageLabelBorderRadius;
   box-shadow: $imageLabelBoxShadow;
-}
-
-.ui.image.label img {
-  display: inline-block;
-  vertical-align: top;
-
-  height: $imageLabelImageHeight;
-  margin: $imageLabelImageMargin;
-  border-radius: $imageLabelBorderRadius;
-}
-
-.ui.image.label .detail {
-  background: $imageLabelDetailBackground;
-  margin: $imageLabelDetailMargin;
-  padding: $imageLabelDetailPadding;
-  border-radius: 0em $imageLabelBorderRadius $imageLabelBorderRadius 0em;
+  img {
+    display: inline-block;
+    vertical-align: top;
+    height: $imageLabelImageHeight;
+    margin: $imageLabelImageMargin;
+    border-radius: $imageLabelBorderRadius;
+  }
+  .detail {
+    background: $imageLabelDetailBackground;
+    margin: $imageLabelDetailMargin;
+    padding: $imageLabelDetailPadding;
+    border-radius: 0em $imageLabelBorderRadius $imageLabelBorderRadius 0em;
+  }
 }
 
 /*-------------------

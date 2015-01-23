@@ -2078,44 +2078,41 @@ $import '../../theme.config';
   &:not(.basic):not(.inverted) { box-shadow: $groupBoxShadow; }
   & > .ui.button:not(.basic):not(.inverted),
   &:not(.basic):not(.inverted) > .button { box-shadow: $groupButtonBoxShadow; }
+  .button {
+    margin: 0em;
+    float: left;
+    border-radius: 0em;
+    margin: $groupButtonOffset;
+    &:first-child  {
+      margin-left: 0em;
+      border-top-left-radius: $borderRadius;
+      border-bottom-left-radius: $borderRadius;
+    }
+    &:last-child {
+      border-top-right-radius: $borderRadius;
+      border-bottom-right-radius: $borderRadius;
+    }
+  }
 }
-
-.ui.buttons .button {
-  margin: 0em;
-  float: left;
-  border-radius: 0em;
-  margin: $groupButtonOffset;
-}
-
-.ui.buttons .button:first-child  {
-  margin-left: 0em;
-  border-top-left-radius: $borderRadius;
-  border-bottom-left-radius: $borderRadius;
-}
-.ui.buttons .button:last-child {
-  border-top-right-radius: $borderRadius;
-  border-bottom-right-radius: $borderRadius;
-}
-
 
 /* Vertical  Style */
 .ui.vertical.buttons {
   display: inline-block;
+  .button {
+    display: block;
+    float: none;
+    margin: $verticalGroupOffset;
+    box-shadow: $verticalBoxShadow;
+  }
 }
-.ui.vertical.buttons .button {
-  display: block;
-  float: none;
-  margin: $verticalGroupOffset;
-  box-shadow: $verticalBoxShadow;
-}
+
 .ui.vertical.buttons .button:first-child,
 .ui.vertical.buttons .mini.button:first-child,
 .ui.vertical.buttons .tiny.button:first-child,
 .ui.vertical.buttons .small.button:first-child,
 .ui.vertical.buttons .massive.button:first-child,
-.ui.vertical.buttons .huge.button:first-child {
-  border-radius: $borderRadius $borderRadius 0px 0px;
-}
+.ui.vertical.buttons .huge.button:first-child { border-radius: $borderRadius $borderRadius 0px 0px; }
+
 .ui.vertical.buttons .button:last-child,
 .ui.vertical.buttons .mini.button:last-child,
 .ui.vertical.buttons .tiny.button:last-child,

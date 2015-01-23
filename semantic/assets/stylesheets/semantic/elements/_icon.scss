@@ -9,18 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'icon';
-
 $import '../../theme.config';
 
-/*******************************
-             Icon
-*******************************/
+/*** Icon ***/
 
 @font-face {
   font-family: 'Icons';
@@ -29,9 +24,7 @@ $import '../../theme.config';
     url("$fontPath/#{$fontName}.eot?#iefix") format('embedded-opentype'),
     url("$fontPath/#{$fontName}.svg#icons") format('svg'),
     url("$fontPath/#{$fontName}.woff") format('woff'),
-    url("$fontPath/#{$fontName}.ttf") format('truetype')
-  ;
-
+    url("$fontPath/#{$fontName}.ttf") format('truetype');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -42,100 +35,61 @@ $import '../../theme.config';
 i.icon {
   display: inline-block;
   opacity: $opacity;
-
   margin: 0em $distanceFromText 0em 0em;
-
   width: $width;
   height: $height;
-
   font-family: 'Icons';
   font-style: normal;
   line-height: 1;
   font-weight: normal;
   text-decoration: inherit;
   text-align: center;
-
   speak: none;
   font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
+  &:before { background: none !important; }
 }
 
-i.icon:before {
-  background: none !important;
-}
+/*** Types ***/
 
-/*******************************
-             Types
-*******************************/
-
-/*--------------
-    Loading
----------------*/
+/*- Loading -*/
 
 i.icon.loading {
   height: 1em;
   animation: icon-loading $loadingDuration linear infinite;
 }
 @keyframes icon-loading {
- from {
-    transform: rotate(0deg);
- }
- to {
-    transform: rotate(360deg);
- }
+ from { transform: rotate(0deg); }
+ to { transform: rotate(360deg); }
 }
 
-/*******************************
-             States
-*******************************/
+/*** States ***/
 
-i.icon.hover {
-  opacity: 1;
-}
+i.icon.hover { opacity: 1; }
+i.icon.active { opacity: 1; }
 
-i.icon.active {
-  opacity: 1;
-}
+i.emphasized.icon { opacity: 1; }
 
-i.emphasized.icon {
-  opacity: 1;
-}
+i.icon.disabled { opacity: $disabledOpacity; }
 
-i.icon.disabled {
-  opacity: $disabledOpacity;
-}
+/*** Variations ****/
 
-
-/*******************************
-           Variations
-*******************************/
-
-
-/*-------------------
-         Link
---------------------*/
+/*- Link -*/
 
 i.link.icon {
   cursor: pointer;
   opacity: $opacity;
   transition: opacity $transitionDuration $transitionEasing;
-}
-i.link.icon:hover {
-  opacity: 1 !important;
+  &:hover { opacity: 1 !important; }
 }
 
-/*-------------------
-      Circular
---------------------*/
+/*- Circular -*/
 
 i.circular.icon {
   border-radius: 500em !important;
-
   padding: $circularPadding !important;
-
   box-shadow: $circularShadow;
-
   line-height: 1 !important;
   width: $circularSize !important;
   height: $circularSize !important;
@@ -145,44 +99,29 @@ i.circular.inverted.icon {
   box-shadow: none;
 }
 
-/*-------------------
-      Flipped
---------------------*/
+/*- Flipped -*/
 
 i.flipped.icon,
-i.horizontally.flipped.icon {
-  transform: scale(-1, 1);
-}
-i.vertically.flipped.icon {
-  transform: scale(1, -1);
-}
+i.horizontally.flipped.icon { transform: scale(-1, 1); }
 
-/*-------------------
-      Rotated
---------------------*/
+i.vertically.flipped.icon { transform: scale(1, -1); }
+
+/*- Rotated -*/
 
 i.rotated.icon,
 i.right.rotated.icon,
-i.clockwise.rotated.icon {
-  transform: rotate(90deg);
-}
+i.clockwise.rotated.icon { transform: rotate(90deg); }
 
 i.left.rotated.icon,
-i.counterclockwise.rotated.icon {
-  transform: rotate(-90deg);
-}
+i.counterclockwise.rotated.icon { transform: rotate(-90deg); }
 
-/*-------------------
-      Bordered
---------------------*/
+/*- Bordered -*/
 
 i.bordered.icon {
   width: $borderedSize;
   height: $borderedSize;
-
   padding: $borderedVerticalPadding $borderedHorizontalPadding !important;
   box-shadow: $borderedShadow;
-
   vertical-align: baseline;
 }
 i.bordered.inverted.icon {
@@ -190,75 +129,32 @@ i.bordered.inverted.icon {
   box-shadow: none;
 }
 
-/*-------------------
-       Colors
---------------------*/
+/*- Colors -*/
 
-i.white.icon {
-  color: $white !important;
-}
-i.black.icon {
-  color: $black !important;
-}
-i.blue.icon {
-  color: $blue !important;
-}
-i.green.icon {
-  color: $green !important;
-}
-i.orange.icon {
-  color: $orange !important;
-}
-i.pink.icon {
-  color: $pink !important;
-}
-i.purple.icon {
-  color: $purple !important;
-}
-i.red.icon {
-  color: $red !important;
-}
-i.teal.icon {
-  color: $teal !important;
-}
-i.yellow.icon {
-  color: $yellow !important;
-}
+i.white.icon { color: $white !important; }
+i.black.icon { color: $black !important; }
+i.blue.icon { color: $blue !important; }
+i.green.icon { color: $green !important; }
+i.orange.icon { color: $orange !important; }
+i.pink.icon { color: $pink !important; }
+i.purple.icon { color: $purple !important; }
+i.red.icon { color: $red !important; }
+i.teal.icon { color: $teal !important; }
+i.yellow.icon { color: $yellow !important; }
 
+/*- Inverted -*/
 
-/*-------------------
-      Inverted
---------------------*/
-
-i.inverted.icon {
-  color: $white;
-}
-i.inverted.black.icon {
-  color: $lightBlack !important;
-}
-i.inverted.blue.icon {
-  color: $lightBlue !important;
-}
-i.inverted.green.icon {
-  color: $lightGreen !important;
-}
-i.inverted.orange.icon {
-  color: $lightOrange !important;
-}
-i.inverted.pink.icon {
-  color: $lightPink !important;
-}
-i.inverted.purple.icon {
-  color: $lightPurple !important;
-}
-i.inverted.red.icon {
-  color: $lightRed !important;
-}
-i.inverted.teal.icon {
-  color: $lightTeal !important;
-}
-i.inverted.yellow.icon {
-  color: $lightYellow !important;
+i.inverted {
+  &.icon { color: $white; }
+  &.black.icon { color: $lightBlack !important; }
+  &.blue.icon { color: $lightBlue !important; }
+  &.green.icon { color: $lightGreen !important; }
+  &.orange.icon { color: $lightOrange !important; }
+  &.pink.icon { color: $lightPink !important; }
+  &.purple.icon { color: $lightPurple !important; }
+  &.red.icon { color: $lightRed !important; }
+  &.teal.icon { color: $lightTeal !important; }
+  &.yellow.icon { color: $lightYellow !important; }
 }
 
 /* Inverted Shapes */
@@ -313,17 +209,11 @@ i.inverted.circular.yellow.icon {
   color: #FFFFFF !important;
 }
 
+/*- Sizes -*/
 
-/*-------------------
-        Sizes
---------------------*/
+i.small.icon { font-size: $small; }
+i.icon { font-size: $medium; }
 
-i.small.icon {
-  font-size: $small;
-}
-i.icon {
-  font-size: $medium;
-}
 i.large.icon {
   font-size: $large;
   vertical-align: middle;

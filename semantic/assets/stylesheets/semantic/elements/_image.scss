@@ -9,18 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'image';
-
 $import '../../theme.config';
 
-/*******************************
-             Image
-*******************************/
+/*** Image ***/
 
 .ui.image {
   position: relative;
@@ -39,34 +34,21 @@ img.ui.image {
   height: auto;
 }
 
-/*******************************
-            States
-*******************************/
-
+/*** States ***/
 
 .ui.disabled.image {
   cursor: default;
   opacity: $disabledOpacity;
 }
 
+/*** Variations ***/
 
-/*******************************
-          Variations
-*******************************/
-
-
-/*--------------
-     Inline
----------------*/
+/*- Inline -*/
 
 .ui.inline.image,
-.ui.inline.image img {
-  display: inline-block;
-}
+.ui.inline.image img { display: inline-block; }
 
-/*------------------
-  Vertical Aligned
--------------------*/
+/*- Vertical Aligned -*/
 
 .ui.top.aligned.images .image,
 .ui.top.aligned.image,
@@ -87,36 +69,24 @@ img.ui.image {
   vertical-align: bottom;
 }
 
-/*--------------
-     Rounded
----------------*/
+/*- Rounded -*/
 
 .ui.rounded.images .image,
 .ui.rounded.images img,
 .ui.rounded.image img,
-.ui.rounded.image {
-  border-radius: $roundedBorderRadius;
-}
+.ui.rounded.image { border-radius: $roundedBorderRadius; }
 
-/*--------------
-    Bordered
----------------*/
+/*- Bordered -*/
 
 .ui.bordered.images .image,
 .ui.bordered.images img,
 .ui.bordered.image img,
-img.ui.bordered.image {
-  border: $imageBorder;
-}
+img.ui.bordered.image { border: $imageBorder; }
 
-/*--------------
-    Circular
----------------*/
+/*- Circular -*/
 
 .ui.circular.images,
-.ui.circular.image {
-  overflow: hidden;
-}
+.ui.circular.image { overflow: hidden; }
 
 .ui.circular.images .image,
 .ui.circular.images img,
@@ -127,9 +97,7 @@ img.ui.bordered.image {
   border-radius: $circularRadius;
 }
 
-/*--------------
-     Fluid
----------------*/
+/*- Fluid -*/
 
 .ui.fluid.images,
 .ui.fluid.image,
@@ -139,30 +107,22 @@ img.ui.bordered.image {
   width: 100%;
 }
 
-
-/*--------------
-     Avatar
----------------*/
+/*- Avatar -*/
 
 .ui.avatar.images .image,
 .ui.avatar.images img,
 .ui.avatar.image img,
 .ui.avatar.image {
   margin-right: $avatarMargin;
-
   display: inline-block;
   width: $avatarSize;
   height: $avatarSize;
-
   -webkit-border-radius: $circularRadius;
   -moz-border-radius: $circularRadius;
   border-radius: $circularRadius;
 }
 
-
-/*-------------------
-       Floated
---------------------*/
+/*- Floated -*/
 
 .ui.floated.image,
 .ui.floated.images {
@@ -179,10 +139,7 @@ img.ui.bordered.image {
 }
 
 .ui.floated.images:last-child,
-.ui.floated.image:last-child {
-  margin-bottom: 0em;
-}
-
+.ui.floated.image:last-child { margin-bottom: 0em; }
 
 .ui.centered.images,
 .ui.centered.image {
@@ -190,9 +147,7 @@ img.ui.bordered.image {
   margin-right: auto;
 }
 
-/*--------------
-     Sizes
----------------*/
+/*- Sizes -*/
 
 .ui.mini.images .image,
 .ui.mini.images img,
@@ -243,19 +198,15 @@ img.ui.bordered.image {
   font-size: $massive;
 }
 
-/*******************************
-              Groups
-*******************************/
+/*** Groups ***/
 
 .ui.images {
   font-size: 0em;
   margin: (0em) (-$imageHorizontalMargin) (0rem);
-}
-
-.ui.images .image,
-.ui.images img {
-  display: inline-block;
-  margin: 0em $imageHorizontalMargin $imageVerticalMargin;
+  .image, img {
+    display: inline-block;
+    margin: 0em $imageHorizontalMargin $imageVerticalMargin;
+  }
 }
 
 @extend .loadUIOverrides;
