@@ -9,20 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'loader';
-
 $import '../../theme.config';
 
-
-/*******************************
-            Loader
-*******************************/
-
+/*** Loader ***/
 
 /* Standard Size */
 .ui.loader {
@@ -44,7 +37,6 @@ $import '../../theme.config';
   left: 50%;
   width: 100%;
   height: 100%;
-
   border-radius: $circularRadius;
   border: $loaderLineWidth solid $loaderFillColor;
 }
@@ -57,27 +49,19 @@ $import '../../theme.config';
   left: 50%;
   width: 100%;
   height: 100%;
-
   animation: loader $loaderSpeed linear;
   animation-iteration-count: infinite;
-
   border-radius: $circularRadius;
-
   border-color: $shapeBorderColor;
   border-style: solid;
   border-width: $loaderLineWidth;
-
   box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /* Active Animation */
 @keyframes loader {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Sizes */
@@ -106,45 +90,28 @@ $import '../../theme.config';
   margin: $largeOffset;
 }
 
-/*-------------------
-      Coupling
---------------------*/
+/*- Coupling -*/
 
 /* Show inside active dimmer */
-.ui.dimmer .loader {
-  display: block;
-}
+.ui.dimmer .loader { display: block; }
 
 /* Black Dimmer */
-.ui.dimmer .ui.loader {
+.ui.dimmer .ui.loader { 
   color: $invertedLoaderTextColor;
-}
-.ui.dimmer .ui.loader:before {
-  border-color: $invertedLoaderFillColor;
-}
-.ui.dimmer .ui.loader:after {
-  border-color: $invertedShapeBorderColor;
+  &:before { border-color: $invertedLoaderFillColor; }
+  &:after { border-color: $invertedShapeBorderColor; }
 }
 
 /* White Dimmer (Inverted) */
 .ui.inverted.dimmer .ui.loader {
   color: $loaderTextColor;
-}
-.ui.inverted.dimmer .ui.loader:before {
-  border-color: $loaderFillColor;
-}
-.ui.inverted.dimmer .ui.loader:after {
-  border-color: $shapeBorderColor;
+  &:before { border-color: $loaderFillColor; }
+  &:after { border-color: $shapeBorderColor; }
 }
 
-/*******************************
-             Types
-*******************************/
+/*** Types ***/
 
-
-/*-------------------
-        Text
---------------------*/
+/*- Text -*/
 
 .ui.text.loader {
   width: auto !important;
@@ -153,10 +120,7 @@ $import '../../theme.config';
   font-style: normal;
 }
 
-
-/*******************************
-            States
-*******************************/
+/*** States ***/
 
 .ui.indeterminate.loader:after {
   animation-direction: $indeterminateDirection;
@@ -164,23 +128,14 @@ $import '../../theme.config';
 }
 
 .ui.loader.active,
-.ui.loader.visible {
-  display: block;
-}
+.ui.loader.visible { display: block; }
+
 .ui.loader.disabled,
-.ui.loader.hidden {
-  display: none;
-}
+.ui.loader.hidden { display: none; }
 
-/*******************************
-            Variations
-*******************************/
+/*** Variations ***/
 
-
-/*-------------------
-        Sizes
---------------------*/
-
+/*- Sizes -*/
 
 /* Loader */
 .ui.inverted.dimmer .ui.mini.loader,
@@ -226,24 +181,15 @@ $import '../../theme.config';
   padding-top: ($large + $textDistance);
 }
 
-
-/*-------------------
-       Inverted
---------------------*/
+/*- Inverted -*/
 
 .ui.inverted.loader {
   color: $invertedLoaderTextColor
-}
-.ui.inverted.loader:before {
-  border-color: $invertedLoaderFillColor;
-}
-.ui.inverted.loader:after {
-  border-top-color: $invertedLoaderLineColor;
+  &:before { border-color: $invertedLoaderFillColor; }
+  &:after { border-top-color: $invertedLoaderLineColor; }
 }
 
-/*-------------------
-       Inline
---------------------*/
+/*- Inline -*/
 
 .ui.inline.loader {
   position: relative;
@@ -252,11 +198,7 @@ $import '../../theme.config';
   left: 0em;
   top: 0em;
   transform: none;
-}
-
-.ui.inline.loader.active,
-.ui.inline.loader.visible {
-  display: inline-block;
+  &.active, &.visible { display: inline-block; }
 }
 
 @extend .loadUIOverrides;

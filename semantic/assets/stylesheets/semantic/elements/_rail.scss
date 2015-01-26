@@ -9,18 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'rail';
-
 $import '../../theme.config';
 
-/*******************************
-             Rails
-*******************************/
+/*** Rails ***/
 
 .ui.rail {
   font-size: $size;
@@ -44,13 +39,9 @@ $import '../../theme.config';
   margin: 0em 0em 0em ($distance / 2);
 }
 
-/*******************************
-           Variations
-*******************************/
+/*** Variations ***/
 
-/*--------------
-     Divided
----------------*/
+/*- Divided -*/
 
 .ui.left.dividing.rail {
   padding: 0em ($dividedDistance / 2) 0em 0em;
@@ -63,9 +54,7 @@ $import '../../theme.config';
   margin: 0em 0em 0em ($dividedDistance / 2);
 }
 
-/*--------------
-    Distance
----------------*/
+/*- Distance -*/
 
 .ui.close.left.rail {
   padding: 0em ($closeDistance / 2) 0em 0em;
@@ -84,15 +73,8 @@ $import '../../theme.config';
   margin: 0em 0em 0em ($veryCloseDistance / 2);
 }
 
+/*- Sizing -*/
 
-/*--------------
-     Sizing
----------------*/
-
-.ui.rail {
-  font-size: $size;
-}
-
-
+.ui.rail { font-size: $size; }
 
 @extend .loadUIOverrides;

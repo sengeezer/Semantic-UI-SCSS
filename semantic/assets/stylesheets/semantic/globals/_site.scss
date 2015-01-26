@@ -9,35 +9,21 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'global';
 $element : 'site';
-
 $import '../../theme.config';
 @include loadFonts();
 
-/*******************************
-             Page
-*******************************/
+/*** Page ***/
 
 /* UI requires Border-Box */
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
+*, *:before, *:after { box-sizing: border-box; }
 
-html,
-body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
-html {
-  font-size: $emSize;
-}
+html { font-size: $emSize; }
 
 body {
   margin: 0px;
@@ -52,46 +38,28 @@ body {
   overflow-x: $pageOverflowX;
 }
 
+/*** Text ***/
 
-/*******************************
-             Text
-*******************************/
-
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
   margin: $headerMargin;
   padding: 0em;
 }
 
-p {
+p { 
   margin: $paragraphMargin;
-}
-p:first-child {
-  margin-top: 0em;
-}
-p:last-child {
-  margin-bottom: 0em;
+  &:first-child { margin-top: 0em; }
+  &:last-child { margin-bottom: 0em; }
 }
 
-/*-------------------
-        Links
---------------------*/
+/*- Links -*/
 
 a {
   color: $linkColor;
   text-decoration: $linkUnderline;
-}
-a:hover {
-  color: $linkHoverColor;
+  &:hover { color: $linkHoverColor; }
 }
 
-
-/*******************************
-          Highlighting
-*******************************/
+/*** Highlighting ***/
 
 ::-webkit-selection {
   background-color: $highlightBackground;

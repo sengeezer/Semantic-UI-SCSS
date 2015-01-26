@@ -9,19 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'segment';
-
 $import '../../theme.config';
 
-
-/*******************************
-            Segment
-*******************************/
+/*** Segment ***/
 
 .ui.segment {
   position: relative;
@@ -31,21 +25,15 @@ $import '../../theme.config';
   padding: $verticalPadding $horizontalPadding;
   border-radius: $borderRadius;
   border: $border;
-}
-
-.ui.segment:first-child {
-  margin-top: 0em;
-}
-.ui.segment:last-child {
-  margin-bottom: 0em;
-}
-
-.ui.segment:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
+  &:first-child { margin-top: 0em; }
+  &:last-child { margin-bottom: 0em; }
+  &:after {
+    content: '';
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+  }
 }
 
 /* Vertical */
@@ -53,18 +41,15 @@ $import '../../theme.config';
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
-
   background-color: transparent;
   border-radius: 0px;
   border: none;
   box-shadow: 0px 1px 0px $borderColor;
-}
-.ui[class*="vertical segment"]:first-child {
-  padding-top: 0em;
-}
-.ui[class*="vertical segment"]:last-child {
-  padding-bottom: 0em;
-  box-shadow: none;
+  &:first-child { padding-top: 0em; }
+  &:last-child {
+    padding-bottom: 0em;
+    box-shadow: none;
+  }
 }
 
 /* Horizontal */
@@ -72,26 +57,19 @@ $import '../../theme.config';
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
-
   background-color: transparent;
   border-radius: 0px;
   border: none;
   box-shadow: 1px 0px 0px $borderColor;
 }
 
-/*-------------------
-    Loose Coupling
---------------------*/
+/*- Loose Coupling -*/
 
 /* Menu */
-.ui.pointing.menu + .ui.attached.segment {
-  top: 1px;
-}
+.ui.pointing.menu + .ui.attached.segment { top: 1px; }
 
 /* Header */
-.ui.inverted.segment > .ui.header {
-  color: $white;
-}
+.ui.inverted.segment > .ui.header { color: $white; }
 
 /* Label */
 .ui[class*="bottom attached"].segment > [class*="top attached"].label {
@@ -128,76 +106,57 @@ $import '../../theme.config';
   border: $border;
   box-shadow: $boxShadow;
 }
-.ui[class*="very basic"].table.segment {
-  padding: $verticalPadding $horizontalPadding;
-}
+.ui[class*="very basic"].table.segment { padding: $verticalPadding $horizontalPadding; }
 
+/*** Types ***/
 
-/*******************************
-             Types
-*******************************/
-
-/*-------------------
-        Piled
---------------------*/
+/*- Piled -*/
 
 .ui.piled.segment {
   margin: $piledMargin 0em;
   box-shadow: $piledBoxShadow;
   z-index: $piledZIndex;
-}
-.ui.piled.segment:first-child {
-  margin-top: 0em;
-}
-.ui.piled.segment:last-child {
-  margin-bottom: 0em;
-}
-.ui.piled.segment:after,
-.ui.piled.segment:before {
-  background-color: $white;
-  visibility: visible;
-  content: '';
-  display: block;
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  width: 100%;
-  box-shadow: $piledBoxShadow;
-}
-.ui.piled.segment:after {
-  transform: rotate($piledDegrees);
-  top: 0;
-  z-index: -1;
-}
-.ui.piled.segment:before {
-  transform: rotate(-$piledDegrees);
-  top: 0;
-  z-index: -2;
+  &:first-child { margin-top: 0em; }
+  &:last-child { margin-bottom: 0em; }
+  &:after, &:before {
+    background-color: $white;
+    visibility: visible;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    box-shadow: $piledBoxShadow;
+  }
+  &:after {
+    transform: rotate($piledDegrees);
+    top: 0;
+    z-index: -1;
+  }
+  &:before {
+    transform: rotate(-$piledDegrees);
+    top: 0;
+    z-index: -2;
+  }
 }
 
-/*-------------------
-       Stacked
---------------------*/
+/*- Stacked -*/
 
 .ui.stacked.segment {
   padding-bottom: $stackedPadding;
-}
-.ui.stacked.segment:after,
-.ui.stacked.segment:before {
-  content: '';
-  position: absolute;
-  bottom: -($stackedHeight / 2);
-  left: 0%;
-
-  border-top: 1px solid $borderColor;
-  background-color: $stackedPageBackground;
-
-  width: 100%;
-  height: $stackedHeight;
-  visibility: visible;
-}
-.ui.stacked.segment:before {
-  display: none;
+  &:after, &:before {
+    content: '';
+    position: absolute;
+    bottom: -($stackedHeight / 2);
+    left: 0%;
+    border-top: 1px solid $borderColor;
+    background-color: $stackedPageBackground;
+    width: 100%;
+    height: $stackedHeight;
+    visibility: visible;
+  }
+  &:before { display: none; }
 }
 
 /* Add additional page */
@@ -213,17 +172,11 @@ $import '../../theme.config';
   border-top: 1px solid $selectedBorderColor;
 }
 
-/*-------------------
-       Compact
---------------------*/
+/*- Compact -*/
 
-.ui.compact.segment {
-  display: table;
-}
+.ui.compact.segment { display: table; }
 
-/*-------------------
-       Circular
---------------------*/
+/*- Circular -*/
 
 .ui.circular.segment {
   display: table-cell;
@@ -233,31 +186,20 @@ $import '../../theme.config';
   border-radius: 500em;
 }
 
-/*-------------------
-       Raised
---------------------*/
+/*- Raised -*/
 
-.ui.raised.segment {
-  box-shadow: $raisedBoxShadow;
-}
+.ui.raised.segment { box-shadow: $raisedBoxShadow; }
 
+/*** States ***/
 
-/*******************************
-            States
-*******************************/
-
-/*--------------
-    Disabled
----------------*/
+/*- Disabled -*/
 
 .ui.disabled.segment {
   opacity: $disabledOpacity;
   color: $disabledTextColor;
 }
 
-/*--------------
-    Loading
----------------*/
+/*- Loading -*/
 
 .ui.loading.segment {
   position: relative;
@@ -267,87 +209,60 @@ $import '../../theme.config';
   color: transparent !important;
   transition: all 0s linear;
   z-index: 100;
-}
-.ui.loading.segment:before {
-  position: absolute;
-  content: '';
-  top: 0%;
-  left: 0%;
-  background: $loaderDimmerColor;
-  width: 100%;
-  height: 100%;
-  border-radius: $borderRadius;
-  z-index: $loaderDimmerZIndex;
-}
-.ui.loading.segment:after {
-  position: absolute;
-  content: '';
-  top: 50%;
-  left: 50%;
-
-  margin: $loaderMargin;
-  width: $loaderSize;
-  height: $loaderSize;
-
-  animation: segment-adjust-hue $loaderSpeed linear;
-  animation-iteration-count: infinite;
-
-  border-radius: $circularRadius;
-
-  border-color: $loaderLineColor $loaderFillColor $loaderFillColor $loaderFillColor;
-  border-style: solid;
-  border-width: $loaderLineWidth;
-
-  box-shadow: 0px 0px 0px 1px transparent;
-  visibility: visible;
-  z-index: $loaderLineZIndex;
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0%;
+    left: 0%;
+    background: $loaderDimmerColor;
+    width: 100%;
+    height: 100%;
+    border-radius: $borderRadius;
+    z-index: $loaderDimmerZIndex;
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin: $loaderMargin;
+    width: $loaderSize;
+    height: $loaderSize;
+    animation: segment-adjust-hue $loaderSpeed linear;
+    animation-iteration-count: infinite;
+    border-radius: $circularRadius;
+    border-color: $loaderLineColor $loaderFillColor $loaderFillColor $loaderFillColor;
+    border-style: solid;
+    border-width: $loaderLineWidth;
+    box-shadow: 0px 0px 0px 1px transparent;
+    visibility: visible;
+    z-index: $loaderLineZIndex;
+  }
 }
 
 @keyframes segment-adjust-hue {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
+/*** Variations ****/
 
-/*******************************
-           Variations
-*******************************/
-
-
-/*-------------------
-       Basic
---------------------*/
+/*- Basic -*/
 
 .ui.basic.segment {
   position: relative;
   background-color: transparent;
   box-shadow: none;
-
   border-radius: 0px;
-}
-.ui.basic.segment:first-child {
-  padding-top: 0em;
-}
-.ui.basic.segment:last-child {
-  padding-bottom: 0em;
+  &:first-child { padding-top: 0em; }
+  &:last-child { padding-bottom: 0em; }
 }
 
+/*- Fittted -*/
 
-/*-------------------
-       Fittted
---------------------*/
+.ui.fitted.segment { padding: 0em; }
 
-.ui.fitted.segment {
-  padding: 0em;
-}
-
-/*-------------------
-       Colors
---------------------*/
+/*- Colors -*/
 
 .ui.black.segment:not(.inverted) {
   border-top: $coloredBorderSize solid $black;
@@ -386,9 +301,7 @@ $import '../../theme.config';
   border-radius: $coloredBorderRadius !important;
 }
 
-/*-------------------
-   Inverted Colors
---------------------*/
+/*- Inverted Colors -*/
 
 .ui.inverted.segment,
 .ui.inverted.black.segment {
@@ -428,23 +341,13 @@ $import '../../theme.config';
   color: $white !important;
 }
 
-/*-------------------
-       Aligned
---------------------*/
+/*- Aligned -*/
 
-.ui[class*="left aligned"].segment {
-  text-align: left;
-}
-.ui[class*="right aligned"].segment {
-  text-align: right;
-}
-.ui[class*="center aligned"].segment {
-  text-align: center;
-}
+.ui[class*="left aligned"].segment { text-align: left; }
+.ui[class*="right aligned"].segment { text-align: right; }
+.ui[class*="center aligned"].segment { text-align: center; }
 
-/*-------------------
-       Floated
---------------------*/
+/*- Floated -*/
 
 .ui.floated.segment,
 .ui[class*="left floated"].segment {
@@ -456,23 +359,17 @@ $import '../../theme.config';
   margin-left: $margin;
 }
 
-
-/*-------------------
-      Inverted
---------------------*/
+/*- Inverted -*/
 
 .ui.inverted.segment {
   border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  .segment { color: $textColor; }
+  .inverted.segment { color: $white; }
 }
-.ui.inverted.segment .segment {
-  color: $textColor;
-}
-.ui.inverted.segment .inverted.segment {
-  color: $white;
-}
+
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
   background-color: $black;
@@ -485,9 +382,7 @@ $import '../../theme.config';
   border: none !important;
 }
 
-/*-------------------
-     Ordinality
---------------------*/
+/*- Ordinality -*/
 
 .ui.secondary.segment {
   background: $secondaryBackground;
@@ -508,10 +403,7 @@ $import '../../theme.config';
   color: $tertiaryInvertedColor;
 }
 
-
-/*-------------------
-      Attached
---------------------*/
+/*- Attached -*/
 
 .ui.segment.attached {
   top: 0px;
@@ -522,9 +414,7 @@ $import '../../theme.config';
   border-radius: 0px;
   box-shadow: $attachedBoxShadow;
   border: $attachedBorder;
-}
-.ui.segment.attached + .ui.segment.attached {
-  border-top: none;
+  + .ui.segment.attached { border-top: none; }
 }
 
 /* Top */
@@ -535,9 +425,7 @@ $import '../../theme.config';
   margin-bottom: 0em;
   border-radius: $borderRadius $borderRadius 0em 0em;
 }
-.ui.segment[class*="top attached"]:first-child {
-  margin-top: 0em;
-}
+.ui.segment[class*="top attached"]:first-child { margin-top: 0em; }
 
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
@@ -548,8 +436,6 @@ $import '../../theme.config';
   box-shadow: $attachedBottomBoxShadow;
   border-radius: 0em 0em $borderRadius $borderRadius;
 }
-.ui.segment[class*="bottom attached"]:last-child {
-  margin-bottom: 0em;
-}
+.ui.segment[class*="bottom attached"]:last-child { margin-bottom: 0em; }
 
 @extend .loadUIOverrides;

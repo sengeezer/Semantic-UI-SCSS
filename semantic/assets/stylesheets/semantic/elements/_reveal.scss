@@ -9,98 +9,75 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'element';
 $element : 'reveal';
-
 $import '../../theme.config';
 
-
-/*******************************
-            Reveal
-*******************************/
+/*** Reveal ***/
 
 .ui.reveal  {
   display: inline-block;
   position: relative !important;
   z-index: $bottomZIndex !important;
   font-size: 0em !important;
+  > .visible.content {
+    position: absolute !important;
+    top: 0em !important;
+    left: 0em !important;
+    z-index: $topZIndex !important;
+    transition: all $transitionDuration $transitionEasing $transitionDelay;
+  }
+  > .hidden.content {
+    position: relative !important;
+    z-index: $bottomZIndex !important;
+  }
 }
 
-.ui.reveal > .visible.content {
-  position: absolute !important;
-  top: 0em !important;
-  left: 0em !important;
-  z-index: $topZIndex !important;
-  transition: all $transitionDuration $transitionEasing $transitionDelay;
-}
-.ui.reveal > .hidden.content {
-  position: relative !important;
-  z-index: $bottomZIndex !important;
-}
+/*** Types ***/
 
-
-/*******************************
-              Types
-*******************************/
-
-
-/*--------------
-      Slide
----------------*/
+/*- Slide -*/
 
 .ui.slide.reveal {
   position: relative !important;
   display: block;
   overflow: hidden !important;
-
   white-space: nowrap;
+  > .content {
+    display: block;
+    float: left;
+    margin: 0em;
+    transition:
+      top $transitionDuration $transitionEasing $transitionDelay,
+      left $transitionDuration $transitionEasing $transitionDelay,
+      right $transitionDuration $transitionEasing $transitionDelay,
+      bottom $transitionDuration $transitionEasing $transitionDelay;
+  }
+  > .visible.content { position: relative !important; }
+  > .hidden.content {
+    position: absolute !important;
+    left: 100% !important;
+    width: 100% !important;
+  }
+  &:hover > .visible.content { left: -100% !important; }
+  &:hover > .hidden.content { left: 0% !important; }
 }
 
-.ui.slide.reveal > .content {
-  display: block;
-  float: left;
-
-  margin: 0em;
-  transition:
-    top $transitionDuration $transitionEasing $transitionDelay,
-    left $transitionDuration $transitionEasing $transitionDelay,
-    right $transitionDuration $transitionEasing $transitionDelay,
-    bottom $transitionDuration $transitionEasing $transitionDelay
-  ;
-}
-.ui.slide.reveal > .visible.content {
-  position: relative !important;
-}
-.ui.slide.reveal > .hidden.content {
-  position: absolute !important;
-  left: 100% !important;
-  width: 100% !important;
-}
-.ui.slide.reveal:hover > .visible.content {
-  left: -100% !important;
-}
-.ui.slide.reveal:hover > .hidden.content {
-  left: 0% !important;
-}
-
-.ui.right.slide.reveal > .visible.content {
-  left: 0%;
-}
-.ui.right.slide.reveal > .hidden.content {
-  left: auto !important;
-  right: 100% !important;
-}
-.ui.right.slide.reveal:hover > .visible.content {
-  left: 100% !important;
-  right: auto !important;
-}
-.ui.right.slide.reveal:hover > .hidden.content {
-  left: auto !important;
-  right: 0% !important;
+.ui.right.slide.reveal 
+  > .visible.content { left: 0%; }
+  > .hidden.content {
+    left: auto !important;
+    right: 100% !important;
+  }
+  &:hover > .visible.content {
+    left: 100% !important;
+    right: auto !important;
+  }
+  &:hover > .hidden.content {
+    left: auto !important;
+    right: 0% !important;
+  }
 }
 
 .ui.up.slide.reveal > .visible.content {
@@ -145,22 +122,12 @@ $import '../../theme.config';
   bottom: 0% !important;
 }
 
+/*- Fade -*/
 
-/*--------------
-      Fade
----------------*/
+.ui.fade.reveal > .visible.content { opacity: 1; }
+.ui.fade.reveal:hover > .visible.content { opacity: 0; }
 
-.ui.fade.reveal > .visible.content {
-  opacity: 1;
-}
-.ui.fade.reveal:hover > .visible.content {
-  opacity: 0;
-}
-
-
-/*--------------
-      Move
----------------*/
+/*- Move -*/
 
 .ui.move.reveal > .visible.content,
 .ui.move.left.reveal > .visible.content {
@@ -170,9 +137,7 @@ $import '../../theme.config';
   right: 0% !important;
 }
 .ui.move.reveal:hover > .visible.content,
-.ui.move.left.reveal:hover > .visible.content {
-  right: 100% !important;
-}
+.ui.move.left.reveal:hover > .visible.content { right: 100% !important; }
 
 .ui.move.right.reveal > .visible.content {
   right: auto !important;
@@ -180,37 +145,26 @@ $import '../../theme.config';
   bottom: auto !important;
   left: 0% !important;
 }
-.ui.move.right.reveal:hover > .visible.content {
-  left: 100% !important;
-}
+.ui.move.right.reveal:hover > .visible.content { left: 100% !important; }
 
 .ui.move.up.reveal > .visible.content {
   right: auto !important;
   left: auto !important;
   top: auto !important;
-
   bottom: 0% !important;
 }
-.ui.move.up.reveal:hover > .visible.content {
-  bottom: 100% !important;
-}
+.ui.move.up.reveal:hover > .visible.content { bottom: 100% !important; }
 
 .ui.move.down.reveal > .visible.content {
   right: auto !important;
   left: auto !important;
   bottom: auto !important;
-
   top: 0% !important;
   bottom: auto !important;
 }
-.ui.move.down.reveal:hover > .visible.content {
-  top: 100% !important;
-}
+.ui.move.down.reveal:hover > .visible.content { top: 100% !important; }
 
-
-/*--------------
-     Rotate
----------------*/
+/*- Rotate -*/
 
 .ui.rotate.reveal > .visible.content {
   transition-duration: $transitionDuration;
@@ -218,71 +172,42 @@ $import '../../theme.config';
 }
 
 .ui.rotate.reveal > .visible.content,
-.ui.rotate.right.reveal > .visible.content {
-  transform-origin: bottom right;
-}
+.ui.rotate.right.reveal > .visible.content { transform-origin: bottom right; }
+
 .ui.rotate.reveal:hover > .visible.content,
-.ui.rotate.right.reveal:hover > .visible.content {
-  transform: rotate($rotateDegrees);
-}
+.ui.rotate.right.reveal:hover > .visible.content { transform: rotate($rotateDegrees); }
 
-.ui.rotate.left.reveal > .visible.content {
-  transform-origin: bottom left;
-}
-.ui.rotate.left.reveal:hover > .visible.content {
-  transform: rotate(-$rotateDegrees);
-}
+.ui.rotate.left.reveal > .visible.content { transform-origin: bottom left; }
+.ui.rotate.left.reveal:hover > .visible.content { transform: rotate(-$rotateDegrees); }
 
-/*******************************
-              States
-*******************************/
+/*** States ***/
 
 .ui.disabled.reveal {
   opacity: 1 !important;
-}
-.ui.disabled.reveal > .content {
-  transition: none !important;
-}
-.ui.disabled.reveal:hover > .visible.content {
-  position: static !important;
-  display: block !important;
-  opacity: 1 !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: auto !important;
-  bottom: auto !important;
-  transform: none !important;
-}
-.ui.disabled.reveal:hover > .hidden.content {
-  display: none !important;
+  > .content { transition: none !important; }
+  &:hover > .visible.content {
+    position: static !important;
+    display: block !important;
+    opacity: 1 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+  &:hover > .hidden.content { display: none !important; }
 }
 
+/*** Variations ***/
 
-/*******************************
-           Variations
-*******************************/
+/*- Masked -*/
 
-/*--------------
-     Masked
----------------*/
+.ui.masked.reveal { overflow: hidden; }
 
-.ui.masked.reveal {
-  overflow: hidden;
-}
+/*- Instant -*/
 
-/*--------------
-     Instant
----------------*/
+.ui.instant.reveal > .content { transition-delay: 0s !important; }
 
-.ui.instant.reveal > .content {
-  transition-delay: 0s !important;
-}
+/*- Sizing -*/
 
-
-/*--------------
-     Sizing
----------------*/
-
-.ui.reveal > .content {
-  font-size: $medium !important;
-}
+.ui.reveal > .content { font-size: $medium !important; }

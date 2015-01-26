@@ -9,44 +9,31 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'module';
 $element : 'dimmer';
-
 $import '../../theme.config';
 
+/*** Dimmer ***/
 
-/*******************************
-            Dimmer
-*******************************/
-
-.dimmable {
-  position: $dimmablePosition;
-}
+.dimmable { position: $dimmablePosition; }
 
 .ui.dimmer {
   display: none;
   position: $dimmerPosition;
   top: 0em !important;
   left: 0em !important;
-
   width: 100%;
   height: 100%;
-
   text-align: $textAlign;
   vertical-align: $verticalAlign;
-
   background: $background;
   opacity: $hiddenOpacity;
   line-height: $lineHeight;
-
   animation-fill-mode: both;
   animation-duration: $duration;
   transition: $transition;
-
   user-select: none;
   will-change: opacity;
   z-index: $zIndex;
@@ -58,27 +45,20 @@ $import '../../theme.config';
   height: 100%;
   display: $contentDisplay;
   user-select: text;
+  > div {
+    display: $contentChildDisplay;
+    vertical-align: $verticalAlign;
+    color: $textColor;
+  }
 }
-.ui.dimmer > .content > div {
-  display: $contentChildDisplay;
-  vertical-align: $verticalAlign;
-  color: $textColor;
-}
-
 
 /* Loose Coupling */
-.ui.segment > .ui.dimmer {
-  border-radius: inherit !important;
-}
+.ui.segment > .ui.dimmer { border-radius: inherit !important; }
 
-/*******************************
-            States
-*******************************/
+/*** States ***/
 
 .animating.dimmable:not(body),
-.dimmed.dimmable:not(body) {
-  overflow: $overflow;
-}
+.dimmed.dimmable:not(body) { overflow: $overflow; }
 
 .dimmed.dimmable > .ui.animating.dimmer,
 .dimmed.dimmable > .ui.visible.dimmer,
@@ -92,13 +72,9 @@ $import '../../theme.config';
   height: 0 !important;
 }
 
-/*******************************
-           Variations
-*******************************/
+/*** Variations ***/
 
-/*--------------
-      Page
----------------*/
+/*- Page -*/
 
 .ui.page.dimmer {
   position: $pageDimmerPosition;
@@ -108,42 +84,23 @@ $import '../../theme.config';
 }
 
 body.animating.in.dimmable,
-body.dimmed.dimmable {
-  overflow: hidden;
-}
-body.dimmable > .dimmer {
-  position: fixed;
-}
+body.dimmed.dimmable { overflow: hidden; }
 
-body.dimmed.dimmable > :not(.dimmer){
-  filter: $elementFilter;
-}
+body.dimmable > .dimmer { position: fixed; }
 
-/*--------------
-    Aligned
----------------*/
+body.dimmed.dimmable > :not(.dimmer){ filter: $elementFilter; }
 
-.ui.dimmer > .top.aligned.content > * {
-  vertical-align: top;
-}
-.ui.dimmer > .bottom.aligned.content > * {
-  vertical-align: bottom;
-}
+/*- Aligned -*/
 
-/*--------------
-    Inverted
----------------*/
+.ui.dimmer > .top.aligned.content > * { vertical-align: top; }
+.ui.dimmer > .bottom.aligned.content > * { vertical-align: bottom; }
 
-.ui.inverted.dimmer {
-  background: $invertedBackground;
-}
-.ui.inverted.dimmer > .content > * {
-  color: $textColor;
-}
+/*- Inverted -*/
 
-/*--------------
-     Simple
----------------*/
+.ui.inverted.dimmer { background: $invertedBackground; }
+.ui.inverted.dimmer > .content > * { color: $textColor; }
+
+/*- Simple -*/
 
 /* Displays without javascript */
 .ui.simple.dimmer {
@@ -164,11 +121,8 @@ body.dimmed.dimmable > :not(.dimmer){
   z-index: $simpleZIndex;
 }
 
-.ui.simple.inverted.dimmer {
-  background: $simpleInvertedStartBackground;
-}
-.dimmed.dimmable > .ui.simple.inverted.dimmer {
-  background: $simpleInvertedEndBackground;
-}
+.ui.simple.inverted.dimmer { background: $simpleInvertedStartBackground; }
+
+.dimmed.dimmable > .ui.simple.inverted.dimmer { background: $simpleInvertedEndBackground; }
 
 @extend .loadUIOverrides;
