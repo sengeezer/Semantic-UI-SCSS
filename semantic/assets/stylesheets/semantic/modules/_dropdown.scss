@@ -377,29 +377,21 @@ select.ui.dropdown {
   cursor: pointer;
   display: inline-block;
   color: $inlineTextColor;
-}
-.ui.inline.dropdown .dropdown.icon {
-  margin: $inlineIconMargin;
-  vertical-align: top;
-}
-.ui.inline.dropdown > .text {
-  font-weight: $inlineTextFontWeight;
-}
-.ui.inline.dropdown .menu {
-  cursor: auto;
-  margin-top: $inlineMenuDistance;
-  border-radius: $inlineMenuBorderRadius;
+  .dropdown.icon {
+    margin: $inlineIconMargin;
+    vertical-align: top;
+  }
+  > .text { font-weight: $inlineTextFontWeight; }
+  .menu {
+    cursor: auto;
+    margin-top: $inlineMenuDistance;
+    border-radius: $inlineMenuBorderRadius;
+  }
 }
 
+/*** States ***/
 
-/*******************************
-            States
-*******************************/
-
-
-/*--------------------
-        Hover
-----------------------*/
+/*- Hover -*/
 
 /* Menu Item Hover */
 .ui.dropdown .menu > .item:hover {
@@ -408,9 +400,7 @@ select.ui.dropdown {
   z-index: 12;
 }
 
-/*--------------------
-        Active
-----------------------*/
+/*- Active -*/
 
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
@@ -421,30 +411,19 @@ select.ui.dropdown {
   z-index: $activeItemZIndex;
 }
 
-/*--------------------
-     Default Text
-----------------------*/
+/*- Default Text -*/
 
 .ui.dropdown > .default.text,
-.ui.default.dropdown > .text {
-  color: $defaultTextColor;
-}
+.ui.default.dropdown > .text { color: $defaultTextColor; }
+
 .ui.dropdown:hover > .default.text,
-.ui.default.dropdown:hover > .text {
-  color: $defaultTextHoverColor;
-}
+.ui.default.dropdown:hover > .text { color: $defaultTextHoverColor; }
 
-/*--------------------
-        Loading
-----------------------*/
+/*- Loading -*/
 
-.ui.loading.dropdown > .text {
-  transition: none;
-}
+.ui.loading.dropdown > .text { transition: none; }
 
-/*--------------------
-    Keyboard Select
-----------------------*/
+/*- Keyboard Select -*/
 
 /* Selected Item */
 .ui.dropdown.selected,
@@ -453,23 +432,13 @@ select.ui.dropdown {
   color: $selectedColor;
 }
 
-
-/*--------------------
-    Search Filtered
-----------------------*/
+/*- Search Filtered -*/
 
 /* Filtered Item */
-.ui.dropdown > .filtered.text {
-  visibility: hidden;
-}
-.ui.dropdown .filtered.item {
-  display: none;
-}
+.ui.dropdown > .filtered.text { visibility: hidden; }
+.ui.dropdown .filtered.item { display: none; }
 
-
-/*--------------------
-        Error
-----------------------*/
+/*- Error -*/
 
 .ui.dropdown.error,
 .ui.dropdown.error > .text,
@@ -482,54 +451,33 @@ select.ui.dropdown {
   border-color: $errorBorderColor;
 }
 
-.ui.selection.dropdown.error:hover {
-  border-color: $errorBorderColor;
-}
+.ui.selection.dropdown.error:hover { border-color: $errorBorderColor; }
 
 .ui.dropdown.error > .menu,
-.ui.dropdown.error > .menu .menu {
-  border-color: $errorBorderColor;
-}
+.ui.dropdown.error > .menu .menu { border-color: $errorBorderColor; }
 
-.ui.dropdown.error > .menu > .item {
-  color: $errorItemTextColor;
-}
+.ui.dropdown.error > .menu > .item { color: $errorItemTextColor; }
 
 /* Item Hover */
-.ui.dropdown.error > .menu > .item:hover {
-  background-color: $errorItemHoverBackground;
-}
+.ui.dropdown.error > .menu > .item:hover { background-color: $errorItemHoverBackground; }
 
 /* Item Active */
-.ui.dropdown.error > .menu .active.item {
-  background-color: $errorItemActiveBackground;
-}
+.ui.dropdown.error > .menu .active.item { background-color: $errorItemActiveBackground; }
 
+/*** Variations ***/
 
-/*******************************
-           Variations
-*******************************/
-
-/*--------------
-    Direction
----------------*/
+/*- Direction -*/
 
 /* Flyout Direction */
-.ui.dropdown .menu {
-  left: 0px;
-}
+.ui.dropdown .menu { left: 0px; }
 
-
-/*--------------
-     Simple
----------------*/
+/*- Simple -*/
 
 /* Displays without javascript */
 
 .ui.simple.dropdown .menu:before,
-.ui.simple.dropdown .menu:after {
-  display: none;
-}
+.ui.simple.dropdown .menu:after { display: none; }
+
 .ui.simple.dropdown .menu {
   position: absolute;
   display: block;
@@ -572,27 +520,18 @@ select.ui.dropdown {
 }
 
 /* Visible */
-.ui.simple.visible.dropdown > .menu {
-  display: block;
-}
+.ui.simple.visible.dropdown > .menu { display: block; }
 
-/*--------------
-      Fluid
----------------*/
+/*- Fluid -*/
 
 .ui.fluid.dropdown {
   display: block;
   width: 100%;
   min-width: 0em;
-}
-.ui.fluid.dropdown > .dropdown.icon {
-  float: right;
+  > .dropdown.icon { float: right; }
 }
 
-
-/*--------------
-    Floating
----------------*/
+/*- Floating -*/
 
 .ui.floating.dropdown .menu {
   left: 0;
@@ -602,36 +541,28 @@ select.ui.dropdown {
   border-radius: $floatingMenuBorderRadius;
 }
 
-/*--------------
-     Pointing
----------------*/
-
+/*- Pointing -*/
 
 .ui.pointing.dropdown > .menu {
   top: 100%;
   margin-top: $pointingMenuDistance;
   border-radius: $pointingMenuBorderRadius;
-}
-
-.ui.pointing.dropdown > .menu:after {
-  display: block;
-  position: absolute;
-  pointer-events: none;
-  content: '';
-  visibility: visible;
-  transform: rotate(45deg);
-
-  width: $pointingArrowSize;
-  height: $pointingArrowSize;
-  box-shadow: $pointingArrowBoxShadow;
-  background: $pointingArrowBackground;
-  z-index: $pointingArrowZIndex;
-}
-
-.ui.pointing.dropdown > .menu:after {
-  top: $pointingArrowOffset;
-  left: 50%;
-  margin: 0em 0em 0em $pointingArrowOffset;
+  &:after {
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    content: '';
+    visibility: visible;
+    transform: rotate(45deg);
+    width: $pointingArrowSize;
+    height: $pointingArrowSize;
+    box-shadow: $pointingArrowBoxShadow;
+    background: $pointingArrowBackground;
+    z-index: $pointingArrowZIndex;
+    top: $pointingArrowOffset;
+    left: 50%;
+    margin: 0em 0em 0em $pointingArrowOffset;
+  }
 }
 
 /* Top Left Pointing */
@@ -641,35 +572,29 @@ select.ui.dropdown {
   left: 0%;
   right: auto;
   margin: $pointingArrowDistanceFromEdge 0em 0em;
+  &:after {
+    top: $pointingArrowOffset;
+    left: $pointingArrowDistanceFromEdge;
+    right: auto;
+    margin: 0em;
+    transform: rotate(45deg);
+  }
 }
-.ui.top.left.pointing.dropdown > .menu {
-  top: 100%;
-  bottom: auto;
-  left: 0%;
-  right: auto;
-  margin: $pointingArrowDistanceFromEdge 0em 0em;
-}
-.ui.top.left.pointing.dropdown > .menu:after {
-  top: $pointingArrowOffset;
-  left: $pointingArrowDistanceFromEdge;
-  right: auto;
-  margin: 0em;
-  transform: rotate(45deg);
-}
-/* Top Right  Pointing */
+
+/* Top Right Pointing */
 .ui.top.right.pointing.dropdown > .menu {
   top: 100%;
   bottom: auto;
   right: 0%;
   left: auto;
   margin: $pointingArrowDistanceFromEdge 0em 0em;
-}
-.ui.top.right.pointing.dropdown > .menu:after {
-  top: $pointingArrowOffset;
-  left: auto;
-  right: $pointingArrowDistanceFromEdge;
-  margin: 0em;
-  transform: rotate(45deg);
+  &:after {
+    top: $pointingArrowOffset;
+    left: auto;
+    right: $pointingArrowDistanceFromEdge;
+    margin: 0em;
+    transform: rotate(45deg);
+  }
 }
 
 /* Left Pointing */
@@ -678,12 +603,12 @@ select.ui.dropdown {
   left: 100%;
   right: auto;
   margin: 0em 0em 0em $pointingArrowDistanceFromEdge;
-}
-.ui.left.pointing.dropdown > .menu:after {
-  top: 1em;
-  left: $pointingArrowOffset;
-  margin: 0em 0em 0em 0em;
-  transform: rotate(-45deg);
+  &:after {
+    top: 1em;
+    left: $pointingArrowOffset;
+    margin: 0em 0em 0em 0em;
+    transform: rotate(-45deg);
+  }
 }
 
 /* Right Pointing */
@@ -692,13 +617,13 @@ select.ui.dropdown {
   left: auto;
   right: 100%;
   margin: 0em $pointingArrowDistanceFromEdge 0em 0em;
-}
-.ui.right.pointing.dropdown > .menu:after {
-  top: 1em;
-  left: auto;
-  right: $pointingArrowOffset;
-  margin: 0em 0em 0em 0em;
-  transform: rotate(135deg);
+  &:after {
+    top: 1em;
+    left: auto;
+    right: $pointingArrowOffset;
+    margin: 0em 0em 0em 0em;
+    transform: rotate(135deg);
+  }
 }
 
 /* Bottom Pointing */
@@ -708,14 +633,15 @@ select.ui.dropdown {
   left: 0%;
   right: auto;
   margin: 0em 0em $pointingArrowDistanceFromEdge ;
+  &:after {
+    top: auto;
+    bottom: $pointingArrowOffset;
+    right: auto;
+    margin: 0em;
+    transform: rotate(-135deg);
+  }
 }
-.ui.bottom.pointing.dropdown > .menu:after {
-  top: auto;
-  bottom: $pointingArrowOffset;
-  right: auto;
-  margin: 0em;
-  transform: rotate(-135deg);
-}
+
 /* Reverse Sub-Menu Direction */
 .ui.bottom.pointing.dropdown > .menu .menu {
   top: auto !important;

@@ -9,58 +9,42 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'module';
 $element : 'modal';
-
 $import '../../theme.config';
 
-/*******************************
-             Modal
-*******************************/
+/*** Modal ***/
 
 .ui.modal {
   display: none;
   position: fixed;
   z-index: 1001;
-
   top: 50%;
   left: 50%;
   text-align: left;
-
   width: $width;
   margin-left: $xOffset;
-
   background: $background;
   border: $border;
   box-shadow: $boxShadow;
-
   border-radius: $borderRadius;
   user-select: text;
   will-change: top, left, margin, transform, opacity;
+  > :first-child:not(.icon), > .icon:first-child + * {
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+  }
+  > :last-child {
+    border-bottom-left-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+  }
 }
 
-.ui.modal > :first-child:not(.icon),
-.ui.modal > .icon:first-child + * {
-  border-top-left-radius: $borderRadius;
-  border-top-right-radius: $borderRadius;
-}
+/*** Content ***/
 
-.ui.modal > :last-child {
-  border-bottom-left-radius: $borderRadius;
-  border-bottom-right-radius: $borderRadius;
-}
-
-/*******************************
-            Content
-*******************************/
-
-/*--------------
-     Close
----------------*/
+/*- Close -*/
 
 .ui.modal > .close {
   cursor: pointer;
@@ -68,22 +52,16 @@ $import '../../theme.config';
   top: $closeTop;
   right: $closeRight;
   z-index: 1;
-
   opacity: $closeOpacity;
   font-size: $closeSize;
   color: $closeColor;
-
   width: $closeHitbox;
   height: $closeHitbox;
   padding: $closePadding;
-}
-.ui.modal > .close:hover {
-  opacity: 1;
+  &:hover { opacity: 1; }
 }
 
-/*--------------
-     Header
----------------*/
+/*- Header -*/
 
 .ui.modal > .header {
   display: block;
@@ -92,7 +70,6 @@ $import '../../theme.config';
   margin: $headerMargin;
   padding: $headerPadding;
   box-shadow: $headerBoxShadow;
-
   font-size: $headerFontSize;
   line-height: $headerLineHeight;
   font-weight: $headerFontWeight;
@@ -100,9 +77,7 @@ $import '../../theme.config';
   border-bottom: $headerBorder;
 }
 
-/*--------------
-     Content
----------------*/
+/*- Content -*/
 
 .ui.modal > .content {
   display: table;
@@ -120,12 +95,8 @@ $import '../../theme.config';
   width: $imageWidth;
   vertical-align: $imageVerticalAlign;
 }
-.ui.modal > .content > .image[class*="top aligned"] {
-  vertical-align: top;
-}
-.ui.modal > .content > .image[class*="top aligned"] {
-  vertical-align: middle;
-}
+.ui.modal > .content > .image[class*="top aligned"] { vertical-align: top; }
+.ui.modal > .content > .image[class*="top aligned"] { vertical-align: middle; }
 
 /* Description */
 .ui.modal > .content > .description {
@@ -149,23 +120,17 @@ $import '../../theme.config';
   width: auto;
 }
 
-/*--------------
-     Actions
----------------*/
+/*- Actions -*/
 
 .ui.modal .actions {
   background: $actionBackground;
   padding: $actionPadding;
   border-top: $actionBorder;
   text-align: $actionAlign;
-}
-.ui.modal .actions > .button {
-  margin-left: $buttonDistance;
+  > .button { margin-left: $buttonDistance; }
 }
 
-/*-------------------
-       Responsive
---------------------*/
+/*- Responsive -*/
 
 /* Modal Width */
 @media only screen and (max-width : $largestMobileScreen) {
@@ -201,9 +166,7 @@ $import '../../theme.config';
 
 /* Tablet and Mobile */
 @media only screen and (max-width : $computerBreakpoint) {
-  .ui.modal > .header {
-    padding-right: $closeHitbox;
-  }
+  .ui.modal > .header { padding-right: $closeHitbox; }
   .ui.modal > .close {
     top: $innerCloseTop;
     right: $innerCloseRight;
@@ -213,7 +176,6 @@ $import '../../theme.config';
 
 /* Mobile */
 @media only screen and (max-width : $largestMobileScreen) {
-
   .ui.modal > .header {
     padding: $mobileHeaderPadding !important;
     padding-right: $closeHitbox !important;
@@ -249,61 +211,44 @@ $import '../../theme.config';
     box-shadow: none;
   }
 
-  .ui.modal > .actions {
-    padding: $mobileActionPadding !important;
-  }
+  .ui.modal > .actions { padding: $mobileActionPadding !important; }
+
   .ui.modal .actions > .buttons,
-  .ui.modal .actions > .button {
-    margin-bottom: $mobileButtonDistance;
-  }
+  .ui.modal .actions > .button { margin-bottom: $mobileButtonDistance; }
 }
 
-/*******************************
-             Types
-*******************************/
+/*** Types ***/
 
 .ui.basic.modal {
   background-color: transparent;
   border: none;
   box-shadow: none;
   color: $basicModalColor;
-}
-.ui.basic.modal > .header,
-.ui.basic.modal > .content,
-.ui.basic.modal > .actions {
-  background-color: transparent;
-}
-.ui.basic.modal > .header {
-  color: $basicModalHeaderColor;
-}
-.ui.basic.modal > .close {
-  top: $basicModalCloseTop;
-  right: $basicModalCloseRight;
+  > .header, > .content, > .actions { background-color: transparent; }
+  > .header { color: $basicModalHeaderColor; }
+  > .close {
+    top: $basicModalCloseTop;
+    right: $basicModalCloseRight;
+  }
 }
 
 /* Tablet and Mobile */
 @media only screen and (max-width : $computerBreakpoint) {
-
-  .ui.basic.modal > .close {
-    color: $basicInnerCloseColor;
-  }
+  .ui.basic.modal > .close { color: $basicInnerCloseColor; }
 }
 
-/*******************************
-            Variations
-*******************************/
+/*** Variations ***/
 
 /* A modal that cannot fit on the page */
 .scrolling.dimmable.dimmed {
   overflow: hidden;
+  > .dimmer {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
-.scrolling.dimmable.dimmed > .dimmer {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.scrolling.dimmable > .dimmer {
-  position: fixed;
-}
+
+.scrolling.dimmable > .dimmer { position: fixed; }
 
 .ui.scrolling.modal {
   position: static;
@@ -317,33 +262,23 @@ $import '../../theme.config';
   }
 }
 
-/*******************************
-             States
-*******************************/
+/*** States ***/
 
-.ui.active.modal {
-  display: block;
-}
+.ui.active.modal { display: block; }
 
-/*******************************
-           Variations
-*******************************/
+/*** Variations ***/
 
-/*--------------
-   Full Screen
----------------*/
+/*- Full Screen -*/
 
 .ui.fullscreen.modal {
   width: $fullScreenWidth !important;
   margin: $fullScreenMargin;
-}
-.ui.fullscreen.modal > .header {
-  padding-right: $closeHitbox;
-}
-.ui.fullscreen.modal > .close {
-  top: $innerCloseTop;
-  right: $innerCloseRight;
-  color: $innerCloseColor;
+  > .header { padding-right: $closeHitbox; }
+  > .close {
+    top: $innerCloseTop;
+    right: $innerCloseRight;
+    color: $innerCloseColor;
+  }
 }
 
 @media only screen and (max-width : $largestMobileScreen) {
@@ -355,18 +290,12 @@ $import '../../theme.config';
   }
 }
 
-/*--------------
-      Size
----------------*/
+/*- Size -*/
 
-.ui.modal {
-  font-size: $medium;
-}
+.ui.modal { font-size: $medium; }
 
 /* Small */
-.ui.small.modal > .header {
-  font-size: $smallHeaderSize;
-}
+.ui.small.modal > .header { font-size: $smallHeaderSize; }
 
 /* Small Modal Width */
 @media only screen and (max-width : $largestMobileScreen) {
@@ -401,9 +330,8 @@ $import '../../theme.config';
 }
 
 /* Large Modal Width */
-.ui.large.modal > .header {
-  font-size: $largeHeaderSize;
-}
+.ui.large.modal > .header { font-size: $largeHeaderSize; }
+
 @media only screen and (max-width : $largestMobileScreen) {
   .ui.large.modal {
     width: $largeMobileWidth;
@@ -434,6 +362,5 @@ $import '../../theme.config';
     margin: $largeWidescreenMonitorMargin;
   }
 }
-
 
 @extend .loadUIOverrides;

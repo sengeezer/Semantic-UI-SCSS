@@ -9,49 +9,35 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'module';
 $element : 'nag';
-
 $import '../../theme.config';
 
-
-/*******************************
-             Nag
-*******************************/
+/*** Nag ***/
 
 .ui.nag {
   display: none;
   opacity: $opacity;
   position: $position;
-
   top: $top;
   left: 0px;
   z-index: $zIndex;
-
   min-height: $minHeight;
   width: $width;
-
   margin: $margin;
   padding: $padding;
-
   background: $background;
   box-shadow: $boxShadow;
-
   font-size: $fontSize;
   text-align: $textAlign;
   color: $color;
-
   border-radius: $topBorderRadius;
   transition: $transition;
 }
 
-a.ui.nag {
-  cursor: pointer;
-}
+a.ui.nag { cursor: pointer; }
 
 .ui.nag > .title {
   display: inline-block;
@@ -59,27 +45,19 @@ a.ui.nag {
   color: $titleColor;
 }
 
-
 .ui.nag > .close.icon {
   cursor: pointer;
   opacity: $closeOpacity;
-
   position: absolute;
   top: $closeTop;
   right: $closeRight;
-
   font-size: $closeSize;
-
   margin: $closeMargin;
   color: $closeColor;
   transition: $closeTransition;
 }
 
-
-
-/*******************************
-             States
-*******************************/
+/*** States ***/
 
 /* Hover */
 .ui.nag:hover {
@@ -87,36 +65,22 @@ a.ui.nag {
   opacity: $nagHoverOpacity;
 }
 
-.ui.nag .close:hover {
-  opacity: $closeHoverOpacity;
-}
+.ui.nag .close:hover { opacity: $closeHoverOpacity; }
 
+/*** Variations ***/
 
-/*******************************
-           Variations
-*******************************/
-
-
-/*--------------
-     Static
----------------*/
+/*- Static -*/
 
 .ui.overlay.nag {
   position: absolute;
   display: block;
 }
 
-/*--------------
-     Fixed
----------------*/
+/*- Fixed -*/
 
-.ui.fixed.nag {
-  position: fixed;
-}
+.ui.fixed.nag { position: fixed; }
 
-/*--------------
-     Bottom
----------------*/
+/*- Bottom -*/
 
 .ui.bottom.nags,
 .ui.bottom.nag {
@@ -125,9 +89,7 @@ a.ui.nag {
   bottom: $bottom;
 }
 
-/*--------------
-     White
----------------*/
+/*- White -*/
 
 .ui.inverted.nags .nag,
 .ui.inverted.nag {
@@ -137,23 +99,12 @@ a.ui.nag {
 .ui.inverted.nags .nag .close,
 .ui.inverted.nags .nag .title,
 .ui.inverted.nag .close,
-.ui.inverted.nag .title {
-  color: $lightTextColor;
-}
+.ui.inverted.nag .title { color: $lightTextColor; }
 
+/*** Groups ***/
 
-/*******************************
-           Groups
-*******************************/
-
-.ui.nags .nag {
-  border-radius: $groupedBorderRadius !important;
-}
-.ui.nags .nag:last-child {
-  border-radius: $topBorderRadius;
-}
-.ui.bottom.nags .nag:last-child {
-  border-radius: $bottomBorderRadius;
-}
+.ui.nags .nag { border-radius: $groupedBorderRadius !important; }
+.ui.nags .nag:last-child { border-radius: $topBorderRadius; }
+.ui.bottom.nags .nag:last-child { border-radius: $bottomBorderRadius; }
 
 @extend .loadUIOverrides;

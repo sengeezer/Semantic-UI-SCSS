@@ -9,18 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'module';
 $element : 'popup';
-
 $import '../../theme.config';
 
-/*******************************
-            Popup
-*******************************/
+/*** Popup ***/
 
 .ui.popup {
   display: none;
@@ -28,71 +23,48 @@ $import '../../theme.config';
   top: 0px;
   right: 0px;
   z-index: $zIndex;
-
   border: $border;
   max-width: $maxWidth;
   background-color: $background;
-
   padding: $verticalPadding $horizontalPadding;
   font-weight: $fontWeight;
   font-style: $fontStyle;
   color: $color;
-
   border-radius: $borderRadius;
   box-shadow: $boxShadow;
-}
-.ui.popup > .header {
-  padding: 0em;
-
-  font-family: $headerFont;
-  font-size: $headerFontSize;
-  line-height: $headerLineHeight;
-  font-weight: bold;
-}
-.ui.popup > .header + .content {
-  padding-top: $headerDistance;
-}
-
-.ui.popup:before {
-  position: absolute;
-  content: '';
-  width: $arrowSize;
-  height: $arrowSize;
-
-  background: $arrowBackground;
-  transform: rotate(45deg);
-
-  z-index: $arrowZIndex;
-  box-shadow: $arrowBoxShadow;
+  > .header {
+    padding: 0em;
+    font-family: $headerFont;
+    font-size: $headerFontSize;
+    line-height: $headerLineHeight;
+    font-weight: bold;
+    + .content { padding-top: $headerDistance; }
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    width: $arrowSize;
+    height: $arrowSize;
+    background: $arrowBackground;
+    transform: rotate(45deg);
+    z-index: $arrowZIndex;
+    box-shadow: $arrowBoxShadow;
+  }
 }
 
-/*******************************
-            Types
-*******************************/
+/*** Types ***/
 
-/*--------------
-     Spacing
----------------*/
+/*- Spacing -*/
 
 .ui.popup {
   margin: 0em;
-}
-.ui.popup.bottom {
-  margin: $popupDistanceAway 0em 0em;
-}
-.ui.popup.top {
-  margin: 0em 0em $popupDistanceAway;
-}
-.ui.popup.left.center {
-  margin: 0em $popupDistanceAway 0em 0em;
-}
-.ui.popup.right.center {
-  margin: 0em 0em 0em $popupDistanceAway;
+  &.bottom { margin: $popupDistanceAway 0em 0em; }
+  &.top { margin: 0em 0em $popupDistanceAway; }
+  &.left.center { margin: 0em $popupDistanceAway 0em 0em; }
+  &.right.center { margin: 0em 0em 0em $popupDistanceAway; }
 }
 
-/*--------------
-     Pointer
----------------*/
+/*- Pointer -*/
 
 /*--- Below ---*/
 .ui.bottom.center.popup:before {
@@ -106,26 +78,26 @@ $import '../../theme.config';
 
 .ui.bottom.left.popup {
   margin-left: $boxArrowOffset;
-}
-.ui.bottom.left.popup:before {
-  top: $arrowOffset;
-  left: $arrowDistanceFromEdge;
-  right: auto;
-  bottom: auto;
-  margin-left: 0em;
-  box-shadow: $bottomArrowBoxShadow;
+  &:before {
+    top: $arrowOffset;
+    left: $arrowDistanceFromEdge;
+    right: auto;
+    bottom: auto;
+    margin-left: 0em;
+    box-shadow: $bottomArrowBoxShadow;
+  }
 }
 
 .ui.bottom.right.popup {
   margin-right: $boxArrowOffset;
-}
-.ui.bottom.right.popup:before {
-  top: $arrowOffset;
-  right: $arrowDistanceFromEdge;
-  bottom: auto;
-  left: auto;
-  margin-left: 0em;
-  box-shadow: $bottomArrowBoxShadow;
+  &:before {
+    top: $arrowOffset;
+    right: $arrowDistanceFromEdge;
+    bottom: auto;
+    left: auto;
+    margin-left: 0em;
+    box-shadow: $bottomArrowBoxShadow;
+  }
 }
 
 /*--- Above ---*/
@@ -136,9 +108,8 @@ $import '../../theme.config';
   left: 50%;
   margin-left: $arrowOffset;
 }
-.ui.top.left.popup {
-  margin-left: $boxArrowOffset;
-}
+.ui.top.left.popup { margin-left: $boxArrowOffset; }
+
 .ui.top.left.popup:before {
   bottom: $arrowOffset;
   left: $arrowDistanceFromEdge;
@@ -146,9 +117,8 @@ $import '../../theme.config';
   right: auto;
   margin-left: 0em;
 }
-.ui.top.right.popup {
-  margin-right: $boxArrowOffset;
-}
+.ui.top.right.popup { margin-right: $boxArrowOffset; }
+
 .ui.top.right.popup:before {
   bottom: $arrowOffset;
   right: $arrowDistanceFromEdge;
@@ -177,9 +147,7 @@ $import '../../theme.config';
   box-shadow: $rightArrowBoxShadow;
 }
 
-/*******************************
-            Coupling
-*******************************/
+/*** Coupling ***/
 
 /* Immediate Nested Grid */
 .ui.popup > .ui.grid:not(.padded) {
@@ -187,9 +155,7 @@ $import '../../theme.config';
   margin: $nestedGridMargin;
 }
 
-/*******************************
-            States
-*******************************/
+/*** States ***/
 
 .ui.loading.popup {
   display: block;
@@ -198,19 +164,11 @@ $import '../../theme.config';
 }
 
 .ui.animating.popup,
-.ui.visible.popup {
-  display: block;
-}
+.ui.visible.popup { display: block; }
 
+/*** Variations ***/
 
-/*******************************
-            Variations
-*******************************/
-
-
-/*--------------
-     Wide
----------------*/
+/*- Wide -*/
 
 .ui.wide.popup {
   width: $wideWidth;
@@ -221,20 +179,14 @@ $import '../../theme.config';
   max-width: $veryWideWidth;
 }
 
-
-/*--------------
-     Fluid
----------------*/
+/*- Fluid -*/
 
 .ui.fluid.popup {
   width: 100%;
   max-width: 99999px;
 }
 
-
-/*--------------
-     Colors
----------------*/
+/*- Colors -*/
 
 /* Inverted colors  */
 .ui.inverted.popup {
@@ -242,41 +194,25 @@ $import '../../theme.config';
   color: $invertedColor;
   border: $invertedBorder;
   box-shadow: $invertedBoxShadow;
-}
-.ui.inverted.popup .header {
-  background-color: $invertedHeaderBackground;
-  color: $invertedHeaderColor;
-}
-.ui.inverted.popup:before {
-  background-color: $invertedArrowColor;
-  box-shadow: none;
-}
-
-/*--------------
-     Flowing
----------------*/
-
-.ui.flowing.popup {
-  max-width: 9999px;
+  .header {
+    background-color: $invertedHeaderBackground;
+    color: $invertedHeaderColor;
+  }
+  &:before {
+    background-color: $invertedArrowColor;
+    box-shadow: none;
+  }
 }
 
+/*- Flowing -*/
 
-/*--------------
-     Sizes
----------------*/
+.ui.flowing.popup { max-width: 9999px; }
 
-.ui.small.popup {
-  font-size: $small;
-}
-.ui.popup {
-  font-size: $medium;
-}
-.ui.large.popup {
-  font-size: $large;
-}
-.ui.huge.popup {
-  font-size: $huge;
-}
+/*- Sizes -*/
 
+.ui.small.popup { font-size: $small; }
+.ui.popup { font-size: $medium; }
+.ui.large.popup { font-size: $large; }
+.ui.huge.popup { font-size: $huge; }
 
 @extend .loadUIOverrides;
