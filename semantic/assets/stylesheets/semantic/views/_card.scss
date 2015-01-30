@@ -9,42 +9,30 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'view';
 $element : 'card';
-
 $import '../../theme.config';
 
-/*******************************
-            Standard
-*******************************/
+/*** Standard ***/
 
-
-/*--------------
-      Cards
----------------*/
+/*- Cards -*/
 
 .ui.cards {
   margin: $groupCardsMargin;
-}
-
-.ui.cards > .card {
-  display: $groupDisplay;
-  margin: $groupCardMargin;
-  float: $groupFloat;
+  > .card {
+    display: $groupDisplay;
+    margin: $groupCardMargin;
+    float: $groupFloat;
+  }
 }
 
 .ui.cards:first-child,
-.ui.card:first-child {
-  margin-top: 0em;
-}
+.ui.card:first-child { margin-top: 0em; }
+
 .ui.cards:last-child,
-.ui.card:last-child {
-  margin-bottom: 0em;
-}
+.ui.card:last-child { margin-bottom: 0em; }
 
 /* Clearing */
 .ui.cards:after,
@@ -57,41 +45,29 @@ $import '../../theme.config';
   visibility: hidden;
 }
 
-
-/*--------------
-      Card
----------------*/
+/*- Card -*/
 
 .ui.cards > .card,
 .ui.card {
   max-width: 100%;
   position: relative;
   display: $display;
-
   width: $width;
   min-height: $minHeight;
   background: $background;
   padding: $padding;
-
   border: $border;
   border-radius: $borderRadius;
   box-shadow: $boxShadow;
   transition: $transition;
   z-index: $zIndex;
 }
-.ui.card {
-  margin: $margin;
-}
+.ui.card { margin: $margin; }
 
 .ui.cards > .card a,
-.ui.card a {
-  cursor: pointer;
-}
+.ui.card a { cursor: pointer; }
 
-
-/*--------------
-  Rounded Edges
----------------*/
+/*- Rounded Edges -*/
 
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {

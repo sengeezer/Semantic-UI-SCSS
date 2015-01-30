@@ -9,27 +9,20 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'module';
 $element : 'sticky';
-
 $import '../../theme.config';
 
-/*******************************
-            Sticky
-*******************************/
+/*** Sticky ***/
 
 .ui.sticky {
   position: static;
   transition: $transition;
 }
 
-/*******************************
-            States
-*******************************/
+/*** States ***/
 
 /* Bound */
 .ui.sticky.bound {
@@ -57,10 +50,7 @@ $import '../../theme.config';
   bottom: 0px;
 }
 
-
-/*******************************
-            Types
-*******************************/
+/*** Types ***/
 
 .ui.native.sticky {
   position: -webkit-sticky;

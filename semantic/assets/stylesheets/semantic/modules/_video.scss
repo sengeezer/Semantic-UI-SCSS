@@ -9,19 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'module';
 $element : 'video';
-
 $import '../../theme.config';
 
-
-/*******************************
-            Video
-*******************************/
+/*** Video ***/
 
 .ui.video {
   position: relative;
@@ -33,14 +27,10 @@ $import '../../theme.config';
   overflow: hidden;
 }
 
-/*--------------
-     Content
----------------*/
+/*- Content -*/
 
 /* Placeholder Image */
-.ui.video .placeholder {
-  background-color: $placeholderBackground;
-}
+.ui.video .placeholder { background-color: $placeholderBackground; }
 
 /* Play Icon Overlay */
 .ui.video .play {
@@ -49,30 +39,25 @@ $import '../../theme.config';
   top: 0px;
   left: 0px;
   z-index: 10;
-
   width: 100%;
   height: 100%;
-
   opacity: $playOpacity;
   transition: opacity 0.3s;
-}
-.ui.video .play.icon:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 11;
-
-  background: $playBackground;
-
-  width: ($playSize + $playBorderSize);
-  height: ($playSize + $playBorderSize);
-  line-height: ($playSize + $playBorderSize);
-  border-radius: $playBorderRadius;
-
-  color: $playColor;
-  font-size: $playSize;
-  text-shadow: $playShadow;
-  transform: translateX(-50%) translateY(-50%);
+  &.icon:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 11;
+    background: $playBackground;
+    width: ($playSize + $playBorderSize);
+    height: ($playSize + $playBorderSize);
+    line-height: ($playSize + $playBorderSize);
+    border-radius: $playBorderRadius;
+    color: $playColor;
+    font-size: $playSize;
+    text-shadow: $playShadow;
+    transform: translateX(-50%) translateY(-50%);
+  }
 }
 
 .ui.video .placeholder {
@@ -84,42 +69,31 @@ $import '../../theme.config';
   height: 100%;
 }
 
-/* IFrame Embed */
-.ui.video .embed iframe,
-.ui.video .embed embed,
-.ui.video .embed object {
-  position: absolute;
-  border: none;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  margin: 0em;
-  padding: 0em;
+/* Iframe Embed */
+.ui.video .embed {
+  iframe, embed, object {
+    position: absolute;
+    border: none;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    margin: 0em;
+    padding: 0em;
+  }
 }
 
-/*******************************
-            States
-*******************************/
+/*** States ***/
 
-/*--------------
-    Hover
----------------*/
+/*- Hover -*/
 
-.ui.video .play:hover {
-  opacity: $playHoverOpacity;
-}
+.ui.video .play:hover { opacity: $playHoverOpacity; }
 
-/*--------------
-     Active
----------------*/
+/*- Active -*/
 
 .ui.video.active .play,
-.ui.video.active .placeholder {
-  display: none;
-}
-.ui.video.active .embed {
-  display: inline;
-}
+.ui.video.active .placeholder { display: none; }
+
+.ui.video.active .embed { display: inline; }
 
 @extend .loadUIOverrides;

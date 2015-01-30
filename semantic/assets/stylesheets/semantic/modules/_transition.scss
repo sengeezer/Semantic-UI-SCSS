@@ -9,19 +9,13 @@
  *
  */
 
-/*******************************
-            Theme
-*******************************/
+/*** Theme ***/
 
 $type    : 'module';
 $element : 'transition';
-
 $import '../../theme.config';
 
-
-/*******************************
-          Transitions
-*******************************/
+/*** Transitions ***/
 
 /*
   Some transitions adapted from Animate CSS
@@ -35,10 +29,7 @@ $import '../../theme.config';
   animation-fill-mode: $transitionDefaultFill;
 }
 
-/*******************************
-            States
-*******************************/
-
+/*** States ***/
 
 /* Animating */
 .animating.transition {
@@ -69,21 +60,12 @@ $import '../../theme.config';
 }
 
 /* Disabled */
-.disabled.transition {
-  animation-play-state: paused;
-}
+.disabled.transition { animation-play-state: paused; }
 
-/*******************************
-          Variations
-*******************************/
+/*** Variations ***/
 
-.looping.transition {
-  animation-iteration-count: infinite;
-}
+.looping.transition { animation-iteration-count: infinite; }
 
-
-/*******************************
-             Types
-*******************************/
+/*** Types ***/
 
 @extend .loadUIOverrides;
