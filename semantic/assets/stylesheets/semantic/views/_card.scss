@@ -70,18 +70,12 @@ $import '../../theme.config';
 /*- Rounded Edges -*/
 
 .ui.cards > .card > :first-child,
-.ui.card > :first-child {
-  border-radius: $borderRadius $borderRadius 0em 0em !important;
-}
+.ui.card > :first-child { border-radius: $borderRadius $borderRadius 0em 0em !important; }
 
 .ui.cards > .card > :last-child,
-.ui.card > :last-child {
-  border-radius: 0em 0em $borderRadius $borderRadius !important;
-}
+.ui.card > :last-child { border-radius: 0em 0em $borderRadius $borderRadius !important; }
 
-/*--------------
-     Images
----------------*/
+/*- Images -*/
 
 .ui.cards > .card > .image,
 .ui.card > .image {
@@ -89,29 +83,18 @@ $import '../../theme.config';
   position: relative;
   padding: $imagePadding;
   background: $imageBackground;
-}
-.ui.cards > .card > .image > img,
-.ui.card > .image > img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: $imageBorderRadius;
-  border: $imageBorder;
-}
-
-.ui.cards > .card > .image:only-child > img,
-.ui.card > .image:only-child > img {
-  border-radius: $borderRadius;
+  > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $imageBorderRadius;
+    border: $imageBorder;
+  }
+  &:only-child > img { border-radius: $borderRadius; }
 }
 
-/*--------------
-     Content
----------------*/
+/*- Content -*/
 
-.ui.cards > .card > .content,
-.ui.card > .content {
-
-}
 .ui.cards > .card > .content,
 .ui.card > .content {
   background: $contentBackground;
@@ -121,24 +104,20 @@ $import '../../theme.config';
   font-size: $contentFontSize;
   border: $contentBorder;
   border-radius: $contentBorderRadius;
-}
-
-.ui.cards > .card > .content:after,
-.ui.card > .content:after {
-  display: block;
-  content: ' ';
-  height: 0px;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-
-.ui.cards > .card > .content > .header,
-.ui.card > .content > .header {
-  display: block;
-  margin: $headerMargin;
-  font-family: $headerFont;
-  color: $headerColor;
+  &:after {
+    display: block;
+    content: ' ';
+    height: 0px;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  > .header {
+    display: block;
+    margin: $headerMargin;
+    font-family: $headerFont;
+    color: $headerColor;
+  }
 }
 
 /* Default Header Size */
@@ -153,26 +132,17 @@ $import '../../theme.config';
 .ui.cards > .card > .content > .meta + .description,
 .ui.cards > .card > .content > .header + .description,
 .ui.card > .content > .meta + .description,
-.ui.card > .content > .header + .description  {
-  margin-top: $descriptionDistance;
-}
+.ui.card > .content > .header + .description  { margin-top: $descriptionDistance; }
 
-/*--------------
-     Floated
----------------*/
+/*- Floated -*/
 
 .ui.cards > .card  [class*="left floated"],
-.ui.card [class*="left floated"] {
-  float: left;
-}
-.ui.cards > .card [class*="right floated"],
-.ui.card [class*="right floated"] {
-  float: right;
-}
+.ui.card [class*="left floated"] { float: left; }
 
-/*--------------
-  Content Image
----------------*/
+.ui.cards > .card [class*="right floated"],
+.ui.card [class*="right floated"] { float: right; }
+
+/*- Content Image -*/
 
 .ui.cards > .card .content img,
 .ui.card .content img {
@@ -189,10 +159,7 @@ $import '../../theme.config';
   border-radius: $avatarBorderRadius;
 }
 
-
-/*--------------
-   Description
----------------*/
+/*- Description -*/
 
 .ui.cards > .card > .content > .description,
 .ui.card > .content > .description {
@@ -200,81 +167,53 @@ $import '../../theme.config';
   color: $descriptionColor;
 }
 
-/*--------------
-    Paragraph
----------------*/
+/*- Paragraph -*/
 
 .ui.cards > .card > .content p,
 .ui.card > .content p {
   margin: 0em 0em $paragraphDistance;
-}
-.ui.cards > .card > .content p:last-child,
-.ui.card > .content p:last-child {
-  margin-bottom: 0em;
+  &:last-child { margin-bottom: 0em; }
 }
 
-/*--------------
-      Meta
----------------*/
+/*- Meta -*/
 
 .ui.cards > .card .meta,
 .ui.card .meta {
   font-size: $metaFontSize;
   color: $metaColor;
-}
-.ui.cards > .card .meta *,
-.ui.card .meta * {
-  margin-right: $metaSpacing;
-}
-.ui.cards > .card .meta :last-child,
-.ui.card .meta :last-child {
-  margin-right: 0em;
+  * { margin-right: $metaSpacing; }
+  :last-child { margin-right: 0em; }
+  [class*="right floated"] {
+    margin-right: 0em;
+    margin-left: $metaSpacing;
+  }
 }
 
-.ui.cards > .card .meta [class*="right floated"],
-.ui.card .meta [class*="right floated"] {
-  margin-right: 0em;
-  margin-left: $metaSpacing;
-}
-
-/*--------------
-      Links
----------------*/
+/*- Links -*/
 
 /* Generic */
 .ui.cards > .card > .content a,
 .ui.card > .content a {
   color: $contentLinkColor;
   transition: $contentLinkTransition;
-}
-.ui.cards > .card > .content a:hover,
-.ui.card > .content a:hover {
-  color: $contentLinkHoverColor;
+  &:hover { color: $contentLinkHoverColor; }
 }
 
 /* Header */
 .ui.cards > .card > .content > a.header,
 .ui.card > .content > a.header {
   color: $headerLinkColor;
-}
-.ui.cards > .card > .content > a.header:hover,
-.ui.card > .content > a.header:hover {
-  color: $headerLinkHoverColor;
+  &:hover { color: $headerLinkHoverColor; }
 }
 
 /* Meta */
 .ui.cards > .card .meta a,
 .ui.card .meta a {
   color: $metaLinkColor;
-}
-.ui.cards > .card .meta a:hover,
-.ui.card .meta a:hover {
-  color: $metaLinkHoverColor;
+  &:hover { color: $metaLinkHoverColor; }
 }
 
-/*--------------
-     Buttons
----------------*/
+/*- Buttons -*/
 
 .ui.cards > .card > .buttons:last-child,
 .ui.card > .buttons:last-child,
@@ -284,9 +223,7 @@ $import '../../theme.config';
   width: $buttonWidth;
 }
 
-/*--------------
-     Labels
----------------*/
+/*- Labels -*/
 
 /*-----Star----- */
 
@@ -303,9 +240,7 @@ $import '../../theme.config';
   color: $starColor;
 }
 .ui.cards > .card > .content .active.star.icon,
-.ui.card > .content .active.star.icon {
-  color: $starActiveColor;
-}
+.ui.card > .content .active.star.icon { color: $starActiveColor; }
 
 /*-----Like----- */
 
@@ -322,13 +257,9 @@ $import '../../theme.config';
   color: $likeColor;
 }
 .ui.cards > .card > .content .active.like.icon,
-.ui.card > .content .active.like.icon {
-  color: $likeActiveColor;
-}
+.ui.card > .content .active.like.icon { color: $likeActiveColor; }
 
-/*----------------
-  Extra Content
------------------*/
+/*- Extra Content -*/
 
 .ui.cards > .card > .extra,
 .ui.card > .extra {
@@ -345,32 +276,22 @@ $import '../../theme.config';
   box-shadow: $extraBoxShadow;
   transition: $extraTransition;
   border-top: $extraDivider;
-}
-.ui.cards > .card > .extra a,
-.ui.card > .extra a {
-  color: $extraLinkColor;
-}
-.ui.cards > .card > .extra a:hover,
-.ui.card > .extra a:hover {
-  color: $extraLinkHoverColor;
+  a {
+    color: $extraLinkColor;
+    &:hover { color: $extraLinkHoverColor; }
+  }
 }
 
+/*** Variations ***/
 
-/*******************************
-           Variations
-*******************************/
-/*-------------------
-        Fluid
---------------------*/
+/*- Fluid -*/
 
 .ui.fluid.card {
   width: 100%;
   max-width: 9999px;
 }
 
-/*-------------------
-        Link
---------------------*/
+/*- Link -*/
 
 .ui.cards a.card:hover,
 .ui.link.cards .card:hover,
@@ -383,224 +304,198 @@ a.ui.card:hover,
   box-shadow: $linkHoverBoxShadow;
 }
 
-/*--------------
-   Card Count
----------------*/
+/*- Card Count -*/
 
 .ui.one.cards {
   margin-left: $oneCardOffset;
   margin-right: $oneCardOffset;
-}
-.ui.one.cards > .card {
-  width: $oneCard;
+  > .card { width: $oneCard; }
 }
 
 .ui.two.cards {
   margin-left: $twoCardOffset;
   margin-right: $twoCardOffset;
-}
-.ui.two.cards > .card {
-  width: $twoCard;
-  margin-left: $twoCardSpacing;
-  margin-right: $twoCardSpacing;
-}
-.ui.two.cards > .card:nth-child(2n+1) {
-  clear: left;
+  > .card {
+    width: $twoCard;
+    margin-left: $twoCardSpacing;
+    margin-right: $twoCardSpacing;
+    &:nth-child(2n+1) { clear: left; }
 }
 
 .ui.three.cards {
   margin-left: $threeCardOffset;
   margin-right: $threeCardOffset;
-}
-.ui.three.cards > .card {
-  width: $threeCard;
-  margin-left: $threeCardSpacing;
-  margin-right: $threeCardSpacing;
-}
-.ui.three.cards > .card:nth-child(3n+1) {
-  clear: left;
+  > .card {
+    width: $threeCard;
+    margin-left: $threeCardSpacing;
+    margin-right: $threeCardSpacing;
+    &:nth-child(3n+1) { clear: left; }
+  }
 }
 
 .ui.four.cards {
   margin-left: $fourCardOffset;
   margin-right: $fourCardOffset;
-}
-.ui.four.cards > .card {
-  width: $fourCard;
-  margin-left: $fourCardSpacing;
-  margin-right: $fourCardSpacing;
-}
-.ui.four.cards > .card:nth-child(4n+1) {
-  clear: left;
+  > .card {
+    width: $fourCard;
+    margin-left: $fourCardSpacing;
+    margin-right: $fourCardSpacing;
+    &:nth-child(4n+1) { clear: left; }
+  }
 }
 
 .ui.five.cards {
   margin-left: $fiveCardOffset;
   margin-right: $fiveCardOffset;
-}
-.ui.five.cards > .card {
-  width: $fiveCard;
-  margin-left: $fiveCardSpacing;
-  margin-right: $fiveCardSpacing;
-}
-.ui.five.cards > .card:nth-child(5n+1) {
-  clear: left;
+  > .card {
+    width: $fiveCard;
+    margin-left: $fiveCardSpacing;
+    margin-right: $fiveCardSpacing;
+    &:nth-child(5n+1) { clear: left; }
+  }
 }
 
 .ui.six.cards {
   margin-left: $sixCardOffset;
   margin-right: $sixCardOffset;
-}
-.ui.six.cards > .card {
-  width: $sixCard;
-  margin-left: $sixCardSpacing;
-  margin-right: $sixCardSpacing;
-}
-.ui.six.cards > .card:nth-child(6n+1) {
-  clear: left;
+  > .card {
+    width: $sixCard;
+    margin-left: $sixCardSpacing;
+    margin-right: $sixCardSpacing;
+    &:nth-child(6n+1) { clear: left; }
+  }
 }
 
 .ui.seven.cards {
   margin-left: $sevenCardOffset;
   margin-right: $sevenCardOffset;
-}
-.ui.seven.cards > .card {
-  width: $sevenCard;
-  margin-left: $sevenCardSpacing;
-  margin-right: $sevenCardSpacing;
-}
-.ui.seven.cards > .card:nth-child(7n+1) {
-  clear: left;
+  > .card {
+    width: $sevenCard;
+    margin-left: $sevenCardSpacing;
+    margin-right: $sevenCardSpacing;
+    &:nth-child(7n+1) { clear: left; }
+  }
 }
 
 .ui.eight.cards {
   margin-left: $eightCardOffset;
   margin-right: $eightCardOffset;
-}
-.ui.eight.cards > .card {
-  width: $eightCard;
-  margin-left: $eightCardSpacing;
-  margin-right: $eightCardSpacing;
-  font-size: 11px;
-}
-.ui.eight.cards > .card:nth-child(8n+1) {
-  clear: left;
+  > .card {
+    width: $eightCard;
+    margin-left: $eightCardSpacing;
+    margin-right: $eightCardSpacing;
+    font-size: 11px;
+    &:nth-child(8n+1) { clear: left; }
+  }
 }
 
 .ui.nine.cards {
   margin-left: $nineCardOffset;
   margin-right: $nineCardOffset;
-}
-.ui.nine.cards > .card {
-  width: $nineCard;
-  margin-left: $nineCardSpacing;
-  margin-right: $nineCardSpacing;
-  font-size: 10px;
-}
-.ui.nine.cards > .card:nth-child(9n+1) {
-  clear: left;
+  > .card {
+    width: $nineCard;
+    margin-left: $nineCardSpacing;
+    margin-right: $nineCardSpacing;
+    font-size: 10px;
+    &:nth-child(9n+1) { clear: left;}
+  }
 }
 
 .ui.ten.cards {
   margin-left: $tenCardOffset;
   margin-right: $tenCardOffset;
-}
-.ui.ten.cards > .card {
-  width: $tenCard;
-  margin-left: $tenCardSpacing;
-  margin-right: $tenCardSpacing;
-}
-.ui.ten.cards > .card:nth-child(10n+1) {
-  clear: left;
+  > .card {
+    width: $tenCard;
+    margin-left: $tenCardSpacing;
+    margin-right: $tenCardSpacing;
+    &:nth-child(10n+1) { clear: left; }
+  }
 }
 
+/*- Doubling -*/
 
-/*-------------------
-      Doubling
---------------------*/
-
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width : $largestMobileScreen) {
   .ui.two.doubling.cards {
     margin-left: $oneCardOffset;
     margin-right: $oneCardOffset;
-  }
-  .ui.two.doubling.cards .card {
-    width: $oneCard;
-    margin-left: $oneCardSpacing;
-    margin-right: $oneCardSpacing;
+    .card {
+      width: $oneCard;
+      margin-left: $oneCardSpacing;
+      margin-right: $oneCardSpacing;
+    }
   }
   .ui.three.doubling.cards {
     margin-left: $twoCardOffset;
     margin-right: $twoCardOffset;
-  }
-  .ui.three.doubling.cards .card {
-    width: $twoCard;
-    margin-left: $twoCardSpacing;
-    margin-right: $twoCardSpacing;
+    .card {
+      width: $twoCard;
+      margin-left: $twoCardSpacing;
+      margin-right: $twoCardSpacing;
+    }
   }
   .ui.four.doubling.cards {
     margin-left: $twoCardOffset;
     margin-right: $twoCardOffset;
-  }
-  .ui.four.doubling.cards .card {
-    width: $twoCard;
-    margin-left: $twoCardSpacing;
-    margin-right: $twoCardSpacing;
+    .card {
+      width: $twoCard;
+      margin-left: $twoCardSpacing;
+      margin-right: $twoCardSpacing;
+    }
   }
   .ui.five.doubling.cards {
     margin-left: $twoCardOffset;
     margin-right: $twoCardOffset;
-  }
-  .ui.five.doubling.cards .card {
-    width: $twoCard;
-    margin-left: $twoCardSpacing;
-    margin-right: $twoCardSpacing;
+    .card {
+      width: $twoCard;
+      margin-left: $twoCardSpacing;
+      margin-right: $twoCardSpacing;
+    }
   }
   .ui.six.doubling.cards {
     margin-left: $twoCardOffset;
     margin-right: $twoCardOffset;
-  }
-  .ui.six.doubling.cards .card {
-    width: $twoCard;
-    margin-left: $twoCardSpacing;
-    margin-right: $twoCardSpacing;
+    .card {
+      width: $twoCard;
+      margin-left: $twoCardSpacing;
+      margin-right: $twoCardSpacing;
+    }
   }
   .ui.seven.doubling.cards {
     margin-left: $threeCardOffset;
     margin-right: $threeCardOffset;
-  }
-  .ui.seven.doubling.cards .card {
-    width: $threeCard;
-    margin-left: $threeCardSpacing;
-    margin-right: $threeCardSpacing;
+    .card {
+      width: $threeCard;
+      margin-left: $threeCardSpacing;
+      margin-right: $threeCardSpacing;
+    }
   }
   .ui.eight.doubling.cards {
     margin-left: $threeCardOffset;
     margin-right: $threeCardOffset;
-  }
-  .ui.eight.doubling.cards .card {
-    width: $threeCard;
-    margin-left: $threeCardSpacing;
-    margin-right: $threeCardSpacing;
+    .card {
+      width: $threeCard;
+      margin-left: $threeCardSpacing;
+      margin-right: $threeCardSpacing;
+    }
   }
   .ui.nine.doubling.cards {
     margin-left: $threeCardOffset;
     margin-right: $threeCardOffset;
-  }
-  .ui.nine.doubling.cards .card {
-    width: $threeCard;
-    margin-left: $threeCardSpacing;
-    margin-right: $threeCardSpacing;
+    .card {
+      width: $threeCard;
+      margin-left: $threeCardSpacing;
+      margin-right: $threeCardSpacing;
+    }
   }
   .ui.ten.doubling.cards {
     margin-left: $threeCardOffset;
     margin-right: $threeCardOffset;
-  }
-  .ui.ten.doubling.cards .card {
-    width: $threeCard;
-    margin-left: $threeCardSpacing;
-    margin-right: $threeCardSpacing;
+    .card {
+      width: $threeCard;
+      margin-left: $threeCardSpacing;
+      margin-right: $threeCardSpacing;
+    }
   }
 }
 
@@ -609,113 +504,104 @@ a.ui.card:hover,
   .ui.two.doubling.cards {
     margin-left: $oneCardOffset;
     margin-right: $oneCardOffset;
-  }
-  .ui.two.doubling.cards .card {
-    width: $oneCard;
-    margin-left: $oneCardSpacing;
-    margin-right: $oneCardSpacing;
+    .card {
+      width: $oneCard;
+      margin-left: $oneCardSpacing;
+      margin-right: $oneCardSpacing;
+    }
   }
   .ui.three.doubling.cards {
     margin-left: $twoCardOffset;
     margin-right: $twoCardOffset;
-  }
-  .ui.three.doubling.cards .card {
-    width: $twoCard;
-    margin-left: $twoCardSpacing;
-    margin-right: $twoCardSpacing;
+    .card {
+      width: $twoCard;
+      margin-left: $twoCardSpacing;
+      margin-right: $twoCardSpacing;
+    }
   }
   .ui.four.doubling.cards {
     margin-left: $twoCardOffset;
     margin-right: $twoCardOffset;
-  }
-  .ui.four.doubling.cards .card {
-    width: $twoCard;
-    margin-left: $twoCardSpacing;
-    margin-right: $twoCardSpacing;
+    .card {
+      width: $twoCard;
+      margin-left: $twoCardSpacing;
+      margin-right: $twoCardSpacing;
+    }
   }
   .ui.five.doubling.cards {
     margin-left: $threeCardOffset;
     margin-right: $threeCardOffset;
-  }
-  .ui.five.doubling.cards .card {
-    width: $threeCard;
-    margin-left: $threeCardSpacing;
-    margin-right: $threeCardSpacing;
+    .card {
+      width: $threeCard;
+      margin-left: $threeCardSpacing;
+      margin-right: $threeCardSpacing;
+    }
   }
   .ui.six.doubling.cards {
     margin-left: $threeCardOffset;
     margin-right: $threeCardOffset;
-  }
-  .ui.six.doubling.cards .card {
-    width: $threeCard;
-    margin-left: $threeCardSpacing;
-    margin-right: $threeCardSpacing;
+    .card {
+      width: $threeCard;
+      margin-left: $threeCardSpacing;
+      margin-right: $threeCardSpacing;
+    }
   }
   .ui.eight.doubling.cards {
     margin-left: $threeCardOffset;
     margin-right: $threeCardOffset;
-  }
-  .ui.eight.doubling.cards .card {
-    width: $threeCard;
-    margin-left: $threeCardSpacing;
-    margin-right: $threeCardSpacing;
+    .card {
+      width: $threeCard;
+      margin-left: $threeCardSpacing;
+      margin-right: $threeCardSpacing;
+    }
   }
   .ui.eight.doubling.cards {
     margin-left: $fourCardOffset;
     margin-right: $fourCardOffset;
-  }
-  .ui.eight.doubling.cards .card {
-    width: $fourCard;
-    margin-left: $fourCardSpacing;
-    margin-right: $fourCardSpacing;
+    .card {
+      width: $fourCard;
+      margin-left: $fourCardSpacing;
+      margin-right: $fourCardSpacing;
+    }
   }
   .ui.nine.doubling.cards {
     margin-left: $fourCardOffset;
     margin-right: $fourCardOffset;
-  }
-  .ui.nine.doubling.cards .card {
-    width: $fourCard;
-    margin-left: $fourCardSpacing;
-    margin-right: $fourCardSpacing;
+    .card {
+      width: $fourCard;
+      margin-left: $fourCardSpacing;
+      margin-right: $fourCardSpacing;
+    }
   }
   .ui.ten.doubling.cards {
     margin-left: $fiveCardOffset;
     margin-right: $fiveCardOffset;
-  }
-  .ui.ten.doubling.cards .card {
-    width: $fiveCard;
-    margin-left: $fiveCardSpacing;
-    margin-right: $fiveCardSpacing;
+    .card {
+      width: $fiveCard;
+      margin-left: $fiveCardSpacing;
+      margin-right: $fiveCardSpacing;
+    }
   }
 }
 
-/*-------------------
-      Stackable
---------------------*/
+/*- Stackable -*/
 
 @media only screen and (max-width : $largestMobileScreen) {
   .ui.stackable.cards {
     display: block !important;
-  }
-  .ui.stackable.cards .card:first-child {
-    margin-top: 0em !important;
-  }
-  .ui.stackable.cards > .card {
-    display: block !important;
-    height: auto !important;
-    margin: $stackableRowSpacing $stackableCardSpacing;
-    padding: 0 !important;
-    width: $stackableMargin !important;
+    .card:first-child { margin-top: 0em !important; }
+    > .card {
+      display: block !important;
+      height: auto !important;
+      margin: $stackableRowSpacing $stackableCardSpacing;
+      padding: 0 !important;
+      width: $stackableMargin !important;
+    }
   }
 }
 
+/*- Size -*/
 
-/*--------------
-      Size
----------------*/
-
-.ui.cards > .card {
-  font-size: $medium;
-}
+.ui.cards > .card { font-size: $medium; }
 
 @extend .loadUIOverrides;
