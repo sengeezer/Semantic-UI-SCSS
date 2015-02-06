@@ -127,8 +127,9 @@ $import '../../theme.config';
   resize: $textAreaResize;
 }
 
-.ui.form textarea,
-.ui.form input[type="checkbox"] { vertical-align: $checkboxVerticalAlign; }
+.ui.form {
+  textarea, input[type="checkbox"] { vertical-align: $checkboxVerticalAlign; }
+}
 
 /*- Input w/ attached Button -*/
 
@@ -168,8 +169,9 @@ $import '../../theme.config';
 /*- Types of Messages -*/
 
 .ui.form {
-  .info.message, .success.message,
-  .warning.message,  .error.message { display: none; }
+  .info, .success, .warning,  .error {
+    &.message { display: none; }
+  }
 }
 
 /* Assumptions */
@@ -177,14 +179,18 @@ $import '../../theme.config';
 
 /*- Validation Prompt -*/
 
-.ui.form .field .prompt.label { white-space: nowrap; }
-.ui.form .inline.field .prompt { margin: $validationMargin; }
-.ui.form .inline.field .prompt:before { 
-  margin-top: $validationArrowOffset;
-  bottom: auto;
-  right: auto;
-  top: 50%;
-  left: 0em;
+.ui.form {
+  .field .prompt.label { white-space: nowrap; }
+  .inline.field .prompt {
+    margin: $validationMargin;
+    &:before { 
+      margin-top: $validationArrowOffset;
+      bottom: auto;
+      right: auto;
+      top: 50%;
+      left: 0em;
+    }
+  }
 }
 
 /*** States ***/
@@ -251,50 +257,42 @@ $import '../../theme.config';
 
 /* On Field(s) */
 .ui.form {
-  .fields.error .field label,
-  .field.error label,
-  .fields.error .field .input,
-  .field.error .input { color: $formErrorColor; }
-  .fields.error .field .corner.label,
-  .field.error .corner.label {
-    border-color: $formErrorColor;
-    color: $white;
+  .fields.error .field, .field.error {
+    label, .input { color: $formErrorColor; }
+    .corner.label {
+      border-color: $formErrorColor;
+      color: $white;
+    }
+    textarea,
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="password"],
+    input[type="number"],
+    input[type="url"],
+    input[type="tel"] {
+      background: $formErrorBackground;
+      border-color: $formErrorBorder;
+      color: $formErrorColor;
+      border-radius: $inputErrorBorderRadius;
+      box-shadow: $inputErrorBoxShadow;
+    }
   }
-  .fields.error .field textarea,
-  .fields.error .field input[type="text"],
-  .fields.error .field input[type="email"],
-  .fields.error .field input[type="date"],
-  .fields.error .field input[type="password"],
-  .fields.error .field input[type="number"],
-  .fields.error .field input[type="url"],
-  .fields.error .field input[type="tel"],
-  .field.error textarea,
-  .field.error input[type="text"],
-  .field.error input[type="email"],
-  .field.error input[type="date"],
-  .field.error input[type="password"],
-  .field.error input[type="number"],
-  .field.error input[type="url"],
-  .field.error input[type="tel"] {
-    background: $formErrorBackground;
-    border-color: $formErrorBorder;
-    color: $formErrorColor;
-    border-radius: $inputErrorBorderRadius;
-    box-shadow: $inputErrorBoxShadow;
-  }
-  .field.error textarea:focus,
-  .field.error input[type="text"]:focus,
-  .field.error input[type="email"]:focus,
-  .field.error input[type="date"]:focus,
-  .field.error input[type="password"]:focus,
-  .field.error input[type="number"]:focus,
-  .field.error input[type="url"]:focus,
-  .field.error input[type="tel"]:focus{
-    background: $inputErrorFocusBackground;
-    border-color: $inputErrorFocusBorder;
-    color: $inputErrorFocusColor;
-    -webkit-appearance: none;
-    box-shadow: $inputErrorFocusBoxShadow;
+  .field.error {
+    textarea:focus,
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus,
+    input[type="password"]:focus,
+    input[type="number"]:focus,
+    input[type="url"]:focus,
+    input[type="tel"]:focus{
+      background: $inputErrorFocusBackground;
+      border-color: $inputErrorFocusBorder;
+      color: $inputErrorFocusColor;
+      -webkit-appearance: none;
+      box-shadow: $inputErrorFocusBoxShadow;
+    }
   }
 }
 
@@ -335,13 +333,12 @@ $import '../../theme.config';
   .fields.error .field .checkbox:not(.toggle):not(.slider) label,
   .field.error .checkbox:not(.toggle):not(.slider) label,
   .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
-  .field.error .checkbox:not(.toggle):not(.slider) .box { color: $formErrorColor; }
-  .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
-  .field.error .checkbox:not(.toggle):not(.slider) label:before,
-  .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
-  .field.error .checkbox:not(.toggle):not(.slider) .box:before { 
-    background: $formErrorBackground;
-    border-color: $formErrorBorder;
+  .field.error .checkbox:not(.toggle):not(.slider) .box {
+    color: $formErrorColor;
+    &:before { 
+      background: $formErrorBackground;
+      border-color: $formErrorBorder;
+    }
   }
   .fields.error .field .checkbox label:after,
   .field.error .checkbox label:after,
@@ -352,10 +349,11 @@ $import '../../theme.config';
 /*- Disabled -*/
 
 .ui.form {
-  .field :disabled,
-  .field.disabled { opacity: 0.5; }
-  .field.disabled label { opacity: 0.5; }
-  .field.disabled :disabled { opacity: 1; }
+  .field :disabled, .field.disabled { opacity: 0.5; }
+  .field.disabled {
+    label { opacity: 0.5; }
+    :disabled { opacity: 1; }
+  }
 }
 
 /*- Loading -*/
@@ -408,14 +406,13 @@ $import '../../theme.config';
 /*- Required Field -*/
 
 .ui.form {
-  .required.fields > .field > label:after,
-  .required.fields > .field > .checkbox:after,
-  .required.field > label:after,
-  .required.field > .checkbox:after {
-    margin: -0.2em 0em 0em 0.2em;
-    vertical-align: top;
-    content: '*';
-    color: $requiredColor;
+  .required.fields > .field, .required.field {
+    > label:after, > .checkbox:after {
+      margin: -0.2em 0em 0em 0.2em;
+      vertical-align: top;
+      content: '*';
+      color: $requiredColor;
+    }
   }
 }
 
@@ -473,41 +470,23 @@ $import '../../theme.config';
 
 /* Other Combinations */
 .ui.form {
-  .two.fields > .fields,
-  .two.fields > .field { width: $twoColumn; }
-  .three.fields > .fields,
-  .three.fields > .field { width: $threeColumn; }
-  .four.fields > .fields,
-  .four.fields > .field { width: $fourColumn; }
-  .five.fields > .fields,
-  .five.fields > .field { width: $fiveColumn; }
-  .six.fields > .fields,
-  .six.fields > .field { width: $sixColumn; }
-  .seven.fields > .fields,
-  .seven.fields > .field { width: $sevenColumn; }
-  .eight.fields > .fields,
-  .eight.fields > .field { width: $eightColumn; }
-  .nine.fields > .fields,
-  .nine.fields > .field { width: $nineColumn; }
-  .ten.fields > .fields,
-  .ten.fields > .field { width: $tenColumn; }
+  @each $number in two, three, four, five, six, seven, eight, nine, ten {
+    .#{$number}.fields { 
+      > .fields, > .field { width: str-insert($number, "$", 1) + "Column"; }
+    }
+  }
 }
 
 /* Swap to full width on mobile */
 @media only screen and (max-width : 767px) {
   .ui.form {
-    .two.fields > .fields,
-    .two.fields > .field,
-    .three.fields > .fields,
-    .three.fields > .field,
-    .four.fields > .fields,
-    .four.fields > .field,
-    .five.fields > .fields,
-    .five.fields > .field {
-      width: $oneColumn;
-      padding-left: 0%;
-      padding-right: 0%;
-    }
+    .two, .three, .four, .five {
+      &.fields > .fields, &.fields > .field {
+        width: $oneColumn;
+        padding-left: 0%;
+        padding-right: 0%;
+      }
+    }    
   }
 }
 
@@ -526,22 +505,9 @@ $import '../../theme.config';
     &:first-child { padding-left: 0%; }
     &:last-child { padding-right: 0%; }
   }
-  .one.wide.field { width: $oneWide !important; }
-  .two.wide.field { width: $twoWide !important; }
-  .three.wide.field { width: $threeWide !important; }
-  .four.wide.field { width: $fourWide !important; }
-  .five.wide.field { width: $fiveWide !important; }
-  .six.wide.field { width: $sixWide !important; }
-  .seven.wide.field { width: $sevenWide !important; }
-  .eight.wide.field { width: $eightWide !important; }
-  .nine.wide.field { width: $nineWide !important; }
-  .ten.wide.field { width: $tenWide !important; }
-  .eleven.wide.field { width: $elevenWide !important; }
-  .twelve.wide.field { width: $twelveWide !important; }
-  .thirteen.wide.field { width: $thirteenWide !important; }
-  .fourteen.wide.field { width: $fourteenWide !important; }
-  .fifteen.wide.field { width: $fifteenWide !important; }
-  .sixteen.wide.field { width: $sixteenWide !important; }
+  @each $number in one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen {
+    .#{$number}.wide.field {width: str-insert($number, "$", 1) + "Wide !important"; }
+  }
 }
 
 /* Swap to full width on mobile */

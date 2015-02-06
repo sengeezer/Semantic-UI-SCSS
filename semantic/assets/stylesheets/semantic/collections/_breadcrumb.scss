@@ -69,13 +69,10 @@ $import '../../theme.config';
 
 /**** Variations ***/
 
-.ui.mini.breadcrumb { font-size: $mini; }
-.ui.tiny.breadcrumb { font-size: $tiny; }
-.ui.small.breadcrumb { font-size: $small; }
 .ui.breadcrumb { font-size: $medium; }
-.ui.large.breadcrumb { font-size: $large; }
-.ui.big.breadcrumb { font-size: $big; }
-.ui.huge.breadcrumb { font-size: $huge; }
-.ui.massive.breadcrumb { font-size: $massive; }
+
+@each $size in mini, tiny , small, large, big, huge, massive {
+  .ui.#{$size}.breadcrumb { font-size: str-insert($size, "$", 1); }
+}
 
 @extend .loadUIOverrides;
