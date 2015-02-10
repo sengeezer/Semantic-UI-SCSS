@@ -566,15 +566,20 @@ $import '../../theme.config';
     font-size: $inlineLabelFontSize;
   }
 }
-.ui.form .inline.fields .field > input,
-.ui.form .inline.field > input { font-size: $inlineLabelFontSize; }
-.ui.form .inline.fields .field > .ui.checkbox label { padding-left: $inlineCheckboxLabelDistance; }
+
+.ui.form .inline {
+  &.fields .field > input,
+  &.field > input { font-size: $inlineLabelFontSize; }
+  &.fields .field > .ui.checkbox label { padding-left: $inlineCheckboxLabelDistance; }
+}
 
 /* Label */
-.ui.form .inline.fields .field > :first-child,
-.ui.form .inline.field > :first-child { margin: 0em $labelDistance 0em 0em; }
-.ui.form .inline.fields .field > :only-child,
-.ui.form .inline.field > :only-child { margin: 0em; }
+.ui.form .inline {
+  &.fields .field > :first-child,
+  &.field > :first-child { margin: 0em $labelDistance 0em 0em; }
+  &.fields .field > :only-child,
+  &.field > :only-child { margin: 0em; }
+}
 
 /*- Sizes -*/
 

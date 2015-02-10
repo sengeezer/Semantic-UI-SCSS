@@ -22,15 +22,13 @@ $import '../../theme.config';
   text-align: left;
   font-size: 0em;
   padding: 0em;
-}
-
-.ui.grid:after,
-.ui.grid > .row:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
+  &:after, > .row:after {
+    content: '';
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+  }
 }
 
 /*- Remove Gutters -*/
@@ -58,20 +56,19 @@ $import '../../theme.config';
 /*- Columns -*/
 
 /* Standard 16 column */
-.ui.grid > .column:not(.row),
-.ui.grid > .row > .column {
-  display: inline-block;
-  text-align: left;
-  font-size: 1rem;
-  width: $oneWide;
-  padding-left: ($gutterWidth / 2);
-  padding-right: ($gutterWidth / 2);
-  vertical-align: top;
-}
-
-.ui.grid > * {
-  padding-left: ($gutterWidth / 2);
-  padding-right: ($gutterWidth / 2);
+.ui.grid {
+  > .column:not(.row), > .row > .column {
+    display: inline-block;
+    text-align: left;
+    font-size: 1rem;
+    width: $oneWide;
+    padding-left: ($gutterWidth / 2);
+    padding-right: ($gutterWidth / 2);
+    vertical-align: top;
+  > * {
+    padding-left: ($gutterWidth / 2);
+    padding-right: ($gutterWidth / 2);
+  }
 }
 
 /*- Rows -*/
@@ -101,16 +98,19 @@ $import '../../theme.config';
 
 /*- Content -*/
 
-.ui.grid > .row > img,
-.ui.grid > .row > .column > img { max-width: $columnMaxImageWidth; }
+.ui.grid > .row {
+  > img, > .column > img { max-width: $columnMaxImageWidth; }
+}
 
 /*- Loose Coupling -*/
 
 .ui.grid .row + .ui.divider { margin: ($rowSpacing / 2) ($gutterWidth / 2); }
 
 /* remove Border on last horizontal segment */
-.ui.grid > .row > .column:last-child > .horizontal.segment,
-.ui.grid > .column:last-child > .horizontal.segment { box-shadow: none; }
+.ui.grid {
+  > .row > .column:last-child > .horizontal.segment,
+  > .column:last-child > .horizontal.segment { box-shadow: none; }
+}
 
 /*** Variations ***/
 
@@ -177,132 +177,36 @@ $import '../../theme.config';
 /*- Column Count -*/
 
 /* Assume full width with one column */
-.ui.grid > .column:only-child,
-.ui.grid > .row > .column:only-child {
-  width: $oneColumn;
+.ui.grid {
+  > .column:only-child, > .row > .column:only-child { width: $oneColumn; }
 }
 
 /* Grid Based */
-.ui[class*="one column"].grid > .row > .column,
-.ui[class*="one column"].grid > .column { width: $oneColumn; }
-.ui[class*="two column"].grid > .row > .column,
-.ui[class*="two column"].grid > .column { width: $twoColumn; }
-.ui[class*="three column"].grid > .row > .column,
-.ui[class*="three column"].grid > .column { width: $threeColumn; }
-.ui[class*="four column"].grid > .row > .column,
-.ui[class*="four column"].grid > .column { width: $fourColumn; }
-.ui[class*="five column"].grid > .row > .column,
-.ui[class*="five column"].grid > .column { width: $fiveColumn; }
-.ui[class*="six column"].grid > .row > .column,
-.ui[class*="six column"].grid > .column { width: $sixColumn; }
-.ui[class*="seven column"].grid > .row > .column,
-.ui[class*="seven column"].grid > .column { width: $sevenColumn; }
-.ui[class*="eight column"].grid > .row > .column,
-.ui[class*="eight column"].grid > .column { width: $eightColumn; }
-.ui[class*="nine column"].grid > .row > .column,
-.ui[class*="nine column"].grid > .column { width: $nineColumn; }
-.ui[class*="ten column"].grid > .row > .column,
-.ui[class*="ten column"].grid > .column { width: $tenColumn; }
-.ui[class*="eleven column"].grid > .row > .column,
-.ui[class*="eleven column"].grid > .column { width: $elevenColumn; }
-.ui[class*="twelve column"].grid > .row > .column,
-.ui[class*="twelve column"].grid > .column { width: $twelveColumn; }
-.ui[class*="thirteen column"].grid > .row > .column,
-.ui[class*="thirteen column"].grid > .column { width: $thirteenColumn; }
-.ui[class*="fourteen column"].grid > .row > .column,
-.ui[class*="fourteen column"].grid > .column { width: $fourteenColumn; }
-.ui[class*="fifteen column"].grid > .row > .column,
-.ui[class*="fifteen column"].grid > .column { width: $fifteenColumn; }
-.ui[class*="sixteen column"].grid > .row > .column,
-.ui[class*="sixteen column"].grid > .column { width: $sixteenColumn; }
+
+@each $number in one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen {
+  .ui[class*="#{$number} column"].grid {
+    > .row > .column, > .column  {width: str-insert($number, "$", 1) + "Column"; }
+  }
+}
 
 /* Row Based Overrides */
-.ui.grid {
-  > [class*="one column"].row > .column { width: $oneColumn !important; }
-  > [class*="two column"].row > .column { width: $twoColumn !important; }
-  > [class*="three column"].row > .column { width: $threeColumn !important; }
-  > [class*="four column"].row > .column { width: $fourColumn !important; }
-  > [class*="five column"].row > .column { width: $fiveColumn !important; }
-  > [class*="six column"].row > .column { width: $sixColumn !important; }
-  > [class*="seven column"].row > .column { width: $sevenColumn !important; }
-  > [class*="eight column"].row > .column { width: $eightColumn !important; }
-  > [class*="nine column"].row > .column { width: $nineColumn !important; }
-  > [class*="ten column"].row > .column { width: $tenColumn !important; }
-  > [class*="eleven column"].row > .column { width: $elevenColumn !important; }
-  > [class*="twelve column"].row > .column { width: $twelveColumn !important; }
-  > [class*="thirteen column"].row > .column { width: $thirteenColumn !important; }
-  > [class*="fourteen column"].row > .column { width: $fourteenColumn !important; }
-  > [class*="fifteen column"].row > .column { width: $fifteenColumn !important; }
-  > [class*="sixteen column"].row > .column { width: $sixteenColumn !important; }
+
+@each $number in one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen {
+  .ui.grid {
+    > [class*="#{$number} column"].row > .column {width: str-insert($number, "$", 1) + "Column !important"; }
+  }
 }
 
 /*- Column Width -*/
 
 /* Sizing Combinations */
-.ui.grid > .row > [class*="one wide"].column,
-.ui.grid > .column.row > [class*="one wide"].column,
-.ui.grid > [class*="one wide"].column,
-.ui.column.grid > [class*="one wide"].column { width: $oneWide !important; }
-.ui.grid > .row > [class*="two wide"].column,
-.ui.grid > .column.row > [class*="two wide"].column,
-.ui.grid > [class*="two wide"].column,
-.ui.column.grid > [class*="two wide"].column { width: $twoWide !important; }
-.ui.grid > .row > [class*="three wide"].column,
-.ui.grid > .column.row > [class*="three wide"].column,
-.ui.grid > [class*="three wide"].column,
-.ui.column.grid > [class*="three wide"].column { width: $threeWide !important; }
-.ui.grid > .row > [class*="four wide"].column,
-.ui.grid > .column.row > [class*="four wide"].column,
-.ui.grid > [class*="four wide"].column,
-.ui.column.grid > [class*="four wide"].column { width: $fourWide !important; }
-.ui.grid > .row > [class*="five wide"].column,
-.ui.grid > .column.row > [class*="five wide"].column,
-.ui.grid > [class*="five wide"].column,
-.ui.column.grid > [class*="five wide"].column { width: $fiveWide !important; }
-.ui.grid > .row > [class*="six wide"].column,
-.ui.grid > .column.row > [class*="six wide"].column,
-.ui.grid > [class*="six wide"].column,
-.ui.column.grid > [class*="six wide"].column { width: $sixWide !important; }
-.ui.grid > .row > [class*="seven wide"].column,
-.ui.grid > .column.row > [class*="seven wide"].column,
-.ui.grid > [class*="seven wide"].column,
-.ui.column.grid > [class*="seven wide"].column { width: $sevenWide !important; }
-.ui.grid > .row > [class*="eight wide"].column,
-.ui.grid > .column.row > [class*="eight wide"].column,
-.ui.grid > [class*="eight wide"].column,
-.ui.column.grid > [class*="eight wide"].column { width: $eightWide !important; }
-.ui.grid > .row > [class*="nine wide"].column,
-.ui.grid > .column.row > [class*="nine wide"].column,
-.ui.grid > [class*="nine wide"].column,
-.ui.column.grid > [class*="nine wide"].column { width: $nineWide !important; }
-.ui.grid > .row > [class*="ten wide"].column,
-.ui.grid > .column.row > [class*="ten wide"].column,
-.ui.grid > [class*="ten wide"].column,
-.ui.column.grid > [class*="ten wide"].column { width: $tenWide !important; }
-.ui.grid > .row > [class*="eleven wide"].column,
-.ui.grid > .column.row > [class*="eleven wide"].column,
-.ui.grid > [class*="eleven wide"].column,
-.ui.column.grid > [class*="eleven wide"].column { width: $elevenWide !important; }
-.ui.grid > .row > [class*="twelve wide"].column,
-.ui.grid > .column.row > [class*="twelve wide"].column,
-.ui.grid > [class*="twelve wide"].column,
-.ui.column.grid > [class*="twelve wide"].column { width: $twelveWide !important; }
-.ui.grid > .row > [class*="thirteen wide"].column,
-.ui.grid > .column.row > [class*="thirteen wide"].column,
-.ui.grid > [class*="thirteen wide"].column,
-.ui.column.grid > [class*="thirteen wide"].column { width: $thirteenWide !important; }
-.ui.grid > .row > [class*="fourteen wide"].column,
-.ui.grid > .column.row > [class*="fourteen wide"].column,
-.ui.grid > [class*="fourteen wide"].column,
-.ui.column.grid > [class*="fourteen wide"].column { width: $fourteenWide !important; }
-.ui.grid > .row > [class*="fifteen wide"].column,
-.ui.grid > .column.row > [class*="fifteen wide"].column,
-.ui.grid > [class*="fifteen wide"].column,
-.ui.column.grid > [class*="fifteen wide"].column { width: $fifteenWide !important; }
-.ui.grid > .row > [class*="sixteen wide"].column,
-.ui.grid > .column.row > [class*="sixteen wide"].column,
-.ui.grid > [class*="sixteen wide"].column,
-.ui.column.grid > [class*="sixteen wide"].column { width: $sixteenWide !important; }
+
+@each $number in one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen {
+  .ui.grid > .row > [class*="#{$number} wide"].column,
+  .ui.grid > .column.row > [class*="#{$number} wide"].column,
+  .ui.grid > [class*="#{$number} wide"].column,
+  .ui.column.grid > [class*="#{$number} wide"].column { width: str-insert($number, "$", 1) + "Wide !important"; }
+}
 
 /*- Centered -*/
 
